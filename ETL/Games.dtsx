@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="6"
-  DTS:VersionGUID="{E24ECAC5-DD7B-41BC-9D17-A386A1EA9C17}">
+  DTS:VersionBuild="9"
+  DTS:VersionGUID="{395E50A9-AEB1-4C7A-BD61-E50B8BA7AC33}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -393,7 +393,7 @@
                 <property
                   dataType="System.String"
                   description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[dbo].[games]</property>
+                  name="OpenRowset">[dbo].[game]</property>
                 <property
                   dataType="System.String"
                   description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -650,7 +650,7 @@
         <NodeLayout
           Size="151,42"
           Id="Package\Data Flow Task"
-          TopLeft="194,115" />
+          TopLeft="128,250" />
       </GraphLayout>
     </LayoutInfo>
   </Package>

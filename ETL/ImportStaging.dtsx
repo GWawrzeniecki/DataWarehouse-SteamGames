@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="7"
-  DTS:VersionGUID="{46B06206-49A1-4CFD-984B-6D4F530F0C78}">
+  DTS:VersionBuild="12"
+  DTS:VersionGUID="{8FB48409-E9CE-4552-8AFB-625B07A13619}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -117,1354 +117,1350 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{6FFECD52-C2D1-42F7-944D-A393A1827EDF}"
-          SQLTask:SqlStatementSource="IF OBJECT_ID('dbo.review', 'U') IS NOT NULL&#xA;    DROP TABLE dbo.review;&#xA;&#xA;IF OBJECT_ID('dbo.user', 'U') IS NOT NULL&#xA;    DROP TABLE dbo.[User];&#xA;&#xA;IF OBJECT_ID('dbo.games', 'U') IS NOT NULL&#xA;    DROP TABLE dbo.games;&#xA;&#xA;&#xA;CREATE TABLE [user] (&#xA;    user_id_csv INT PRIMARY KEY,&#xA;     products INT,&#xA;    reviews int&#xA;);&#xA;&#xA;CREATE TABLE games (&#xA;    app_id INT PRIMARY KEY,&#xA;    title NVARCHAR(500),&#xA;    date_release nvarchar(100),&#xA;    win nvarchar(5),&#xA;    mac nvarchar(5),&#xA;    linux nvarchar(5),&#xA;    rating nvarchar(255),&#xA;    positive_ratio INT,&#xA;    user_reviews INT,&#xA;    price_final DECIMAL(6,2),&#xA;    price_original DECIMAL(6,2),&#xA;    discount INT,&#xA;    steam_deck nvarchar(5)&#xA;);&#xA;&#xA;CREATE TABLE review (&#xA; review_id_csv INT PRIMARY KEY,&#xA; helpful int,&#xA; funny int,&#xA; date nvarchar(100),&#xA; is_recommended nvarchar(5),&#xA; hours decimal(6,2),&#xA; user_id_csv int,&#xA; app_id int,&#xA; FOREIGN KEY (user_id_csv) REFERENCES [user](user_id_csv),&#xA; FOREIGN KEY (app_id) REFERENCES games(app_id)&#xA; )" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="IF OBJECT_ID('dbo.review', 'U') IS NOT NULL&#xA;    DROP TABLE dbo.review;&#xA;&#xA;IF OBJECT_ID('dbo.user', 'U') IS NOT NULL&#xA;    DROP TABLE dbo.[User];&#xA;&#xA;IF OBJECT_ID('dbo.game', 'U') IS NOT NULL&#xA;    DROP TABLE dbo.game;&#xA;&#xA;&#xA;CREATE TABLE [user] (&#xA;    user_id_csv INT PRIMARY KEY,&#xA;     products INT,&#xA;    reviews int&#xA;);&#xA;&#xA;CREATE TABLE game (&#xA;    app_id INT PRIMARY KEY,&#xA;    title NVARCHAR(500),&#xA;    date_release nvarchar(100),&#xA;    win nvarchar(5),&#xA;    mac nvarchar(5),&#xA;    linux nvarchar(5),&#xA;    rating nvarchar(255),&#xA;    positive_ratio INT,&#xA;    user_reviews INT,&#xA;    price_final DECIMAL(6,2),&#xA;    price_original DECIMAL(6,2),&#xA;    discount INT,&#xA;    steam_deck nvarchar(5)&#xA;);&#xA;&#xA;CREATE TABLE review (&#xA; review_id_csv INT PRIMARY KEY,&#xA; helpful int,&#xA; funny int,&#xA; date nvarchar(100),&#xA; is_recommended nvarchar(5),&#xA; hours decimal(6,2),&#xA; user_id_csv int,&#xA; app_id int&#xA; )" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
-      DTS:refId="Package\Import Games"
-      DTS:CreationName="Microsoft.Pipeline"
-      DTS:Description="Data Flow Task"
-      DTS:DTSID="{abe8aae4-0f2f-4d91-9e3d-f5d1a098ff64}"
-      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:refId="Package\Sequence Container"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{80A9EE18-A7F4-4E70-9F59-0BEE0FD467CD}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
       DTS:LocaleID="-1"
-      DTS:ObjectName="Import Games"
-      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      DTS:ObjectName="Sequence Container">
       <DTS:Variables />
-      <DTS:ObjectData>
-        <pipeline
-          version="1">
-          <components>
-            <component
-              refId="Package\Import Games\Excel Source"
-              componentClassID="Microsoft.ExcelSource"
-              contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
-              description="Excel Source"
-              name="Excel Source"
-              usesDispositions="true"
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\Import Games"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{abe8aae4-0f2f-4d91-9e3d-f5d1a098ff64}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Import Games"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
               version="1">
-              <properties>
-                <property
-                  dataType="System.Int32"
-                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
-                  name="CommandTimeout">0</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">games$</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the variable that contains the name of the database object used to open a rowset."
-                  name="OpenRowsetVariable"></property>
-                <property
-                  dataType="System.String"
-                  description="The SQL command to be executed."
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
-                <property
-                  dataType="System.String"
-                  description="The variable that contains the SQL command to be executed."
-                  name="SqlCommandVariable"></property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the mode used to access the database."
-                  name="AccessMode"
-                  typeConverter="AccessMode">0</property>
-                <property
-                  dataType="System.String"
-                  description="The mapping from parameters in the SQL command to variables."
-                  name="ParameterMapping"></property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\Import Games\Excel Source.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[Excel Connection Manager 1]"
-                  connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager 1]"
-                  description="The OLE DB runtime connection used to access the database."
-                  name="OleDbConnection" />
-              </connections>
-              <outputs>
-                <output
-                  refId="Package\Import Games\Excel Source.Outputs[Excel Source Output]"
-                  name="Excel Source Output">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Import Games\Excel Source.Outputs[Excel Source Output].Columns[app_id]"
-                      dataType="r8"
-                      errorOrTruncationOperation="Conversion"
+              <components>
+                <component
+                  refId="Package\Sequence Container\Import Games\Excel Source"
+                  componentClassID="Microsoft.ExcelSource"
+                  contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Excel Source"
+                  name="Excel Source"
+                  usesDispositions="true"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">games$</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The mapping from parameters in the SQL command to variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Sequence Container\Import Games\Excel Source.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[Excel Connection Manager 1]"
+                      connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager 1]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Output]"
+                      name="Excel Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Output].Columns[app_id]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Output].ExternalColumns[app_id]"
+                          lineageId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Output].Columns[app_id]"
+                          name="app_id"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Output].Columns[title]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Output].ExternalColumns[title]"
+                          length="255"
+                          lineageId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Output].Columns[title]"
+                          name="title"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Output].Columns[date_release]"
+                          dataType="date"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Output].ExternalColumns[date_release]"
+                          lineageId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Output].Columns[date_release]"
+                          name="date_release"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Output].Columns[win]"
+                          dataType="bool"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Output].ExternalColumns[win]"
+                          lineageId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Output].Columns[win]"
+                          name="win"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Output].Columns[mac]"
+                          dataType="bool"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Output].ExternalColumns[mac]"
+                          lineageId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Output].Columns[mac]"
+                          name="mac"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Output].Columns[linux]"
+                          dataType="bool"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Output].ExternalColumns[linux]"
+                          lineageId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Output].Columns[linux]"
+                          name="linux"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Output].Columns[rating]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Output].ExternalColumns[rating]"
+                          length="255"
+                          lineageId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Output].Columns[rating]"
+                          name="rating"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Output].Columns[positive_ratio]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Output].ExternalColumns[positive_ratio]"
+                          lineageId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Output].Columns[positive_ratio]"
+                          name="positive_ratio"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Output].Columns[user_reviews]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Output].ExternalColumns[user_reviews]"
+                          lineageId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Output].Columns[user_reviews]"
+                          name="user_reviews"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Output].Columns[price_final]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Output].ExternalColumns[price_final]"
+                          lineageId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Output].Columns[price_final]"
+                          name="price_final"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Output].Columns[price_original]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Output].ExternalColumns[price_original]"
+                          lineageId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Output].Columns[price_original]"
+                          name="price_original"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Output].Columns[discount]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Output].ExternalColumns[discount]"
+                          lineageId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Output].Columns[discount]"
+                          name="discount"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Output].Columns[steam_deck]"
+                          dataType="bool"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Output].ExternalColumns[steam_deck]"
+                          lineageId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Output].Columns[steam_deck]"
+                          name="steam_deck"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Output].ExternalColumns[app_id]"
+                          dataType="r8"
+                          name="app_id" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Output].ExternalColumns[title]"
+                          dataType="wstr"
+                          length="255"
+                          name="title" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Output].ExternalColumns[date_release]"
+                          dataType="date"
+                          name="date_release" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Output].ExternalColumns[win]"
+                          dataType="bool"
+                          name="win" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Output].ExternalColumns[mac]"
+                          dataType="bool"
+                          name="mac" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Output].ExternalColumns[linux]"
+                          dataType="bool"
+                          name="linux" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Output].ExternalColumns[rating]"
+                          dataType="wstr"
+                          length="255"
+                          name="rating" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Output].ExternalColumns[positive_ratio]"
+                          dataType="r8"
+                          name="positive_ratio" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Output].ExternalColumns[user_reviews]"
+                          dataType="r8"
+                          name="user_reviews" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Output].ExternalColumns[price_final]"
+                          dataType="r8"
+                          name="price_final" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Output].ExternalColumns[price_original]"
+                          dataType="r8"
+                          name="price_original" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Output].ExternalColumns[discount]"
+                          dataType="r8"
+                          name="discount" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Output].ExternalColumns[steam_deck]"
+                          dataType="bool"
+                          name="steam_deck" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Error Output]"
+                      isErrorOut="true"
+                      name="Excel Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Error Output].Columns[app_id]"
+                          dataType="r8"
+                          lineageId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Error Output].Columns[app_id]"
+                          name="app_id" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Error Output].Columns[title]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Error Output].Columns[title]"
+                          name="title" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Error Output].Columns[date_release]"
+                          dataType="date"
+                          lineageId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Error Output].Columns[date_release]"
+                          name="date_release" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Error Output].Columns[win]"
+                          dataType="bool"
+                          lineageId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Error Output].Columns[win]"
+                          name="win" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Error Output].Columns[mac]"
+                          dataType="bool"
+                          lineageId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Error Output].Columns[mac]"
+                          name="mac" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Error Output].Columns[linux]"
+                          dataType="bool"
+                          lineageId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Error Output].Columns[linux]"
+                          name="linux" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Error Output].Columns[rating]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Error Output].Columns[rating]"
+                          name="rating" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Error Output].Columns[positive_ratio]"
+                          dataType="r8"
+                          lineageId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Error Output].Columns[positive_ratio]"
+                          name="positive_ratio" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Error Output].Columns[user_reviews]"
+                          dataType="r8"
+                          lineageId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Error Output].Columns[user_reviews]"
+                          name="user_reviews" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Error Output].Columns[price_final]"
+                          dataType="r8"
+                          lineageId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Error Output].Columns[price_final]"
+                          name="price_final" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Error Output].Columns[price_original]"
+                          dataType="r8"
+                          lineageId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Error Output].Columns[price_original]"
+                          name="price_original" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Error Output].Columns[discount]"
+                          dataType="r8"
+                          lineageId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Error Output].Columns[discount]"
+                          name="discount" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Error Output].Columns[steam_deck]"
+                          dataType="bool"
+                          lineageId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Error Output].Columns[steam_deck]"
+                          name="steam_deck" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Sequence Container\Import Games\OLE DB Destination"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLE DB Destination"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[game]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Sequence Container\Import Games\OLE DB Destination.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[db-mssql.s15429 2]"
+                      connectionManagerRefId="Package.ConnectionManagers[db-mssql.s15429 2]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Sequence Container\Import Games\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Import Games\Excel Source.Outputs[Excel Source Output].ExternalColumns[app_id]"
-                      lineageId="Package\Import Games\Excel Source.Outputs[Excel Source Output].Columns[app_id]"
-                      name="app_id"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Import Games\Excel Source.Outputs[Excel Source Output].Columns[title]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Import Games\Excel Source.Outputs[Excel Source Output].ExternalColumns[title]"
-                      length="255"
-                      lineageId="Package\Import Games\Excel Source.Outputs[Excel Source Output].Columns[title]"
-                      name="title"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Import Games\Excel Source.Outputs[Excel Source Output].Columns[date_release]"
-                      dataType="date"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Import Games\Excel Source.Outputs[Excel Source Output].ExternalColumns[date_release]"
-                      lineageId="Package\Import Games\Excel Source.Outputs[Excel Source Output].Columns[date_release]"
-                      name="date_release"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Import Games\Excel Source.Outputs[Excel Source Output].Columns[win]"
-                      dataType="bool"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Import Games\Excel Source.Outputs[Excel Source Output].ExternalColumns[win]"
-                      lineageId="Package\Import Games\Excel Source.Outputs[Excel Source Output].Columns[win]"
-                      name="win"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Import Games\Excel Source.Outputs[Excel Source Output].Columns[mac]"
-                      dataType="bool"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Import Games\Excel Source.Outputs[Excel Source Output].ExternalColumns[mac]"
-                      lineageId="Package\Import Games\Excel Source.Outputs[Excel Source Output].Columns[mac]"
-                      name="mac"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Import Games\Excel Source.Outputs[Excel Source Output].Columns[linux]"
-                      dataType="bool"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Import Games\Excel Source.Outputs[Excel Source Output].ExternalColumns[linux]"
-                      lineageId="Package\Import Games\Excel Source.Outputs[Excel Source Output].Columns[linux]"
-                      name="linux"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Import Games\Excel Source.Outputs[Excel Source Output].Columns[rating]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Import Games\Excel Source.Outputs[Excel Source Output].ExternalColumns[rating]"
-                      length="255"
-                      lineageId="Package\Import Games\Excel Source.Outputs[Excel Source Output].Columns[rating]"
-                      name="rating"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Import Games\Excel Source.Outputs[Excel Source Output].Columns[positive_ratio]"
-                      dataType="r8"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Import Games\Excel Source.Outputs[Excel Source Output].ExternalColumns[positive_ratio]"
-                      lineageId="Package\Import Games\Excel Source.Outputs[Excel Source Output].Columns[positive_ratio]"
-                      name="positive_ratio"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Import Games\Excel Source.Outputs[Excel Source Output].Columns[user_reviews]"
-                      dataType="r8"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Import Games\Excel Source.Outputs[Excel Source Output].ExternalColumns[user_reviews]"
-                      lineageId="Package\Import Games\Excel Source.Outputs[Excel Source Output].Columns[user_reviews]"
-                      name="user_reviews"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Import Games\Excel Source.Outputs[Excel Source Output].Columns[price_final]"
-                      dataType="r8"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Import Games\Excel Source.Outputs[Excel Source Output].ExternalColumns[price_final]"
-                      lineageId="Package\Import Games\Excel Source.Outputs[Excel Source Output].Columns[price_final]"
-                      name="price_final"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Import Games\Excel Source.Outputs[Excel Source Output].Columns[price_original]"
-                      dataType="r8"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Import Games\Excel Source.Outputs[Excel Source Output].ExternalColumns[price_original]"
-                      lineageId="Package\Import Games\Excel Source.Outputs[Excel Source Output].Columns[price_original]"
-                      name="price_original"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Import Games\Excel Source.Outputs[Excel Source Output].Columns[discount]"
-                      dataType="r8"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Import Games\Excel Source.Outputs[Excel Source Output].ExternalColumns[discount]"
-                      lineageId="Package\Import Games\Excel Source.Outputs[Excel Source Output].Columns[discount]"
-                      name="discount"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Import Games\Excel Source.Outputs[Excel Source Output].Columns[steam_deck]"
-                      dataType="bool"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Import Games\Excel Source.Outputs[Excel Source Output].ExternalColumns[steam_deck]"
-                      lineageId="Package\Import Games\Excel Source.Outputs[Excel Source Output].Columns[steam_deck]"
-                      name="steam_deck"
-                      truncationRowDisposition="FailComponent" />
-                  </outputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\Import Games\Excel Source.Outputs[Excel Source Output].ExternalColumns[app_id]"
-                      dataType="r8"
-                      name="app_id" />
-                    <externalMetadataColumn
-                      refId="Package\Import Games\Excel Source.Outputs[Excel Source Output].ExternalColumns[title]"
-                      dataType="wstr"
-                      length="255"
-                      name="title" />
-                    <externalMetadataColumn
-                      refId="Package\Import Games\Excel Source.Outputs[Excel Source Output].ExternalColumns[date_release]"
-                      dataType="date"
-                      name="date_release" />
-                    <externalMetadataColumn
-                      refId="Package\Import Games\Excel Source.Outputs[Excel Source Output].ExternalColumns[win]"
-                      dataType="bool"
-                      name="win" />
-                    <externalMetadataColumn
-                      refId="Package\Import Games\Excel Source.Outputs[Excel Source Output].ExternalColumns[mac]"
-                      dataType="bool"
-                      name="mac" />
-                    <externalMetadataColumn
-                      refId="Package\Import Games\Excel Source.Outputs[Excel Source Output].ExternalColumns[linux]"
-                      dataType="bool"
-                      name="linux" />
-                    <externalMetadataColumn
-                      refId="Package\Import Games\Excel Source.Outputs[Excel Source Output].ExternalColumns[rating]"
-                      dataType="wstr"
-                      length="255"
-                      name="rating" />
-                    <externalMetadataColumn
-                      refId="Package\Import Games\Excel Source.Outputs[Excel Source Output].ExternalColumns[positive_ratio]"
-                      dataType="r8"
-                      name="positive_ratio" />
-                    <externalMetadataColumn
-                      refId="Package\Import Games\Excel Source.Outputs[Excel Source Output].ExternalColumns[user_reviews]"
-                      dataType="r8"
-                      name="user_reviews" />
-                    <externalMetadataColumn
-                      refId="Package\Import Games\Excel Source.Outputs[Excel Source Output].ExternalColumns[price_final]"
-                      dataType="r8"
-                      name="price_final" />
-                    <externalMetadataColumn
-                      refId="Package\Import Games\Excel Source.Outputs[Excel Source Output].ExternalColumns[price_original]"
-                      dataType="r8"
-                      name="price_original" />
-                    <externalMetadataColumn
-                      refId="Package\Import Games\Excel Source.Outputs[Excel Source Output].ExternalColumns[discount]"
-                      dataType="r8"
-                      name="discount" />
-                    <externalMetadataColumn
-                      refId="Package\Import Games\Excel Source.Outputs[Excel Source Output].ExternalColumns[steam_deck]"
-                      dataType="bool"
-                      name="steam_deck" />
-                  </externalMetadataColumns>
-                </output>
-                <output
-                  refId="Package\Import Games\Excel Source.Outputs[Excel Source Error Output]"
-                  isErrorOut="true"
-                  name="Excel Source Error Output">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Import Games\Excel Source.Outputs[Excel Source Error Output].Columns[app_id]"
-                      dataType="r8"
-                      lineageId="Package\Import Games\Excel Source.Outputs[Excel Source Error Output].Columns[app_id]"
-                      name="app_id" />
-                    <outputColumn
-                      refId="Package\Import Games\Excel Source.Outputs[Excel Source Error Output].Columns[title]"
-                      dataType="wstr"
-                      length="255"
-                      lineageId="Package\Import Games\Excel Source.Outputs[Excel Source Error Output].Columns[title]"
-                      name="title" />
-                    <outputColumn
-                      refId="Package\Import Games\Excel Source.Outputs[Excel Source Error Output].Columns[date_release]"
-                      dataType="date"
-                      lineageId="Package\Import Games\Excel Source.Outputs[Excel Source Error Output].Columns[date_release]"
-                      name="date_release" />
-                    <outputColumn
-                      refId="Package\Import Games\Excel Source.Outputs[Excel Source Error Output].Columns[win]"
-                      dataType="bool"
-                      lineageId="Package\Import Games\Excel Source.Outputs[Excel Source Error Output].Columns[win]"
-                      name="win" />
-                    <outputColumn
-                      refId="Package\Import Games\Excel Source.Outputs[Excel Source Error Output].Columns[mac]"
-                      dataType="bool"
-                      lineageId="Package\Import Games\Excel Source.Outputs[Excel Source Error Output].Columns[mac]"
-                      name="mac" />
-                    <outputColumn
-                      refId="Package\Import Games\Excel Source.Outputs[Excel Source Error Output].Columns[linux]"
-                      dataType="bool"
-                      lineageId="Package\Import Games\Excel Source.Outputs[Excel Source Error Output].Columns[linux]"
-                      name="linux" />
-                    <outputColumn
-                      refId="Package\Import Games\Excel Source.Outputs[Excel Source Error Output].Columns[rating]"
-                      dataType="wstr"
-                      length="255"
-                      lineageId="Package\Import Games\Excel Source.Outputs[Excel Source Error Output].Columns[rating]"
-                      name="rating" />
-                    <outputColumn
-                      refId="Package\Import Games\Excel Source.Outputs[Excel Source Error Output].Columns[positive_ratio]"
-                      dataType="r8"
-                      lineageId="Package\Import Games\Excel Source.Outputs[Excel Source Error Output].Columns[positive_ratio]"
-                      name="positive_ratio" />
-                    <outputColumn
-                      refId="Package\Import Games\Excel Source.Outputs[Excel Source Error Output].Columns[user_reviews]"
-                      dataType="r8"
-                      lineageId="Package\Import Games\Excel Source.Outputs[Excel Source Error Output].Columns[user_reviews]"
-                      name="user_reviews" />
-                    <outputColumn
-                      refId="Package\Import Games\Excel Source.Outputs[Excel Source Error Output].Columns[price_final]"
-                      dataType="r8"
-                      lineageId="Package\Import Games\Excel Source.Outputs[Excel Source Error Output].Columns[price_final]"
-                      name="price_final" />
-                    <outputColumn
-                      refId="Package\Import Games\Excel Source.Outputs[Excel Source Error Output].Columns[price_original]"
-                      dataType="r8"
-                      lineageId="Package\Import Games\Excel Source.Outputs[Excel Source Error Output].Columns[price_original]"
-                      name="price_original" />
-                    <outputColumn
-                      refId="Package\Import Games\Excel Source.Outputs[Excel Source Error Output].Columns[discount]"
-                      dataType="r8"
-                      lineageId="Package\Import Games\Excel Source.Outputs[Excel Source Error Output].Columns[discount]"
-                      name="discount" />
-                    <outputColumn
-                      refId="Package\Import Games\Excel Source.Outputs[Excel Source Error Output].Columns[steam_deck]"
-                      dataType="bool"
-                      lineageId="Package\Import Games\Excel Source.Outputs[Excel Source Error Output].Columns[steam_deck]"
-                      name="steam_deck" />
-                    <outputColumn
-                      refId="Package\Import Games\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\Import Games\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\Import Games\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\Import Games\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\Import Games\OLE DB Destination"
-              componentClassID="Microsoft.OLEDBDestination"
-              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
-              description="OLE DB Destination"
-              name="OLE DB Destination"
-              usesDispositions="true"
-              version="4">
-              <properties>
-                <property
-                  dataType="System.Int32"
-                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
-                  name="CommandTimeout">0</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[dbo].[games]</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the variable that contains the name of the database object used to open a rowset."
-                  name="OpenRowsetVariable"></property>
-                <property
-                  dataType="System.String"
-                  description="The SQL command to be executed."
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the column code page to use when code page information is unavailable from the data source."
-                  name="DefaultCodePage">1252</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Forces the use of the DefaultCodePage property value when describing character data."
-                  name="AlwaysUseDefaultCodePage">false</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the mode used to access the database."
-                  name="AccessMode"
-                  typeConverter="AccessMode">0</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
-                  name="FastLoadKeepIdentity">false</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
-                  name="FastLoadKeepNulls">false</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
-                  name="FastLoadOptions"></property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
-                  name="FastLoadMaxInsertCommitSize">2147483647</property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\Import Games\OLE DB Destination.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[db-mssql.s15429 2]"
-                  connectionManagerRefId="Package.ConnectionManagers[db-mssql.s15429 2]"
-                  description="The OLE DB runtime connection used to access the database."
-                  name="OleDbConnection" />
-              </connections>
-              <inputs>
-                <input
-                  refId="Package\Import Games\OLE DB Destination.Inputs[OLE DB Destination Input]"
-                  errorOrTruncationOperation="Insert"
-                  errorRowDisposition="FailComponent"
-                  hasSideEffects="true"
-                  name="OLE DB Destination Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\Import Games\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[app_id]"
-                      cachedDataType="r8"
-                      cachedName="app_id"
-                      externalMetadataColumnId="Package\Import Games\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[app_id]"
-                      lineageId="Package\Import Games\Excel Source.Outputs[Excel Source Output].Columns[app_id]" />
-                    <inputColumn
-                      refId="Package\Import Games\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[title]"
-                      cachedDataType="wstr"
-                      cachedLength="255"
-                      cachedName="title"
-                      externalMetadataColumnId="Package\Import Games\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[title]"
-                      lineageId="Package\Import Games\Excel Source.Outputs[Excel Source Output].Columns[title]" />
-                    <inputColumn
-                      refId="Package\Import Games\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[date_release]"
-                      cachedDataType="date"
-                      cachedName="date_release"
-                      externalMetadataColumnId="Package\Import Games\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[date_release]"
-                      lineageId="Package\Import Games\Excel Source.Outputs[Excel Source Output].Columns[date_release]" />
-                    <inputColumn
-                      refId="Package\Import Games\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[win]"
-                      cachedDataType="bool"
-                      cachedName="win"
-                      externalMetadataColumnId="Package\Import Games\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[win]"
-                      lineageId="Package\Import Games\Excel Source.Outputs[Excel Source Output].Columns[win]" />
-                    <inputColumn
-                      refId="Package\Import Games\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[mac]"
-                      cachedDataType="bool"
-                      cachedName="mac"
-                      externalMetadataColumnId="Package\Import Games\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[mac]"
-                      lineageId="Package\Import Games\Excel Source.Outputs[Excel Source Output].Columns[mac]" />
-                    <inputColumn
-                      refId="Package\Import Games\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[linux]"
-                      cachedDataType="bool"
-                      cachedName="linux"
-                      externalMetadataColumnId="Package\Import Games\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[linux]"
-                      lineageId="Package\Import Games\Excel Source.Outputs[Excel Source Output].Columns[linux]" />
-                    <inputColumn
-                      refId="Package\Import Games\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[rating]"
-                      cachedDataType="wstr"
-                      cachedLength="255"
-                      cachedName="rating"
-                      externalMetadataColumnId="Package\Import Games\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[rating]"
-                      lineageId="Package\Import Games\Excel Source.Outputs[Excel Source Output].Columns[rating]" />
-                    <inputColumn
-                      refId="Package\Import Games\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[positive_ratio]"
-                      cachedDataType="r8"
-                      cachedName="positive_ratio"
-                      externalMetadataColumnId="Package\Import Games\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[positive_ratio]"
-                      lineageId="Package\Import Games\Excel Source.Outputs[Excel Source Output].Columns[positive_ratio]" />
-                    <inputColumn
-                      refId="Package\Import Games\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[user_reviews]"
-                      cachedDataType="r8"
-                      cachedName="user_reviews"
-                      externalMetadataColumnId="Package\Import Games\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[user_reviews]"
-                      lineageId="Package\Import Games\Excel Source.Outputs[Excel Source Output].Columns[user_reviews]" />
-                    <inputColumn
-                      refId="Package\Import Games\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[price_final]"
-                      cachedDataType="r8"
-                      cachedName="price_final"
-                      externalMetadataColumnId="Package\Import Games\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[price_final]"
-                      lineageId="Package\Import Games\Excel Source.Outputs[Excel Source Output].Columns[price_final]" />
-                    <inputColumn
-                      refId="Package\Import Games\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[price_original]"
-                      cachedDataType="r8"
-                      cachedName="price_original"
-                      externalMetadataColumnId="Package\Import Games\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[price_original]"
-                      lineageId="Package\Import Games\Excel Source.Outputs[Excel Source Output].Columns[price_original]" />
-                    <inputColumn
-                      refId="Package\Import Games\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[discount]"
-                      cachedDataType="r8"
-                      cachedName="discount"
-                      externalMetadataColumnId="Package\Import Games\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[discount]"
-                      lineageId="Package\Import Games\Excel Source.Outputs[Excel Source Output].Columns[discount]" />
-                    <inputColumn
-                      refId="Package\Import Games\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[steam_deck]"
-                      cachedDataType="bool"
-                      cachedName="steam_deck"
-                      externalMetadataColumnId="Package\Import Games\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[steam_deck]"
-                      lineageId="Package\Import Games\Excel Source.Outputs[Excel Source Output].Columns[steam_deck]" />
-                  </inputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\Import Games\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[app_id]"
-                      dataType="i4"
-                      name="app_id" />
-                    <externalMetadataColumn
-                      refId="Package\Import Games\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[title]"
-                      dataType="wstr"
-                      length="500"
-                      name="title" />
-                    <externalMetadataColumn
-                      refId="Package\Import Games\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[date_release]"
-                      dataType="wstr"
-                      length="100"
-                      name="date_release" />
-                    <externalMetadataColumn
-                      refId="Package\Import Games\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[win]"
-                      dataType="wstr"
-                      length="5"
-                      name="win" />
-                    <externalMetadataColumn
-                      refId="Package\Import Games\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[mac]"
-                      dataType="wstr"
-                      length="5"
-                      name="mac" />
-                    <externalMetadataColumn
-                      refId="Package\Import Games\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[linux]"
-                      dataType="wstr"
-                      length="5"
-                      name="linux" />
-                    <externalMetadataColumn
-                      refId="Package\Import Games\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[rating]"
-                      dataType="wstr"
-                      length="255"
-                      name="rating" />
-                    <externalMetadataColumn
-                      refId="Package\Import Games\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[positive_ratio]"
-                      dataType="i4"
-                      name="positive_ratio" />
-                    <externalMetadataColumn
-                      refId="Package\Import Games\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[user_reviews]"
-                      dataType="i4"
-                      name="user_reviews" />
-                    <externalMetadataColumn
-                      refId="Package\Import Games\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[price_final]"
-                      dataType="numeric"
-                      name="price_final"
-                      precision="6"
-                      scale="2" />
-                    <externalMetadataColumn
-                      refId="Package\Import Games\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[price_original]"
-                      dataType="numeric"
-                      name="price_original"
-                      precision="6"
-                      scale="2" />
-                    <externalMetadataColumn
-                      refId="Package\Import Games\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[discount]"
-                      dataType="i4"
-                      name="discount" />
-                    <externalMetadataColumn
-                      refId="Package\Import Games\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[steam_deck]"
-                      dataType="wstr"
-                      length="5"
-                      name="steam_deck" />
-                  </externalMetadataColumns>
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\Import Games\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="OLE DB Destination Error Output"
-                  synchronousInputId="Package\Import Games\OLE DB Destination.Inputs[OLE DB Destination Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Import Games\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\Import Games\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\Import Games\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\Import Games\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-          </components>
-          <paths>
-            <path
-              refId="Package\Import Games.Paths[Excel Source Output]"
-              endId="Package\Import Games\OLE DB Destination.Inputs[OLE DB Destination Input]"
-              name="Excel Source Output"
-              startId="Package\Import Games\Excel Source.Outputs[Excel Source Output]" />
-          </paths>
-        </pipeline>
-      </DTS:ObjectData>
-    </DTS:Executable>
-    <DTS:Executable
-      DTS:refId="Package\Import Reviews"
-      DTS:CreationName="Microsoft.Pipeline"
-      DTS:Description="Data Flow Task"
-      DTS:DTSID="{f4982863-6308-4a4d-8bb3-e837b305b20e}"
-      DTS:ExecutableType="Microsoft.Pipeline"
-      DTS:LocaleID="-1"
-      DTS:ObjectName="Import Reviews"
-      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
-      <DTS:Variables />
-      <DTS:ObjectData>
-        <pipeline
-          version="1">
-          <components>
-            <component
-              refId="Package\Import Reviews\Excel Source"
-              componentClassID="Microsoft.ExcelSource"
-              contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
-              description="Excel Source"
-              name="Excel Source"
-              usesDispositions="true"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Sequence Container\Import Games\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[app_id]"
+                          cachedDataType="r8"
+                          cachedName="app_id"
+                          externalMetadataColumnId="Package\Sequence Container\Import Games\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[app_id]"
+                          lineageId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Output].Columns[app_id]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Import Games\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[title]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="title"
+                          externalMetadataColumnId="Package\Sequence Container\Import Games\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[title]"
+                          lineageId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Output].Columns[title]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Import Games\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[date_release]"
+                          cachedDataType="date"
+                          cachedName="date_release"
+                          externalMetadataColumnId="Package\Sequence Container\Import Games\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[date_release]"
+                          lineageId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Output].Columns[date_release]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Import Games\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[win]"
+                          cachedDataType="bool"
+                          cachedName="win"
+                          externalMetadataColumnId="Package\Sequence Container\Import Games\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[win]"
+                          lineageId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Output].Columns[win]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Import Games\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[mac]"
+                          cachedDataType="bool"
+                          cachedName="mac"
+                          externalMetadataColumnId="Package\Sequence Container\Import Games\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[mac]"
+                          lineageId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Output].Columns[mac]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Import Games\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[linux]"
+                          cachedDataType="bool"
+                          cachedName="linux"
+                          externalMetadataColumnId="Package\Sequence Container\Import Games\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[linux]"
+                          lineageId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Output].Columns[linux]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Import Games\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[rating]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="rating"
+                          externalMetadataColumnId="Package\Sequence Container\Import Games\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[rating]"
+                          lineageId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Output].Columns[rating]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Import Games\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[positive_ratio]"
+                          cachedDataType="r8"
+                          cachedName="positive_ratio"
+                          externalMetadataColumnId="Package\Sequence Container\Import Games\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[positive_ratio]"
+                          lineageId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Output].Columns[positive_ratio]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Import Games\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[user_reviews]"
+                          cachedDataType="r8"
+                          cachedName="user_reviews"
+                          externalMetadataColumnId="Package\Sequence Container\Import Games\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[user_reviews]"
+                          lineageId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Output].Columns[user_reviews]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Import Games\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[price_final]"
+                          cachedDataType="r8"
+                          cachedName="price_final"
+                          externalMetadataColumnId="Package\Sequence Container\Import Games\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[price_final]"
+                          lineageId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Output].Columns[price_final]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Import Games\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[price_original]"
+                          cachedDataType="r8"
+                          cachedName="price_original"
+                          externalMetadataColumnId="Package\Sequence Container\Import Games\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[price_original]"
+                          lineageId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Output].Columns[price_original]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Import Games\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[discount]"
+                          cachedDataType="r8"
+                          cachedName="discount"
+                          externalMetadataColumnId="Package\Sequence Container\Import Games\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[discount]"
+                          lineageId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Output].Columns[discount]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Import Games\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[steam_deck]"
+                          cachedDataType="bool"
+                          cachedName="steam_deck"
+                          externalMetadataColumnId="Package\Sequence Container\Import Games\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[steam_deck]"
+                          lineageId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Output].Columns[steam_deck]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Import Games\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[app_id]"
+                          dataType="i4"
+                          name="app_id" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Import Games\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[title]"
+                          dataType="wstr"
+                          length="500"
+                          name="title" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Import Games\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[date_release]"
+                          dataType="wstr"
+                          length="100"
+                          name="date_release" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Import Games\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[win]"
+                          dataType="wstr"
+                          length="5"
+                          name="win" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Import Games\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[mac]"
+                          dataType="wstr"
+                          length="5"
+                          name="mac" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Import Games\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[linux]"
+                          dataType="wstr"
+                          length="5"
+                          name="linux" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Import Games\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[rating]"
+                          dataType="wstr"
+                          length="255"
+                          name="rating" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Import Games\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[positive_ratio]"
+                          dataType="i4"
+                          name="positive_ratio" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Import Games\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[user_reviews]"
+                          dataType="i4"
+                          name="user_reviews" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Import Games\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[price_final]"
+                          dataType="numeric"
+                          name="price_final"
+                          precision="6"
+                          scale="2" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Import Games\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[price_original]"
+                          dataType="numeric"
+                          name="price_original"
+                          precision="6"
+                          scale="2" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Import Games\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[discount]"
+                          dataType="i4"
+                          name="discount" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Import Games\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[steam_deck]"
+                          dataType="wstr"
+                          length="5"
+                          name="steam_deck" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\Import Games\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Sequence Container\Import Games\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Import Games\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Import Games\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Import Games\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Import Games\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Sequence Container\Import Games.Paths[Excel Source Output]"
+                  endId="Package\Sequence Container\Import Games\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  name="Excel Source Output"
+                  startId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\Import Reviews"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{f4982863-6308-4a4d-8bb3-e837b305b20e}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Import Reviews"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
               version="1">
-              <properties>
-                <property
-                  dataType="System.Int32"
-                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
-                  name="CommandTimeout">0</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">recommendations$</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the variable that contains the name of the database object used to open a rowset."
-                  name="OpenRowsetVariable"></property>
-                <property
-                  dataType="System.String"
-                  description="The SQL command to be executed."
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
-                <property
-                  dataType="System.String"
-                  description="The variable that contains the SQL command to be executed."
-                  name="SqlCommandVariable"></property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the mode used to access the database."
-                  name="AccessMode"
-                  typeConverter="AccessMode">0</property>
-                <property
-                  dataType="System.String"
-                  description="The mapping from parameters in the SQL command to variables."
-                  name="ParameterMapping"></property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\Import Reviews\Excel Source.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[Excel Connection Manager 2]"
-                  connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager 2]"
-                  description="The OLE DB runtime connection used to access the database."
-                  name="OleDbConnection" />
-              </connections>
-              <outputs>
-                <output
-                  refId="Package\Import Reviews\Excel Source.Outputs[Excel Source Output]"
-                  name="Excel Source Output">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Import Reviews\Excel Source.Outputs[Excel Source Output].Columns[app_id]"
-                      dataType="r8"
-                      errorOrTruncationOperation="Conversion"
+              <components>
+                <component
+                  refId="Package\Sequence Container\Import Reviews\Excel Source"
+                  componentClassID="Microsoft.ExcelSource"
+                  contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Excel Source"
+                  name="Excel Source"
+                  usesDispositions="true"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">recommendations$</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The mapping from parameters in the SQL command to variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Sequence Container\Import Reviews\Excel Source.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[Excel Connection Manager 2]"
+                      connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager 2]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\Import Reviews\Excel Source.Outputs[Excel Source Output]"
+                      name="Excel Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Import Reviews\Excel Source.Outputs[Excel Source Output].Columns[app_id]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Import Reviews\Excel Source.Outputs[Excel Source Output].ExternalColumns[app_id]"
+                          lineageId="Package\Sequence Container\Import Reviews\Excel Source.Outputs[Excel Source Output].Columns[app_id]"
+                          name="app_id"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Import Reviews\Excel Source.Outputs[Excel Source Output].Columns[helpful]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Import Reviews\Excel Source.Outputs[Excel Source Output].ExternalColumns[helpful]"
+                          lineageId="Package\Sequence Container\Import Reviews\Excel Source.Outputs[Excel Source Output].Columns[helpful]"
+                          name="helpful"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Import Reviews\Excel Source.Outputs[Excel Source Output].Columns[funny]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Import Reviews\Excel Source.Outputs[Excel Source Output].ExternalColumns[funny]"
+                          lineageId="Package\Sequence Container\Import Reviews\Excel Source.Outputs[Excel Source Output].Columns[funny]"
+                          name="funny"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Import Reviews\Excel Source.Outputs[Excel Source Output].Columns[date]"
+                          dataType="date"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Import Reviews\Excel Source.Outputs[Excel Source Output].ExternalColumns[date]"
+                          lineageId="Package\Sequence Container\Import Reviews\Excel Source.Outputs[Excel Source Output].Columns[date]"
+                          name="date"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Import Reviews\Excel Source.Outputs[Excel Source Output].Columns[is_recommended]"
+                          dataType="bool"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Import Reviews\Excel Source.Outputs[Excel Source Output].ExternalColumns[is_recommended]"
+                          lineageId="Package\Sequence Container\Import Reviews\Excel Source.Outputs[Excel Source Output].Columns[is_recommended]"
+                          name="is_recommended"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Import Reviews\Excel Source.Outputs[Excel Source Output].Columns[hours]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Import Reviews\Excel Source.Outputs[Excel Source Output].ExternalColumns[hours]"
+                          lineageId="Package\Sequence Container\Import Reviews\Excel Source.Outputs[Excel Source Output].Columns[hours]"
+                          name="hours"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Import Reviews\Excel Source.Outputs[Excel Source Output].Columns[user_id]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Import Reviews\Excel Source.Outputs[Excel Source Output].ExternalColumns[user_id]"
+                          lineageId="Package\Sequence Container\Import Reviews\Excel Source.Outputs[Excel Source Output].Columns[user_id]"
+                          name="user_id"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Import Reviews\Excel Source.Outputs[Excel Source Output].Columns[review_id]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Import Reviews\Excel Source.Outputs[Excel Source Output].ExternalColumns[review_id]"
+                          lineageId="Package\Sequence Container\Import Reviews\Excel Source.Outputs[Excel Source Output].Columns[review_id]"
+                          name="review_id"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Import Reviews\Excel Source.Outputs[Excel Source Output].ExternalColumns[app_id]"
+                          dataType="r8"
+                          name="app_id" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Import Reviews\Excel Source.Outputs[Excel Source Output].ExternalColumns[helpful]"
+                          dataType="r8"
+                          name="helpful" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Import Reviews\Excel Source.Outputs[Excel Source Output].ExternalColumns[funny]"
+                          dataType="r8"
+                          name="funny" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Import Reviews\Excel Source.Outputs[Excel Source Output].ExternalColumns[date]"
+                          dataType="date"
+                          name="date" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Import Reviews\Excel Source.Outputs[Excel Source Output].ExternalColumns[is_recommended]"
+                          dataType="bool"
+                          name="is_recommended" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Import Reviews\Excel Source.Outputs[Excel Source Output].ExternalColumns[hours]"
+                          dataType="r8"
+                          name="hours" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Import Reviews\Excel Source.Outputs[Excel Source Output].ExternalColumns[user_id]"
+                          dataType="r8"
+                          name="user_id" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Import Reviews\Excel Source.Outputs[Excel Source Output].ExternalColumns[review_id]"
+                          dataType="r8"
+                          name="review_id" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Sequence Container\Import Reviews\Excel Source.Outputs[Excel Source Error Output]"
+                      isErrorOut="true"
+                      name="Excel Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Import Reviews\Excel Source.Outputs[Excel Source Error Output].Columns[app_id]"
+                          dataType="r8"
+                          lineageId="Package\Sequence Container\Import Reviews\Excel Source.Outputs[Excel Source Error Output].Columns[app_id]"
+                          name="app_id" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Import Reviews\Excel Source.Outputs[Excel Source Error Output].Columns[helpful]"
+                          dataType="r8"
+                          lineageId="Package\Sequence Container\Import Reviews\Excel Source.Outputs[Excel Source Error Output].Columns[helpful]"
+                          name="helpful" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Import Reviews\Excel Source.Outputs[Excel Source Error Output].Columns[funny]"
+                          dataType="r8"
+                          lineageId="Package\Sequence Container\Import Reviews\Excel Source.Outputs[Excel Source Error Output].Columns[funny]"
+                          name="funny" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Import Reviews\Excel Source.Outputs[Excel Source Error Output].Columns[date]"
+                          dataType="date"
+                          lineageId="Package\Sequence Container\Import Reviews\Excel Source.Outputs[Excel Source Error Output].Columns[date]"
+                          name="date" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Import Reviews\Excel Source.Outputs[Excel Source Error Output].Columns[is_recommended]"
+                          dataType="bool"
+                          lineageId="Package\Sequence Container\Import Reviews\Excel Source.Outputs[Excel Source Error Output].Columns[is_recommended]"
+                          name="is_recommended" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Import Reviews\Excel Source.Outputs[Excel Source Error Output].Columns[hours]"
+                          dataType="r8"
+                          lineageId="Package\Sequence Container\Import Reviews\Excel Source.Outputs[Excel Source Error Output].Columns[hours]"
+                          name="hours" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Import Reviews\Excel Source.Outputs[Excel Source Error Output].Columns[user_id]"
+                          dataType="r8"
+                          lineageId="Package\Sequence Container\Import Reviews\Excel Source.Outputs[Excel Source Error Output].Columns[user_id]"
+                          name="user_id" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Import Reviews\Excel Source.Outputs[Excel Source Error Output].Columns[review_id]"
+                          dataType="r8"
+                          lineageId="Package\Sequence Container\Import Reviews\Excel Source.Outputs[Excel Source Error Output].Columns[review_id]"
+                          name="review_id" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Import Reviews\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Import Reviews\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Import Reviews\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Import Reviews\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Sequence Container\Import Reviews\OLE DB Destination"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLE DB Destination"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[review]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Sequence Container\Import Reviews\OLE DB Destination.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[db-mssql.s15429 3]"
+                      connectionManagerRefId="Package.ConnectionManagers[db-mssql.s15429 3]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Sequence Container\Import Reviews\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Import Reviews\Excel Source.Outputs[Excel Source Output].ExternalColumns[app_id]"
-                      lineageId="Package\Import Reviews\Excel Source.Outputs[Excel Source Output].Columns[app_id]"
-                      name="app_id"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Import Reviews\Excel Source.Outputs[Excel Source Output].Columns[helpful]"
-                      dataType="r8"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Import Reviews\Excel Source.Outputs[Excel Source Output].ExternalColumns[helpful]"
-                      lineageId="Package\Import Reviews\Excel Source.Outputs[Excel Source Output].Columns[helpful]"
-                      name="helpful"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Import Reviews\Excel Source.Outputs[Excel Source Output].Columns[funny]"
-                      dataType="r8"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Import Reviews\Excel Source.Outputs[Excel Source Output].ExternalColumns[funny]"
-                      lineageId="Package\Import Reviews\Excel Source.Outputs[Excel Source Output].Columns[funny]"
-                      name="funny"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Import Reviews\Excel Source.Outputs[Excel Source Output].Columns[date]"
-                      dataType="date"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Import Reviews\Excel Source.Outputs[Excel Source Output].ExternalColumns[date]"
-                      lineageId="Package\Import Reviews\Excel Source.Outputs[Excel Source Output].Columns[date]"
-                      name="date"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Import Reviews\Excel Source.Outputs[Excel Source Output].Columns[is_recommended]"
-                      dataType="bool"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Import Reviews\Excel Source.Outputs[Excel Source Output].ExternalColumns[is_recommended]"
-                      lineageId="Package\Import Reviews\Excel Source.Outputs[Excel Source Output].Columns[is_recommended]"
-                      name="is_recommended"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Import Reviews\Excel Source.Outputs[Excel Source Output].Columns[hours]"
-                      dataType="r8"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Import Reviews\Excel Source.Outputs[Excel Source Output].ExternalColumns[hours]"
-                      lineageId="Package\Import Reviews\Excel Source.Outputs[Excel Source Output].Columns[hours]"
-                      name="hours"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Import Reviews\Excel Source.Outputs[Excel Source Output].Columns[user_id]"
-                      dataType="r8"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Import Reviews\Excel Source.Outputs[Excel Source Output].ExternalColumns[user_id]"
-                      lineageId="Package\Import Reviews\Excel Source.Outputs[Excel Source Output].Columns[user_id]"
-                      name="user_id"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Import Reviews\Excel Source.Outputs[Excel Source Output].Columns[review_id]"
-                      dataType="r8"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Import Reviews\Excel Source.Outputs[Excel Source Output].ExternalColumns[review_id]"
-                      lineageId="Package\Import Reviews\Excel Source.Outputs[Excel Source Output].Columns[review_id]"
-                      name="review_id"
-                      truncationRowDisposition="FailComponent" />
-                  </outputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\Import Reviews\Excel Source.Outputs[Excel Source Output].ExternalColumns[app_id]"
-                      dataType="r8"
-                      name="app_id" />
-                    <externalMetadataColumn
-                      refId="Package\Import Reviews\Excel Source.Outputs[Excel Source Output].ExternalColumns[helpful]"
-                      dataType="r8"
-                      name="helpful" />
-                    <externalMetadataColumn
-                      refId="Package\Import Reviews\Excel Source.Outputs[Excel Source Output].ExternalColumns[funny]"
-                      dataType="r8"
-                      name="funny" />
-                    <externalMetadataColumn
-                      refId="Package\Import Reviews\Excel Source.Outputs[Excel Source Output].ExternalColumns[date]"
-                      dataType="date"
-                      name="date" />
-                    <externalMetadataColumn
-                      refId="Package\Import Reviews\Excel Source.Outputs[Excel Source Output].ExternalColumns[is_recommended]"
-                      dataType="bool"
-                      name="is_recommended" />
-                    <externalMetadataColumn
-                      refId="Package\Import Reviews\Excel Source.Outputs[Excel Source Output].ExternalColumns[hours]"
-                      dataType="r8"
-                      name="hours" />
-                    <externalMetadataColumn
-                      refId="Package\Import Reviews\Excel Source.Outputs[Excel Source Output].ExternalColumns[user_id]"
-                      dataType="r8"
-                      name="user_id" />
-                    <externalMetadataColumn
-                      refId="Package\Import Reviews\Excel Source.Outputs[Excel Source Output].ExternalColumns[review_id]"
-                      dataType="r8"
-                      name="review_id" />
-                  </externalMetadataColumns>
-                </output>
-                <output
-                  refId="Package\Import Reviews\Excel Source.Outputs[Excel Source Error Output]"
-                  isErrorOut="true"
-                  name="Excel Source Error Output">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Import Reviews\Excel Source.Outputs[Excel Source Error Output].Columns[app_id]"
-                      dataType="r8"
-                      lineageId="Package\Import Reviews\Excel Source.Outputs[Excel Source Error Output].Columns[app_id]"
-                      name="app_id" />
-                    <outputColumn
-                      refId="Package\Import Reviews\Excel Source.Outputs[Excel Source Error Output].Columns[helpful]"
-                      dataType="r8"
-                      lineageId="Package\Import Reviews\Excel Source.Outputs[Excel Source Error Output].Columns[helpful]"
-                      name="helpful" />
-                    <outputColumn
-                      refId="Package\Import Reviews\Excel Source.Outputs[Excel Source Error Output].Columns[funny]"
-                      dataType="r8"
-                      lineageId="Package\Import Reviews\Excel Source.Outputs[Excel Source Error Output].Columns[funny]"
-                      name="funny" />
-                    <outputColumn
-                      refId="Package\Import Reviews\Excel Source.Outputs[Excel Source Error Output].Columns[date]"
-                      dataType="date"
-                      lineageId="Package\Import Reviews\Excel Source.Outputs[Excel Source Error Output].Columns[date]"
-                      name="date" />
-                    <outputColumn
-                      refId="Package\Import Reviews\Excel Source.Outputs[Excel Source Error Output].Columns[is_recommended]"
-                      dataType="bool"
-                      lineageId="Package\Import Reviews\Excel Source.Outputs[Excel Source Error Output].Columns[is_recommended]"
-                      name="is_recommended" />
-                    <outputColumn
-                      refId="Package\Import Reviews\Excel Source.Outputs[Excel Source Error Output].Columns[hours]"
-                      dataType="r8"
-                      lineageId="Package\Import Reviews\Excel Source.Outputs[Excel Source Error Output].Columns[hours]"
-                      name="hours" />
-                    <outputColumn
-                      refId="Package\Import Reviews\Excel Source.Outputs[Excel Source Error Output].Columns[user_id]"
-                      dataType="r8"
-                      lineageId="Package\Import Reviews\Excel Source.Outputs[Excel Source Error Output].Columns[user_id]"
-                      name="user_id" />
-                    <outputColumn
-                      refId="Package\Import Reviews\Excel Source.Outputs[Excel Source Error Output].Columns[review_id]"
-                      dataType="r8"
-                      lineageId="Package\Import Reviews\Excel Source.Outputs[Excel Source Error Output].Columns[review_id]"
-                      name="review_id" />
-                    <outputColumn
-                      refId="Package\Import Reviews\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\Import Reviews\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\Import Reviews\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\Import Reviews\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\Import Reviews\OLE DB Destination"
-              componentClassID="Microsoft.OLEDBDestination"
-              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
-              description="OLE DB Destination"
-              name="OLE DB Destination"
-              usesDispositions="true"
-              version="4">
-              <properties>
-                <property
-                  dataType="System.Int32"
-                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
-                  name="CommandTimeout">0</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[dbo].[review]</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the variable that contains the name of the database object used to open a rowset."
-                  name="OpenRowsetVariable"></property>
-                <property
-                  dataType="System.String"
-                  description="The SQL command to be executed."
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the column code page to use when code page information is unavailable from the data source."
-                  name="DefaultCodePage">1252</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Forces the use of the DefaultCodePage property value when describing character data."
-                  name="AlwaysUseDefaultCodePage">false</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the mode used to access the database."
-                  name="AccessMode"
-                  typeConverter="AccessMode">0</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
-                  name="FastLoadKeepIdentity">false</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
-                  name="FastLoadKeepNulls">false</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
-                  name="FastLoadOptions"></property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
-                  name="FastLoadMaxInsertCommitSize">2147483647</property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\Import Reviews\OLE DB Destination.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[db-mssql.s15429 3]"
-                  connectionManagerRefId="Package.ConnectionManagers[db-mssql.s15429 3]"
-                  description="The OLE DB runtime connection used to access the database."
-                  name="OleDbConnection" />
-              </connections>
-              <inputs>
-                <input
-                  refId="Package\Import Reviews\OLE DB Destination.Inputs[OLE DB Destination Input]"
-                  errorOrTruncationOperation="Insert"
-                  errorRowDisposition="FailComponent"
-                  hasSideEffects="true"
-                  name="OLE DB Destination Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\Import Reviews\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[app_id]"
-                      cachedDataType="r8"
-                      cachedName="app_id"
-                      externalMetadataColumnId="Package\Import Reviews\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[app_id]"
-                      lineageId="Package\Import Reviews\Excel Source.Outputs[Excel Source Output].Columns[app_id]" />
-                    <inputColumn
-                      refId="Package\Import Reviews\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[helpful]"
-                      cachedDataType="r8"
-                      cachedName="helpful"
-                      externalMetadataColumnId="Package\Import Reviews\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[helpful]"
-                      lineageId="Package\Import Reviews\Excel Source.Outputs[Excel Source Output].Columns[helpful]" />
-                    <inputColumn
-                      refId="Package\Import Reviews\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[funny]"
-                      cachedDataType="r8"
-                      cachedName="funny"
-                      externalMetadataColumnId="Package\Import Reviews\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[funny]"
-                      lineageId="Package\Import Reviews\Excel Source.Outputs[Excel Source Output].Columns[funny]" />
-                    <inputColumn
-                      refId="Package\Import Reviews\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[date]"
-                      cachedDataType="date"
-                      cachedName="date"
-                      externalMetadataColumnId="Package\Import Reviews\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[date]"
-                      lineageId="Package\Import Reviews\Excel Source.Outputs[Excel Source Output].Columns[date]" />
-                    <inputColumn
-                      refId="Package\Import Reviews\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[is_recommended]"
-                      cachedDataType="bool"
-                      cachedName="is_recommended"
-                      externalMetadataColumnId="Package\Import Reviews\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[is_recommended]"
-                      lineageId="Package\Import Reviews\Excel Source.Outputs[Excel Source Output].Columns[is_recommended]" />
-                    <inputColumn
-                      refId="Package\Import Reviews\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[hours]"
-                      cachedDataType="r8"
-                      cachedName="hours"
-                      externalMetadataColumnId="Package\Import Reviews\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[hours]"
-                      lineageId="Package\Import Reviews\Excel Source.Outputs[Excel Source Output].Columns[hours]" />
-                    <inputColumn
-                      refId="Package\Import Reviews\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[review_id]"
-                      cachedDataType="r8"
-                      cachedName="review_id"
-                      externalMetadataColumnId="Package\Import Reviews\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[review_id_csv]"
-                      lineageId="Package\Import Reviews\Excel Source.Outputs[Excel Source Output].Columns[review_id]" />
-                    <inputColumn
-                      refId="Package\Import Reviews\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[user_id]"
-                      cachedDataType="r8"
-                      cachedName="user_id"
-                      externalMetadataColumnId="Package\Import Reviews\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[user_id_csv]"
-                      lineageId="Package\Import Reviews\Excel Source.Outputs[Excel Source Output].Columns[user_id]" />
-                  </inputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\Import Reviews\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[review_id_csv]"
-                      dataType="i4"
-                      name="review_id_csv" />
-                    <externalMetadataColumn
-                      refId="Package\Import Reviews\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[helpful]"
-                      dataType="i4"
-                      name="helpful" />
-                    <externalMetadataColumn
-                      refId="Package\Import Reviews\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[funny]"
-                      dataType="i4"
-                      name="funny" />
-                    <externalMetadataColumn
-                      refId="Package\Import Reviews\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[date]"
-                      dataType="wstr"
-                      length="100"
-                      name="date" />
-                    <externalMetadataColumn
-                      refId="Package\Import Reviews\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[is_recommended]"
-                      dataType="wstr"
-                      length="5"
-                      name="is_recommended" />
-                    <externalMetadataColumn
-                      refId="Package\Import Reviews\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[hours]"
-                      dataType="numeric"
-                      name="hours"
-                      precision="6"
-                      scale="2" />
-                    <externalMetadataColumn
-                      refId="Package\Import Reviews\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[user_id_csv]"
-                      dataType="i4"
-                      name="user_id_csv" />
-                    <externalMetadataColumn
-                      refId="Package\Import Reviews\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[app_id]"
-                      dataType="i4"
-                      name="app_id" />
-                  </externalMetadataColumns>
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\Import Reviews\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="OLE DB Destination Error Output"
-                  synchronousInputId="Package\Import Reviews\OLE DB Destination.Inputs[OLE DB Destination Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Import Reviews\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\Import Reviews\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\Import Reviews\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\Import Reviews\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-          </components>
-          <paths>
-            <path
-              refId="Package\Import Reviews.Paths[Excel Source Output]"
-              endId="Package\Import Reviews\OLE DB Destination.Inputs[OLE DB Destination Input]"
-              name="Excel Source Output"
-              startId="Package\Import Reviews\Excel Source.Outputs[Excel Source Output]" />
-          </paths>
-        </pipeline>
-      </DTS:ObjectData>
-    </DTS:Executable>
-    <DTS:Executable
-      DTS:refId="Package\Import User"
-      DTS:CreationName="Microsoft.Pipeline"
-      DTS:Description="Data Flow Task"
-      DTS:DTSID="{c60c0057-1a3e-4039-9484-921f35c4559a}"
-      DTS:ExecutableType="Microsoft.Pipeline"
-      DTS:LocaleID="-1"
-      DTS:ObjectName="Import User"
-      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
-      <DTS:Variables />
-      <DTS:ObjectData>
-        <pipeline
-          version="1">
-          <components>
-            <component
-              refId="Package\Import User\Excel Source"
-              componentClassID="Microsoft.ExcelSource"
-              contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
-              description="Excel Source"
-              name="Excel Source"
-              usesDispositions="true"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Sequence Container\Import Reviews\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[app_id]"
+                          cachedDataType="r8"
+                          cachedName="app_id"
+                          externalMetadataColumnId="Package\Sequence Container\Import Reviews\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[app_id]"
+                          lineageId="Package\Sequence Container\Import Reviews\Excel Source.Outputs[Excel Source Output].Columns[app_id]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Import Reviews\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[helpful]"
+                          cachedDataType="r8"
+                          cachedName="helpful"
+                          externalMetadataColumnId="Package\Sequence Container\Import Reviews\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[helpful]"
+                          lineageId="Package\Sequence Container\Import Reviews\Excel Source.Outputs[Excel Source Output].Columns[helpful]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Import Reviews\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[funny]"
+                          cachedDataType="r8"
+                          cachedName="funny"
+                          externalMetadataColumnId="Package\Sequence Container\Import Reviews\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[funny]"
+                          lineageId="Package\Sequence Container\Import Reviews\Excel Source.Outputs[Excel Source Output].Columns[funny]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Import Reviews\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[date]"
+                          cachedDataType="date"
+                          cachedName="date"
+                          externalMetadataColumnId="Package\Sequence Container\Import Reviews\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[date]"
+                          lineageId="Package\Sequence Container\Import Reviews\Excel Source.Outputs[Excel Source Output].Columns[date]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Import Reviews\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[is_recommended]"
+                          cachedDataType="bool"
+                          cachedName="is_recommended"
+                          externalMetadataColumnId="Package\Sequence Container\Import Reviews\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[is_recommended]"
+                          lineageId="Package\Sequence Container\Import Reviews\Excel Source.Outputs[Excel Source Output].Columns[is_recommended]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Import Reviews\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[hours]"
+                          cachedDataType="r8"
+                          cachedName="hours"
+                          externalMetadataColumnId="Package\Sequence Container\Import Reviews\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[hours]"
+                          lineageId="Package\Sequence Container\Import Reviews\Excel Source.Outputs[Excel Source Output].Columns[hours]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Import Reviews\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[review_id]"
+                          cachedDataType="r8"
+                          cachedName="review_id"
+                          externalMetadataColumnId="Package\Sequence Container\Import Reviews\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[review_id_csv]"
+                          lineageId="Package\Sequence Container\Import Reviews\Excel Source.Outputs[Excel Source Output].Columns[review_id]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Import Reviews\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[user_id]"
+                          cachedDataType="r8"
+                          cachedName="user_id"
+                          externalMetadataColumnId="Package\Sequence Container\Import Reviews\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[user_id_csv]"
+                          lineageId="Package\Sequence Container\Import Reviews\Excel Source.Outputs[Excel Source Output].Columns[user_id]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Import Reviews\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[review_id_csv]"
+                          dataType="i4"
+                          name="review_id_csv" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Import Reviews\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[helpful]"
+                          dataType="i4"
+                          name="helpful" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Import Reviews\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[funny]"
+                          dataType="i4"
+                          name="funny" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Import Reviews\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[date]"
+                          dataType="wstr"
+                          length="100"
+                          name="date" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Import Reviews\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[is_recommended]"
+                          dataType="wstr"
+                          length="5"
+                          name="is_recommended" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Import Reviews\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[hours]"
+                          dataType="numeric"
+                          name="hours"
+                          precision="6"
+                          scale="2" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Import Reviews\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[user_id_csv]"
+                          dataType="i4"
+                          name="user_id_csv" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Import Reviews\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[app_id]"
+                          dataType="i4"
+                          name="app_id" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\Import Reviews\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Sequence Container\Import Reviews\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Import Reviews\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Import Reviews\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Import Reviews\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Import Reviews\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Sequence Container\Import Reviews.Paths[Excel Source Output]"
+                  endId="Package\Sequence Container\Import Reviews\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  name="Excel Source Output"
+                  startId="Package\Sequence Container\Import Reviews\Excel Source.Outputs[Excel Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\Import User"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{c60c0057-1a3e-4039-9484-921f35c4559a}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Import User"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
               version="1">
-              <properties>
-                <property
-                  dataType="System.Int32"
-                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
-                  name="CommandTimeout">0</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">users$</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the variable that contains the name of the database object used to open a rowset."
-                  name="OpenRowsetVariable"></property>
-                <property
-                  dataType="System.String"
-                  description="The SQL command to be executed."
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
-                <property
-                  dataType="System.String"
-                  description="The variable that contains the SQL command to be executed."
-                  name="SqlCommandVariable"></property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the mode used to access the database."
-                  name="AccessMode"
-                  typeConverter="AccessMode">0</property>
-                <property
-                  dataType="System.String"
-                  description="The mapping from parameters in the SQL command to variables."
-                  name="ParameterMapping"></property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\Import User\Excel Source.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[Excel Connection Manager]"
-                  connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager]"
-                  description="The OLE DB runtime connection used to access the database."
-                  name="OleDbConnection" />
-              </connections>
-              <outputs>
-                <output
-                  refId="Package\Import User\Excel Source.Outputs[Excel Source Output]"
-                  name="Excel Source Output">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Import User\Excel Source.Outputs[Excel Source Output].Columns[user_id]"
-                      dataType="r8"
-                      errorOrTruncationOperation="Conversion"
+              <components>
+                <component
+                  refId="Package\Sequence Container\Import User\Excel Source"
+                  componentClassID="Microsoft.ExcelSource"
+                  contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Excel Source"
+                  name="Excel Source"
+                  usesDispositions="true"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">users$</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The mapping from parameters in the SQL command to variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Sequence Container\Import User\Excel Source.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[Excel Connection Manager]"
+                      connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\Import User\Excel Source.Outputs[Excel Source Output]"
+                      name="Excel Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Import User\Excel Source.Outputs[Excel Source Output].Columns[user_id]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Import User\Excel Source.Outputs[Excel Source Output].ExternalColumns[user_id]"
+                          lineageId="Package\Sequence Container\Import User\Excel Source.Outputs[Excel Source Output].Columns[user_id]"
+                          name="user_id"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Import User\Excel Source.Outputs[Excel Source Output].Columns[products]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Import User\Excel Source.Outputs[Excel Source Output].ExternalColumns[products]"
+                          lineageId="Package\Sequence Container\Import User\Excel Source.Outputs[Excel Source Output].Columns[products]"
+                          name="products"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Import User\Excel Source.Outputs[Excel Source Output].Columns[reviews]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Import User\Excel Source.Outputs[Excel Source Output].ExternalColumns[reviews]"
+                          lineageId="Package\Sequence Container\Import User\Excel Source.Outputs[Excel Source Output].Columns[reviews]"
+                          name="reviews"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Import User\Excel Source.Outputs[Excel Source Output].ExternalColumns[user_id]"
+                          dataType="r8"
+                          name="user_id" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Import User\Excel Source.Outputs[Excel Source Output].ExternalColumns[products]"
+                          dataType="r8"
+                          name="products" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Import User\Excel Source.Outputs[Excel Source Output].ExternalColumns[reviews]"
+                          dataType="r8"
+                          name="reviews" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Sequence Container\Import User\Excel Source.Outputs[Excel Source Error Output]"
+                      isErrorOut="true"
+                      name="Excel Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Import User\Excel Source.Outputs[Excel Source Error Output].Columns[user_id]"
+                          dataType="r8"
+                          lineageId="Package\Sequence Container\Import User\Excel Source.Outputs[Excel Source Error Output].Columns[user_id]"
+                          name="user_id" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Import User\Excel Source.Outputs[Excel Source Error Output].Columns[products]"
+                          dataType="r8"
+                          lineageId="Package\Sequence Container\Import User\Excel Source.Outputs[Excel Source Error Output].Columns[products]"
+                          name="products" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Import User\Excel Source.Outputs[Excel Source Error Output].Columns[reviews]"
+                          dataType="r8"
+                          lineageId="Package\Sequence Container\Import User\Excel Source.Outputs[Excel Source Error Output].Columns[reviews]"
+                          name="reviews" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Import User\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Import User\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Import User\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Import User\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Sequence Container\Import User\OLE DB Destination"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLE DB Destination"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[user]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">999999999</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Sequence Container\Import User\OLE DB Destination.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[db-mssql.s15429 1]"
+                      connectionManagerRefId="Package.ConnectionManagers[db-mssql.s15429 1]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Sequence Container\Import User\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Import User\Excel Source.Outputs[Excel Source Output].ExternalColumns[user_id]"
-                      lineageId="Package\Import User\Excel Source.Outputs[Excel Source Output].Columns[user_id]"
-                      name="user_id"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Import User\Excel Source.Outputs[Excel Source Output].Columns[products]"
-                      dataType="r8"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Import User\Excel Source.Outputs[Excel Source Output].ExternalColumns[products]"
-                      lineageId="Package\Import User\Excel Source.Outputs[Excel Source Output].Columns[products]"
-                      name="products"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Import User\Excel Source.Outputs[Excel Source Output].Columns[reviews]"
-                      dataType="r8"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Import User\Excel Source.Outputs[Excel Source Output].ExternalColumns[reviews]"
-                      lineageId="Package\Import User\Excel Source.Outputs[Excel Source Output].Columns[reviews]"
-                      name="reviews"
-                      truncationRowDisposition="FailComponent" />
-                  </outputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\Import User\Excel Source.Outputs[Excel Source Output].ExternalColumns[user_id]"
-                      dataType="r8"
-                      name="user_id" />
-                    <externalMetadataColumn
-                      refId="Package\Import User\Excel Source.Outputs[Excel Source Output].ExternalColumns[products]"
-                      dataType="r8"
-                      name="products" />
-                    <externalMetadataColumn
-                      refId="Package\Import User\Excel Source.Outputs[Excel Source Output].ExternalColumns[reviews]"
-                      dataType="r8"
-                      name="reviews" />
-                  </externalMetadataColumns>
-                </output>
-                <output
-                  refId="Package\Import User\Excel Source.Outputs[Excel Source Error Output]"
-                  isErrorOut="true"
-                  name="Excel Source Error Output">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Import User\Excel Source.Outputs[Excel Source Error Output].Columns[user_id]"
-                      dataType="r8"
-                      lineageId="Package\Import User\Excel Source.Outputs[Excel Source Error Output].Columns[user_id]"
-                      name="user_id" />
-                    <outputColumn
-                      refId="Package\Import User\Excel Source.Outputs[Excel Source Error Output].Columns[products]"
-                      dataType="r8"
-                      lineageId="Package\Import User\Excel Source.Outputs[Excel Source Error Output].Columns[products]"
-                      name="products" />
-                    <outputColumn
-                      refId="Package\Import User\Excel Source.Outputs[Excel Source Error Output].Columns[reviews]"
-                      dataType="r8"
-                      lineageId="Package\Import User\Excel Source.Outputs[Excel Source Error Output].Columns[reviews]"
-                      name="reviews" />
-                    <outputColumn
-                      refId="Package\Import User\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\Import User\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\Import User\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\Import User\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\Import User\OLE DB Destination"
-              componentClassID="Microsoft.OLEDBDestination"
-              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
-              description="OLE DB Destination"
-              name="OLE DB Destination"
-              usesDispositions="true"
-              version="4">
-              <properties>
-                <property
-                  dataType="System.Int32"
-                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
-                  name="CommandTimeout">0</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[dbo].[user]</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the variable that contains the name of the database object used to open a rowset."
-                  name="OpenRowsetVariable"></property>
-                <property
-                  dataType="System.String"
-                  description="The SQL command to be executed."
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the column code page to use when code page information is unavailable from the data source."
-                  name="DefaultCodePage">1252</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Forces the use of the DefaultCodePage property value when describing character data."
-                  name="AlwaysUseDefaultCodePage">false</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the mode used to access the database."
-                  name="AccessMode"
-                  typeConverter="AccessMode">3</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
-                  name="FastLoadKeepIdentity">false</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
-                  name="FastLoadKeepNulls">false</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
-                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
-                  name="FastLoadMaxInsertCommitSize">999999999</property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\Import User\OLE DB Destination.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[db-mssql.s15429 1]"
-                  connectionManagerRefId="Package.ConnectionManagers[db-mssql.s15429 1]"
-                  description="The OLE DB runtime connection used to access the database."
-                  name="OleDbConnection" />
-              </connections>
-              <inputs>
-                <input
-                  refId="Package\Import User\OLE DB Destination.Inputs[OLE DB Destination Input]"
-                  errorOrTruncationOperation="Insert"
-                  errorRowDisposition="FailComponent"
-                  hasSideEffects="true"
-                  name="OLE DB Destination Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\Import User\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[products]"
-                      cachedDataType="r8"
-                      cachedName="products"
-                      externalMetadataColumnId="Package\Import User\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[products]"
-                      lineageId="Package\Import User\Excel Source.Outputs[Excel Source Output].Columns[products]" />
-                    <inputColumn
-                      refId="Package\Import User\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[reviews]"
-                      cachedDataType="r8"
-                      cachedName="reviews"
-                      externalMetadataColumnId="Package\Import User\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[reviews]"
-                      lineageId="Package\Import User\Excel Source.Outputs[Excel Source Output].Columns[reviews]" />
-                    <inputColumn
-                      refId="Package\Import User\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[user_id]"
-                      cachedDataType="r8"
-                      cachedName="user_id"
-                      externalMetadataColumnId="Package\Import User\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[user_id_csv]"
-                      lineageId="Package\Import User\Excel Source.Outputs[Excel Source Output].Columns[user_id]" />
-                  </inputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\Import User\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[user_id_csv]"
-                      dataType="i4"
-                      name="user_id_csv" />
-                    <externalMetadataColumn
-                      refId="Package\Import User\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[products]"
-                      dataType="i4"
-                      name="products" />
-                    <externalMetadataColumn
-                      refId="Package\Import User\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[reviews]"
-                      dataType="i4"
-                      name="reviews" />
-                  </externalMetadataColumns>
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\Import User\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="OLE DB Destination Error Output"
-                  synchronousInputId="Package\Import User\OLE DB Destination.Inputs[OLE DB Destination Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Import User\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\Import User\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\Import User\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\Import User\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-          </components>
-          <paths>
-            <path
-              refId="Package\Import User.Paths[Excel Source Output]"
-              endId="Package\Import User\OLE DB Destination.Inputs[OLE DB Destination Input]"
-              name="Excel Source Output"
-              startId="Package\Import User\Excel Source.Outputs[Excel Source Output]" />
-          </paths>
-        </pipeline>
-      </DTS:ObjectData>
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Sequence Container\Import User\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[products]"
+                          cachedDataType="r8"
+                          cachedName="products"
+                          externalMetadataColumnId="Package\Sequence Container\Import User\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[products]"
+                          lineageId="Package\Sequence Container\Import User\Excel Source.Outputs[Excel Source Output].Columns[products]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Import User\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[reviews]"
+                          cachedDataType="r8"
+                          cachedName="reviews"
+                          externalMetadataColumnId="Package\Sequence Container\Import User\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[reviews]"
+                          lineageId="Package\Sequence Container\Import User\Excel Source.Outputs[Excel Source Output].Columns[reviews]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Import User\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[user_id]"
+                          cachedDataType="r8"
+                          cachedName="user_id"
+                          externalMetadataColumnId="Package\Sequence Container\Import User\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[user_id_csv]"
+                          lineageId="Package\Sequence Container\Import User\Excel Source.Outputs[Excel Source Output].Columns[user_id]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Import User\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[user_id_csv]"
+                          dataType="i4"
+                          name="user_id_csv" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Import User\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[products]"
+                          dataType="i4"
+                          name="products" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Import User\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[reviews]"
+                          dataType="i4"
+                          name="reviews" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\Import User\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Sequence Container\Import User\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Import User\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Import User\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Import User\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Import User\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Sequence Container\Import User.Paths[Excel Source Output]"
+                  endId="Package\Sequence Container\Import User\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  name="Excel Source Output"
+                  startId="Package\Sequence Container\Import User\Excel Source.Outputs[Excel Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
     </DTS:Executable>
   </DTS:Executables>
   <DTS:PrecedenceConstraints>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint]"
       DTS:CreationName=""
-      DTS:DTSID="{C9C30FAD-C883-48DC-BDD5-9E90F06128BF}"
+      DTS:DTSID="{14F22232-1336-4116-A53E-031D74B361DF}"
       DTS:From="Package\Create tables"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint"
-      DTS:To="Package\Import User" />
-    <DTS:PrecedenceConstraint
-      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
-      DTS:CreationName=""
-      DTS:DTSID="{FDF1764D-A496-4E58-9C65-982D56C922BE}"
-      DTS:From="Package\Import User"
-      DTS:LogicalAnd="True"
-      DTS:ObjectName="Constraint 1"
-      DTS:To="Package\Import Games" />
-    <DTS:PrecedenceConstraint
-      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
-      DTS:CreationName=""
-      DTS:DTSID="{30324908-77C9-49DB-9692-4A1BC8C33BEA}"
-      DTS:From="Package\Import Games"
-      DTS:LogicalAnd="True"
-      DTS:ObjectName="Constraint 2"
-      DTS:To="Package\Import Reviews" />
+      DTS:To="Package\Sequence Container" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -1481,77 +1477,40 @@
         <NodeLayout
           Size="141,42"
           Id="Package\Create tables"
-          TopLeft="144,112" />
+          TopLeft="657,48" />
         <NodeLayout
           Size="136,42"
-          Id="Package\Import User"
-          TopLeft="144,214" />
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="213.25,154">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60"
-              Start="0,0"
-              End="0,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          Id="Package\Sequence Container\Import User"
+          TopLeft="93,48" />
         <NodeLayout
           Size="146,42"
-          Id="Package\Import Games"
-          TopLeft="144,316" />
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="214.5,256">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60"
-              Start="0,0"
-              End="0,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          Id="Package\Sequence Container\Import Games"
+          TopLeft="90,120" />
         <NodeLayout
           Size="153,42"
-          Id="Package\Import Reviews"
-          TopLeft="144,418" />
+          Id="Package\Sequence Container\Import Reviews"
+          TopLeft="87,182" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="354,392"
+          Size="354,435"
+          Id="Package\Sequence Container"
+          TopLeft="548,182" />
         <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 2]"
-          TopLeft="218.75,358">
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="726.25,90">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,60"
+              EndConnector="0,92"
               Start="0,0"
-              End="0,52.5">
+              End="0,84.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,52.5" />
+                    End="0,84.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1564,58 +1523,20 @@
     </LayoutInfo>
   </Package>
   <TaskHost
-    design-time-name="Package\Import User">
+    design-time-name="Package\Sequence Container\Import Games">
     <LayoutInfo>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="171,42"
-          Id="Package\Import User\OLE DB Destination"
-          TopLeft="96,204" />
-        <NodeLayout
-          Size="139,42"
-          Id="Package\Import User\Excel Source"
-          TopLeft="105,57" />
-        <EdgeLayout
-          Id="Package\Import User.Paths[Excel Source Output]"
-          TopLeft="178,99">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,105"
-              Start="0,0"
-              End="0,97.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,97.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <TaskHost
-    design-time-name="Package\Import Games">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
-        <NodeLayout
-          Size="171,42"
-          Id="Package\Import Games\OLE DB Destination"
+          Id="Package\Sequence Container\Import Games\OLE DB Destination"
           TopLeft="168,256" />
         <NodeLayout
           Size="139,42"
-          Id="Package\Import Games\Excel Source"
+          Id="Package\Sequence Container\Import Games\Excel Source"
           TopLeft="189,126" />
         <EdgeLayout
-          Id="Package\Import Games.Paths[Excel Source Output]"
+          Id="Package\Sequence Container\Import Games.Paths[Excel Source Output]"
           TopLeft="256,168">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -1633,29 +1554,40 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sequence Container\Import Games\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <TaskHost
-    design-time-name="Package\Import Reviews">
+    design-time-name="Package\Sequence Container\Import Reviews">
     <LayoutInfo>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="171,42"
-          Id="Package\Import Reviews\OLE DB Destination"
+          Id="Package\Sequence Container\Import Reviews\OLE DB Destination"
           TopLeft="218,251" />
         <NodeLayout
           Size="139,42"
-          Id="Package\Import Reviews\Excel Source"
+          Id="Package\Sequence Container\Import Reviews\Excel Source"
           TopLeft="229,143" />
         <EdgeLayout
-          Id="Package\Import Reviews.Paths[Excel Source Output]"
+          Id="Package\Sequence Container\Import Reviews.Paths[Excel Source Output]"
           TopLeft="301,185">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -1676,6 +1608,44 @@
             <mssgm:EdgeLabel
               BoundingBox="0,0,0,0"
               RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <TaskHost
+    design-time-name="Package\Sequence Container\Import User">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="171,42"
+          Id="Package\Sequence Container\Import User\OLE DB Destination"
+          TopLeft="96,204" />
+        <NodeLayout
+          Size="139,42"
+          Id="Package\Sequence Container\Import User\Excel Source"
+          TopLeft="105,57" />
+        <EdgeLayout
+          Id="Package\Sequence Container\Import User.Paths[Excel Source Output]"
+          TopLeft="178,99">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,105"
+              Start="0,0"
+              End="0,97.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,97.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
