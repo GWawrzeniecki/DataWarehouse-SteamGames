@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="34"
-  DTS:VersionGUID="{B5097CE7-0C62-46CD-B918-DD29A686B90D}">
+  DTS:VersionBuild="38"
+  DTS:VersionGUID="{554434E5-D337-4021-A68D-BA90D162C1DE}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -63,6 +63,452 @@
         <SQLTask:SqlTaskData
           SQLTask:Connection="{52502F0B-6475-47BC-AC1B-09EB8AE3E208}"
           SQLTask:SqlStatementSource="IF OBJECT_ID('PopulateDimTime', 'P') IS NOT NULL&#xA;    DROP PROCEDURE PopulateDimTime;&#xA;GO&#xA;&#xA;CREATE PROCEDURE PopulateDimTime&#xA;AS&#xA;BEGIN&#xA;    SET NOCOUNT ON;&#xA;&#xA;    DECLARE @StartDate DATE = '1990-01-01';&#xA;    DECLARE @EndDate DATE = '2025-12-31';&#xA;&#xA;    ;WITH DateSeries AS (&#xA;        SELECT @StartDate AS date&#xA;        UNION ALL&#xA;        SELECT DATEADD(DAY, 1, date)&#xA;        FROM DateSeries&#xA;        WHERE date &lt; @EndDate&#xA;    )&#xA;    INSERT INTO dim_time (year, date)&#xA;    SELECT &#xA;        YEAR(date) AS year,&#xA;        date&#xA;    FROM DateSeries&#xA;    OPTION (MAXRECURSION 0);&#xA;END;&#xA;GO &#xA;&#xA;IF NOT EXISTS (SELECT 1 FROM dim_time)&#xA;BEGIN&#xA;    EXEC dbo.PopulateDimTime;&#xA;END;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Generate dim_game_features_history"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{8BC081BB-5F03-4B91-B4F6-CA16C015DE0A}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Generate dim_game_features_history"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Generate dim_game_features_history\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[dim_game_features_history]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Generate dim_game_features_history\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[db-mssql.s15429]"
+                  connectionManagerRefId="Package.ConnectionManagers[db-mssql.s15429]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Generate dim_game_features_history\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Generate dim_game_features_history\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[price]"
+                      cachedDataType="numeric"
+                      cachedName="price"
+                      cachedPrecision="6"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\Generate dim_game_features_history\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[price]"
+                      lineageId="Package\Generate dim_game_features_history\OLE DB Source.Outputs[OLE DB Source Output].Columns[price]" />
+                    <inputColumn
+                      refId="Package\Generate dim_game_features_history\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[discount_percentage]"
+                      cachedDataType="i4"
+                      cachedName="discount_percentage"
+                      externalMetadataColumnId="Package\Generate dim_game_features_history\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[discount_percentage]"
+                      lineageId="Package\Generate dim_game_features_history\OLE DB Source.Outputs[OLE DB Source Output].Columns[discount_percentage]" />
+                    <inputColumn
+                      refId="Package\Generate dim_game_features_history\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[rating]"
+                      cachedDataType="i4"
+                      cachedName="rating"
+                      externalMetadataColumnId="Package\Generate dim_game_features_history\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[rating]"
+                      lineageId="Package\Generate dim_game_features_history\OLE DB Source.Outputs[OLE DB Source Output].Columns[rating]" />
+                    <inputColumn
+                      refId="Package\Generate dim_game_features_history\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[date_from]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="date_from"
+                      externalMetadataColumnId="Package\Generate dim_game_features_history\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[date_from]"
+                      lineageId="Package\Generate dim_game_features_history\OLE DB Source.Outputs[OLE DB Source Output].Columns[date_from]" />
+                    <inputColumn
+                      refId="Package\Generate dim_game_features_history\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[date_to]"
+                      cachedDataType="i4"
+                      cachedName="date_to"
+                      externalMetadataColumnId="Package\Generate dim_game_features_history\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[date_to]"
+                      lineageId="Package\Generate dim_game_features_history\OLE DB Source.Outputs[OLE DB Source Output].Columns[date_to]" />
+                    <inputColumn
+                      refId="Package\Generate dim_game_features_history\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[is_active]"
+                      cachedDataType="i4"
+                      cachedName="is_active"
+                      externalMetadataColumnId="Package\Generate dim_game_features_history\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[is_active]"
+                      lineageId="Package\Generate dim_game_features_history\OLE DB Source.Outputs[OLE DB Source Output].Columns[is_active]" />
+                    <inputColumn
+                      refId="Package\Generate dim_game_features_history\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[game_feature_id]"
+                      cachedDataType="i4"
+                      cachedName="game_feature_id"
+                      externalMetadataColumnId="Package\Generate dim_game_features_history\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[game_feature_id]"
+                      lineageId="Package\Generate dim_game_features_history\OLE DB Source.Outputs[OLE DB Source Output].Columns[game_feature_id]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Generate dim_game_features_history\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[history_id]"
+                      dataType="i4"
+                      name="history_id" />
+                    <externalMetadataColumn
+                      refId="Package\Generate dim_game_features_history\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[price]"
+                      dataType="numeric"
+                      name="price"
+                      precision="6"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Generate dim_game_features_history\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[discount_percentage]"
+                      dataType="i4"
+                      name="discount_percentage" />
+                    <externalMetadataColumn
+                      refId="Package\Generate dim_game_features_history\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[rating]"
+                      dataType="i4"
+                      name="rating" />
+                    <externalMetadataColumn
+                      refId="Package\Generate dim_game_features_history\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[date_from]"
+                      dataType="dbDate"
+                      name="date_from" />
+                    <externalMetadataColumn
+                      refId="Package\Generate dim_game_features_history\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[date_to]"
+                      dataType="dbDate"
+                      name="date_to" />
+                    <externalMetadataColumn
+                      refId="Package\Generate dim_game_features_history\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[is_active]"
+                      dataType="bool"
+                      name="is_active" />
+                    <externalMetadataColumn
+                      refId="Package\Generate dim_game_features_history\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[game_feature_id]"
+                      dataType="i4"
+                      name="game_feature_id" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Generate dim_game_features_history\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Generate dim_game_features_history\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Generate dim_game_features_history\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Generate dim_game_features_history\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Generate dim_game_features_history\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Generate dim_game_features_history\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Generate dim_game_features_history\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT 
+    g.price_final AS price,
+    TRY_CAST(g.discount AS INT) AS discount_percentage, 
+    CASE 
+        WHEN LOWER(g.rating) = 'overwhelmingly positive' THEN 9
+        WHEN LOWER(g.rating) = 'very positive' THEN 8
+        WHEN LOWER(g.rating) = 'mostly positive' THEN 7
+        WHEN LOWER(g.rating) = 'positive' THEN 6
+        WHEN LOWER(g.rating) = 'mixed' THEN 5
+        WHEN LOWER(g.rating) = 'negative' THEN 4
+        WHEN LOWER(g.rating) = 'mostly negative' THEN 3
+        WHEN LOWER(g.rating) = 'very negative' THEN 2
+        WHEN LOWER(g.rating) = 'overwhelmingly negative' THEN 1
+        ELSE 0  
+    END AS rating,  
+    getdate() AS date_from,         
+    NULL AS date_to,      
+    1 AS is_active,       
+    gf.game_feature_id    
+FROM game g
+JOIN dim_game_features gf ON g.app_id = gf.staging_id;</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Generate dim_game_features_history\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[db-mssql.s15429]"
+                  connectionManagerRefId="Package.ConnectionManagers[db-mssql.s15429]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Generate dim_game_features_history\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Generate dim_game_features_history\OLE DB Source.Outputs[OLE DB Source Output].Columns[price]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Generate dim_game_features_history\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[price]"
+                      lineageId="Package\Generate dim_game_features_history\OLE DB Source.Outputs[OLE DB Source Output].Columns[price]"
+                      name="price"
+                      precision="6"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Generate dim_game_features_history\OLE DB Source.Outputs[OLE DB Source Output].Columns[discount_percentage]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Generate dim_game_features_history\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[discount_percentage]"
+                      lineageId="Package\Generate dim_game_features_history\OLE DB Source.Outputs[OLE DB Source Output].Columns[discount_percentage]"
+                      name="discount_percentage"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Generate dim_game_features_history\OLE DB Source.Outputs[OLE DB Source Output].Columns[rating]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Generate dim_game_features_history\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[rating]"
+                      lineageId="Package\Generate dim_game_features_history\OLE DB Source.Outputs[OLE DB Source Output].Columns[rating]"
+                      name="rating"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Generate dim_game_features_history\OLE DB Source.Outputs[OLE DB Source Output].Columns[date_from]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Generate dim_game_features_history\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[date_from]"
+                      lineageId="Package\Generate dim_game_features_history\OLE DB Source.Outputs[OLE DB Source Output].Columns[date_from]"
+                      name="date_from"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Generate dim_game_features_history\OLE DB Source.Outputs[OLE DB Source Output].Columns[date_to]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Generate dim_game_features_history\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[date_to]"
+                      lineageId="Package\Generate dim_game_features_history\OLE DB Source.Outputs[OLE DB Source Output].Columns[date_to]"
+                      name="date_to"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Generate dim_game_features_history\OLE DB Source.Outputs[OLE DB Source Output].Columns[is_active]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Generate dim_game_features_history\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[is_active]"
+                      lineageId="Package\Generate dim_game_features_history\OLE DB Source.Outputs[OLE DB Source Output].Columns[is_active]"
+                      name="is_active"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Generate dim_game_features_history\OLE DB Source.Outputs[OLE DB Source Output].Columns[game_feature_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Generate dim_game_features_history\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[game_feature_id]"
+                      lineageId="Package\Generate dim_game_features_history\OLE DB Source.Outputs[OLE DB Source Output].Columns[game_feature_id]"
+                      name="game_feature_id"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Generate dim_game_features_history\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[price]"
+                      dataType="numeric"
+                      name="price"
+                      precision="6"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Generate dim_game_features_history\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[discount_percentage]"
+                      dataType="i4"
+                      name="discount_percentage" />
+                    <externalMetadataColumn
+                      refId="Package\Generate dim_game_features_history\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[rating]"
+                      dataType="i4"
+                      name="rating" />
+                    <externalMetadataColumn
+                      refId="Package\Generate dim_game_features_history\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[date_from]"
+                      dataType="dbTimeStamp"
+                      name="date_from" />
+                    <externalMetadataColumn
+                      refId="Package\Generate dim_game_features_history\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[date_to]"
+                      dataType="i4"
+                      name="date_to" />
+                    <externalMetadataColumn
+                      refId="Package\Generate dim_game_features_history\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[is_active]"
+                      dataType="i4"
+                      name="is_active" />
+                    <externalMetadataColumn
+                      refId="Package\Generate dim_game_features_history\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[game_feature_id]"
+                      dataType="i4"
+                      name="game_feature_id" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Generate dim_game_features_history\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Generate dim_game_features_history\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[price]"
+                      dataType="numeric"
+                      lineageId="Package\Generate dim_game_features_history\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[price]"
+                      name="price"
+                      precision="6"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\Generate dim_game_features_history\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[discount_percentage]"
+                      dataType="i4"
+                      lineageId="Package\Generate dim_game_features_history\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[discount_percentage]"
+                      name="discount_percentage" />
+                    <outputColumn
+                      refId="Package\Generate dim_game_features_history\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[rating]"
+                      dataType="i4"
+                      lineageId="Package\Generate dim_game_features_history\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[rating]"
+                      name="rating" />
+                    <outputColumn
+                      refId="Package\Generate dim_game_features_history\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[date_from]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Generate dim_game_features_history\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[date_from]"
+                      name="date_from" />
+                    <outputColumn
+                      refId="Package\Generate dim_game_features_history\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[date_to]"
+                      dataType="i4"
+                      lineageId="Package\Generate dim_game_features_history\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[date_to]"
+                      name="date_to" />
+                    <outputColumn
+                      refId="Package\Generate dim_game_features_history\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[is_active]"
+                      dataType="i4"
+                      lineageId="Package\Generate dim_game_features_history\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[is_active]"
+                      name="is_active" />
+                    <outputColumn
+                      refId="Package\Generate dim_game_features_history\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[game_feature_id]"
+                      dataType="i4"
+                      lineageId="Package\Generate dim_game_features_history\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[game_feature_id]"
+                      name="game_feature_id" />
+                    <outputColumn
+                      refId="Package\Generate dim_game_features_history\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Generate dim_game_features_history\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Generate dim_game_features_history\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Generate dim_game_features_history\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Generate dim_game_features_history.Paths[OLE DB Source Output]"
+              endId="Package\Generate dim_game_features_history\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Generate dim_game_features_history\OLE DB Source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -1210,6 +1656,14 @@ where [refTable].[year] = ?</property>
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 2"
       DTS:To="Package\Generate dim_recommendation" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{5B12A3B7-C199-4380-9B1A-92363EC8AB52}"
+      DTS:From="Package\Generate dim_recommendation"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\Generate dim_game_features_history" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -1222,7 +1676,7 @@ where [refTable].[year] = ?</property>
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="141,42"
           Id="Package\Create tables"
@@ -1297,6 +1751,32 @@ where [refTable].[year] = ?</property>
                   Capacity="5">
                   <mssgle:LineSegment
                     End="0,48.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="256,42"
+          Id="Package\Generate dim_game_features_history"
+          TopLeft="228.5,443.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="357,385">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,58.5"
+              Start="0,0"
+              End="0,51">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,51" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1502,6 +1982,65 @@ where [refTable].[year] = ?</property>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Generate dim_recommendation\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Generate dim_game_features_history">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="150,42"
+          Id="Package\Generate dim_game_features_history\OLE DB Source"
+          TopLeft="255,150" />
+        <NodeLayout
+          Size="171,42"
+          Id="Package\Generate dim_game_features_history\OLE DB Destination"
+          TopLeft="244,270" />
+        <EdgeLayout
+          Id="Package\Generate dim_game_features_history.Paths[OLE DB Source Output]"
+          TopLeft="329.75,192">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,78"
+              Start="0,0"
+              End="0,70.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,70.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Generate dim_game_features_history\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Generate dim_game_features_history\OLE DB Destination">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
