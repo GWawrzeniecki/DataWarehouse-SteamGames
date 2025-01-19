@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="9"
-  DTS:VersionGUID="{B5DC5B8B-B603-456E-A4FE-4B14BF96ACC5}">
+  DTS:VersionBuild="21"
+  DTS:VersionGUID="{7148EC70-72CC-439E-BC8D-89EBF706005E}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -79,6 +79,317 @@
         <pipeline
           version="1">
           <components>
+            <component
+              refId="Package\Genereate dim_game_features\Derived Column"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Genereate dim_game_features\Derived Column.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Genereate dim_game_features\Derived Column.Inputs[Derived Column Input].Columns[win]"
+                      cachedDataType="wstr"
+                      cachedLength="5"
+                      cachedName="win"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Genereate dim_game_features\OLE DB Source.Outputs[OLE DB Source Output].Columns[win]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">#{Package\Genereate dim_game_features\OLE DB Source.Outputs[OLE DB Source Output].Columns[win]} == "True" ? 1 : 0</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">win == "True" ? 1 : 0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Genereate dim_game_features\Derived Column.Inputs[Derived Column Input].Columns[mac]"
+                      cachedDataType="wstr"
+                      cachedLength="5"
+                      cachedName="mac"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Genereate dim_game_features\OLE DB Source.Outputs[OLE DB Source Output].Columns[mac]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">#{Package\Genereate dim_game_features\OLE DB Source.Outputs[OLE DB Source Output].Columns[mac]} == "True" ? 1 : 0</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">mac == "True" ? 1 : 0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Genereate dim_game_features\Derived Column.Inputs[Derived Column Input].Columns[linux]"
+                      cachedDataType="wstr"
+                      cachedLength="5"
+                      cachedName="linux"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Genereate dim_game_features\OLE DB Source.Outputs[OLE DB Source Output].Columns[linux]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">#{Package\Genereate dim_game_features\OLE DB Source.Outputs[OLE DB Source Output].Columns[linux]} == "True" ? 1 : 0</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">linux == "True" ? 1 : 0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Genereate dim_game_features\Derived Column.Inputs[Derived Column Input].Columns[date_release]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="date_release"
+                      lineageId="Package\Genereate dim_game_features\OLE DB Source.Outputs[OLE DB Source Output].Columns[date_release]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Genereate dim_game_features\Derived Column.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Genereate dim_game_features\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Genereate dim_game_features\Derived Column.Outputs[Derived Column Output].Columns[year]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Genereate dim_game_features\Derived Column.Outputs[Derived Column Output].Columns[year]"
+                      name="year"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_I4)[SUBSTRING](#{Package\Genereate dim_game_features\OLE DB Source.Outputs[OLE DB Source Output].Columns[date_release]},1,4)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_I4)SUBSTRING(date_release,1,4)</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Genereate dim_game_features\Derived Column.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Genereate dim_game_features\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Genereate dim_game_features\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Genereate dim_game_features\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Genereate dim_game_features\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Genereate dim_game_features\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Genereate dim_game_features\Lookup"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Lookup"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[dim_time]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[dim_time]) [refTable]
+where [refTable].[year] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="time_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="year" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DATE" dataType="DT_DBDATE" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\Genereate dim_game_features\Derived Column.Outputs[Derived Column Output].Columns[year]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Genereate dim_game_features\Lookup.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[db-mssql.s15429]"
+                  connectionManagerRefId="Package.ConnectionManagers[db-mssql.s15429]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Genereate dim_game_features\Lookup.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Genereate dim_game_features\Lookup.Inputs[Lookup Input].Columns[year]"
+                      cachedDataType="i4"
+                      cachedName="year"
+                      lineageId="Package\Genereate dim_game_features\Derived Column.Outputs[Derived Column Output].Columns[year]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">year</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Genereate dim_game_features\Lookup.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\Genereate dim_game_features\Lookup.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Genereate dim_game_features\Lookup.Outputs[Lookup Match Output].Columns[time_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\Genereate dim_game_features\Lookup.Outputs[Lookup Match Output].Columns[time_id]"
+                      name="time_id"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">time_id</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Genereate dim_game_features\Lookup.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\Genereate dim_game_features\Lookup.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Genereate dim_game_features\Lookup.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\Genereate dim_game_features\Lookup.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Genereate dim_game_features\Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Genereate dim_game_features\Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Genereate dim_game_features\Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Genereate dim_game_features\Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
             <component
               refId="Package\Genereate dim_game_features\OLE DB Destination"
               componentClassID="Microsoft.OLEDBDestination"
@@ -164,6 +475,33 @@
                       cachedName="title"
                       externalMetadataColumnId="Package\Genereate dim_game_features\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[name]"
                       lineageId="Package\Genereate dim_game_features\OLE DB Source.Outputs[OLE DB Source Output].Columns[title]" />
+                    <inputColumn
+                      refId="Package\Genereate dim_game_features\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[win]"
+                      cachedDataType="wstr"
+                      cachedLength="5"
+                      cachedName="win"
+                      externalMetadataColumnId="Package\Genereate dim_game_features\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[is_windows]"
+                      lineageId="Package\Genereate dim_game_features\OLE DB Source.Outputs[OLE DB Source Output].Columns[win]" />
+                    <inputColumn
+                      refId="Package\Genereate dim_game_features\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[mac]"
+                      cachedDataType="wstr"
+                      cachedLength="5"
+                      cachedName="mac"
+                      externalMetadataColumnId="Package\Genereate dim_game_features\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[is_mac]"
+                      lineageId="Package\Genereate dim_game_features\OLE DB Source.Outputs[OLE DB Source Output].Columns[mac]" />
+                    <inputColumn
+                      refId="Package\Genereate dim_game_features\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[linux]"
+                      cachedDataType="wstr"
+                      cachedLength="5"
+                      cachedName="linux"
+                      externalMetadataColumnId="Package\Genereate dim_game_features\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[is_linux]"
+                      lineageId="Package\Genereate dim_game_features\OLE DB Source.Outputs[OLE DB Source Output].Columns[linux]" />
+                    <inputColumn
+                      refId="Package\Genereate dim_game_features\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[time_id]"
+                      cachedDataType="i4"
+                      cachedName="time_id"
+                      externalMetadataColumnId="Package\Genereate dim_game_features\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[release_year_id]"
+                      lineageId="Package\Genereate dim_game_features\Lookup.Outputs[Lookup Match Output].Columns[time_id]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -472,8 +810,18 @@
           </components>
           <paths>
             <path
-              refId="Package\Genereate dim_game_features.Paths[OLE DB Source Output]"
+              refId="Package\Genereate dim_game_features.Paths[Derived Column Output]"
+              endId="Package\Genereate dim_game_features\Lookup.Inputs[Lookup Input]"
+              name="Derived Column Output"
+              startId="Package\Genereate dim_game_features\Derived Column.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Genereate dim_game_features.Paths[Lookup Match Output]"
               endId="Package\Genereate dim_game_features\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Lookup Match Output"
+              startId="Package\Genereate dim_game_features\Lookup.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Genereate dim_game_features.Paths[OLE DB Source Output]"
+              endId="Package\Genereate dim_game_features\Derived Column.Inputs[Derived Column Input]"
               name="OLE DB Source Output"
               startId="Package\Genereate dim_game_features\OLE DB Source.Outputs[OLE DB Source Output]" />
           </paths>
@@ -574,7 +922,7 @@
     design-time-name="Package\Genereate dim_game_features">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="150,42"
           Id="Package\Genereate dim_game_features\OLE DB Source"
@@ -582,27 +930,81 @@
         <NodeLayout
           Size="171,42"
           Id="Package\Genereate dim_game_features\OLE DB Destination"
-          TopLeft="247,259" />
+          TopLeft="229,450" />
+        <NodeLayout
+          Size="154,42"
+          Id="Package\Genereate dim_game_features\Derived Column"
+          TopLeft="245,228" />
         <EdgeLayout
           Id="Package\Genereate dim_game_features.Paths[OLE DB Source Output]"
-          TopLeft="329.25,153">
+          TopLeft="324,153">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,106"
+              EndConnector="0,75"
               Start="0,0"
-              End="0,98.5">
+              End="0,67.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,98.5" />
+                    End="0,67.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="113,42"
+          Id="Package\Genereate dim_game_features\Lookup"
+          TopLeft="260,317" />
+        <EdgeLayout
+          Id="Package\Genereate dim_game_features.Paths[Derived Column Output]"
+          TopLeft="319.25,270">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,47"
+              Start="0,0"
+              End="0,39.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,39.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Genereate dim_game_features.Paths[Lookup Match Output]"
+          TopLeft="315.5,359">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,91"
+              Start="0,0"
+              End="0,83.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,83.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,35.9453125,96.3827734375,11.609375"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -631,6 +1033,29 @@
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Genereate dim_game_features\Lookup">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[dim_time]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
