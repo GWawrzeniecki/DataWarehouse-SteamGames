@@ -1,0 +1,638 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="1/19/2025 12:32:26 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="KOGUT"
+  DTS:CreatorName="KOGUT\grzeg"
+  DTS:DTSID="{1A153E67-540B-4B69-B2AE-9FB5B3FC1552}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5685.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="9"
+  DTS:VersionGUID="{B5DC5B8B-B603-456E-A4FE-4B14BF96ACC5}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[db-mssql.s15429]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{52502F0B-6475-47BC-AC1B-09EB8AE3E208}"
+      DTS:ObjectName="db-mssql.s15429">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=db-mssql;Initial Catalog=s15429;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{52502F0B-6475-47BC-AC1B-09EB8AE3E208}db-mssql.s15429;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Create tables"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{21E0CF55-5AAA-4B64-A8ED-4639DA57BB73}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Create tables"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{52502F0B-6475-47BC-AC1B-09EB8AE3E208}"
+          SQLTask:SqlStatementSource="--IF OBJECT_ID('dbo.dim_game_features_history', 'U') IS NOT NULL&#xA;--&#x9;DROP TABLE dbo.dim_game_features_history;&#xA;&#xA;--&#x9;IF OBJECT_ID('dbo.dim_recommendation', 'U') IS NOT NULL&#xA;--&#x9;DROP TABLE dbo.dim_recommendation;&#xA;&#xA;--&#x9;IF OBJECT_ID('dbo.fact_game', 'U') IS NOT NULL&#xA;--&#x9;DROP TABLE dbo.fact_game;&#xA;&#xA;&#xA;--&#x9;IF OBJECT_ID('dbo.dim_game_features', 'U') IS NOT NULL&#xA;--&#x9;DROP TABLE dbo.dim_game_features;&#xA;&#xA;--&#x9;IF OBJECT_ID('dbo.dim_time', 'U') IS NOT NULL&#xA;--&#x9;DROP TABLE dbo.dim_time;&#xA;&#xA;&#xA;&#xA;IF OBJECT_ID('dbo.dim_time', 'U') IS NULL&#xA;&#x9;CREATE TABLE dim_time (&#xA;&#x9;&#x9;time_id INT IDENTITY(1,1)  PRIMARY KEY&#xA;&#x9;&#x9;,year INT&#xA;&#x9;&#x9;,DATE DATE&#xA;&#x9;&#x9;);&#xA;&#xA;IF OBJECT_ID('dbo.dim_game_features', 'U') IS NULL&#xA;&#x9;CREATE TABLE dim_game_features (&#xA;&#x9;&#x9;game_feature_id INT IDENTITY(1,1)  PRIMARY KEY,&#xA;&#x9;&#x9;staging_id INT UNIQUE&#xA;&#x9;&#x9;,name NVARCHAR(500)&#xA;&#x9;&#x9;,is_windows BIT&#xA;&#x9;&#x9;,is_mac BIT&#xA;&#x9;&#x9;,is_linux BIT&#xA;&#x9;&#x9;,release_year_id INT&#xA;&#x9;&#x9;,FOREIGN KEY (release_year_id) REFERENCES dim_time(time_id)&#xA;&#x9;&#x9;);&#xA;&#xA;IF OBJECT_ID('dbo.fact_game', 'U') IS NULL&#xA;&#x9;CREATE TABLE fact_game (&#xA;&#x9;&#x9;game_feature_id INT IDENTITY(1,1)  PRIMARY KEY&#xA;&#x9;&#x9;,review_count INT&#xA;&#x9;&#x9;,FOREIGN KEY (game_feature_id) REFERENCES dim_game_features(game_feature_id)&#xA;&#x9;&#x9;);&#xA;&#xA;IF OBJECT_ID('dbo.dim_game_features_history', 'U') IS NULL&#xA;&#x9;CREATE TABLE dim_game_features_history (&#xA;&#x9;&#x9;history_id INT IDENTITY(1,1)  PRIMARY KEY&#xA;&#x9;&#x9;,price DECIMAL(6, 2)&#xA;&#x9;&#x9;,discount_percentage INT NULL&#xA;&#x9;&#x9;,rating INT&#xA;&#x9;&#x9;,date_from DATE&#xA;&#x9;&#x9;,date_to DATE NULL&#xA;&#x9;&#x9;,is_active BIT&#xA;&#x9;&#x9;,game_feature_id INT&#xA;&#x9;&#x9;,FOREIGN KEY (game_feature_id) REFERENCES dim_game_features(game_feature_id)&#xA;&#x9;&#x9;);&#xA;&#xA;IF OBJECT_ID('dbo.dim_recommendation', 'U') IS NULL&#xA;&#x9;CREATE TABLE dim_recommendation (&#xA;&#x9;&#x9;game_feature_id INT&#xA;&#x9;&#x9;,time_id INT&#xA;&#x9;&#x9;,is_recommended BIT&#xA;&#x9;&#x9;,hours_played DECIMAL(6, 2)&#xA;&#x9;&#x9;,PRIMARY KEY (&#xA;&#x9;&#x9;&#x9;game_feature_id&#xA;&#x9;&#x9;&#x9;,time_id&#xA;&#x9;&#x9;&#x9;)&#xA;&#x9;&#x9;,FOREIGN KEY (game_feature_id) REFERENCES dim_game_features(game_feature_id)&#xA;&#x9;&#x9;,FOREIGN KEY (time_id) REFERENCES dim_time(time_id)&#xA;&#x9;&#x9;);" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Fill dim_time"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{5C3EB266-1722-4011-934F-DDC9FDA8D818}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Fill dim_time"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{52502F0B-6475-47BC-AC1B-09EB8AE3E208}"
+          SQLTask:SqlStatementSource="IF OBJECT_ID('PopulateDimTime', 'P') IS NOT NULL&#xA;    DROP PROCEDURE PopulateDimTime;&#xA;GO&#xA;&#xA;&#xA;CREATE PROCEDURE PopulateDimTime&#xA;AS&#xA;BEGIN&#xA;    SET NOCOUNT ON;&#xA;&#xA;    DECLARE @StartDate DATE = '1990-01-01';&#xA;    DECLARE @EndDate DATE = '2025-12-31';&#xA;&#xA;    ;WITH DateSeries AS (&#xA;        SELECT @StartDate AS date&#xA;        UNION ALL&#xA;        SELECT DATEADD(DAY, 1, date)&#xA;        FROM DateSeries&#xA;        WHERE date &lt; @EndDate&#xA;    )&#xA;    INSERT INTO dim_time (year, date)&#xA;    SELECT &#xA;        YEAR(date) AS year,&#xA;        date&#xA;    FROM DateSeries&#xA;    OPTION (MAXRECURSION 0);&#xA;END;&#xA;&#xA;IF NOT EXISTS (SELECT 1 FROM dim_time)&#xA;    EXEC dbo.PopulateDimTime;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Genereate dim_game_features"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{3DA8F305-4940-472C-9593-8C963B61B263}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Genereate dim_game_features"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Genereate dim_game_features\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[dim_game_features]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Genereate dim_game_features\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[db-mssql.s15429]"
+                  connectionManagerRefId="Package.ConnectionManagers[db-mssql.s15429]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Genereate dim_game_features\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Genereate dim_game_features\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[app_id]"
+                      cachedDataType="i4"
+                      cachedName="app_id"
+                      externalMetadataColumnId="Package\Genereate dim_game_features\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[staging_id]"
+                      lineageId="Package\Genereate dim_game_features\OLE DB Source.Outputs[OLE DB Source Output].Columns[app_id]" />
+                    <inputColumn
+                      refId="Package\Genereate dim_game_features\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[title]"
+                      cachedDataType="wstr"
+                      cachedLength="500"
+                      cachedName="title"
+                      externalMetadataColumnId="Package\Genereate dim_game_features\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[name]"
+                      lineageId="Package\Genereate dim_game_features\OLE DB Source.Outputs[OLE DB Source Output].Columns[title]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Genereate dim_game_features\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[game_feature_id]"
+                      dataType="i4"
+                      name="game_feature_id" />
+                    <externalMetadataColumn
+                      refId="Package\Genereate dim_game_features\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[staging_id]"
+                      dataType="i4"
+                      name="staging_id" />
+                    <externalMetadataColumn
+                      refId="Package\Genereate dim_game_features\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[name]"
+                      dataType="wstr"
+                      length="500"
+                      name="name" />
+                    <externalMetadataColumn
+                      refId="Package\Genereate dim_game_features\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[is_windows]"
+                      dataType="bool"
+                      name="is_windows" />
+                    <externalMetadataColumn
+                      refId="Package\Genereate dim_game_features\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[is_mac]"
+                      dataType="bool"
+                      name="is_mac" />
+                    <externalMetadataColumn
+                      refId="Package\Genereate dim_game_features\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[is_linux]"
+                      dataType="bool"
+                      name="is_linux" />
+                    <externalMetadataColumn
+                      refId="Package\Genereate dim_game_features\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[release_year_id]"
+                      dataType="i4"
+                      name="release_year_id" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Genereate dim_game_features\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Genereate dim_game_features\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Genereate dim_game_features\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Genereate dim_game_features\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Genereate dim_game_features\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Genereate dim_game_features\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Genereate dim_game_features\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[game]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Genereate dim_game_features\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[db-mssql.s15429]"
+                  connectionManagerRefId="Package.ConnectionManagers[db-mssql.s15429]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Genereate dim_game_features\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Genereate dim_game_features\OLE DB Source.Outputs[OLE DB Source Output].Columns[app_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Genereate dim_game_features\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[app_id]"
+                      lineageId="Package\Genereate dim_game_features\OLE DB Source.Outputs[OLE DB Source Output].Columns[app_id]"
+                      name="app_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Genereate dim_game_features\OLE DB Source.Outputs[OLE DB Source Output].Columns[title]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Genereate dim_game_features\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[title]"
+                      length="500"
+                      lineageId="Package\Genereate dim_game_features\OLE DB Source.Outputs[OLE DB Source Output].Columns[title]"
+                      name="title"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Genereate dim_game_features\OLE DB Source.Outputs[OLE DB Source Output].Columns[date_release]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Genereate dim_game_features\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[date_release]"
+                      length="100"
+                      lineageId="Package\Genereate dim_game_features\OLE DB Source.Outputs[OLE DB Source Output].Columns[date_release]"
+                      name="date_release"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Genereate dim_game_features\OLE DB Source.Outputs[OLE DB Source Output].Columns[win]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Genereate dim_game_features\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[win]"
+                      length="5"
+                      lineageId="Package\Genereate dim_game_features\OLE DB Source.Outputs[OLE DB Source Output].Columns[win]"
+                      name="win"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Genereate dim_game_features\OLE DB Source.Outputs[OLE DB Source Output].Columns[mac]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Genereate dim_game_features\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[mac]"
+                      length="5"
+                      lineageId="Package\Genereate dim_game_features\OLE DB Source.Outputs[OLE DB Source Output].Columns[mac]"
+                      name="mac"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Genereate dim_game_features\OLE DB Source.Outputs[OLE DB Source Output].Columns[linux]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Genereate dim_game_features\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[linux]"
+                      length="5"
+                      lineageId="Package\Genereate dim_game_features\OLE DB Source.Outputs[OLE DB Source Output].Columns[linux]"
+                      name="linux"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Genereate dim_game_features\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[app_id]"
+                      dataType="i4"
+                      name="app_id" />
+                    <externalMetadataColumn
+                      refId="Package\Genereate dim_game_features\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[title]"
+                      dataType="wstr"
+                      length="500"
+                      name="title" />
+                    <externalMetadataColumn
+                      refId="Package\Genereate dim_game_features\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[date_release]"
+                      dataType="wstr"
+                      length="100"
+                      name="date_release" />
+                    <externalMetadataColumn
+                      refId="Package\Genereate dim_game_features\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[win]"
+                      dataType="wstr"
+                      length="5"
+                      name="win" />
+                    <externalMetadataColumn
+                      refId="Package\Genereate dim_game_features\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[mac]"
+                      dataType="wstr"
+                      length="5"
+                      name="mac" />
+                    <externalMetadataColumn
+                      refId="Package\Genereate dim_game_features\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[linux]"
+                      dataType="wstr"
+                      length="5"
+                      name="linux" />
+                    <externalMetadataColumn
+                      refId="Package\Genereate dim_game_features\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[rating]"
+                      dataType="wstr"
+                      length="255"
+                      name="rating" />
+                    <externalMetadataColumn
+                      refId="Package\Genereate dim_game_features\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[positive_ratio]"
+                      dataType="i4"
+                      name="positive_ratio" />
+                    <externalMetadataColumn
+                      refId="Package\Genereate dim_game_features\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[user_reviews]"
+                      dataType="i4"
+                      name="user_reviews" />
+                    <externalMetadataColumn
+                      refId="Package\Genereate dim_game_features\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[price_final]"
+                      dataType="numeric"
+                      name="price_final"
+                      precision="6"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Genereate dim_game_features\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[price_original]"
+                      dataType="numeric"
+                      name="price_original"
+                      precision="6"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Genereate dim_game_features\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[discount]"
+                      dataType="i4"
+                      name="discount" />
+                    <externalMetadataColumn
+                      refId="Package\Genereate dim_game_features\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[steam_deck]"
+                      dataType="wstr"
+                      length="5"
+                      name="steam_deck" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Genereate dim_game_features\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Genereate dim_game_features\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[app_id]"
+                      dataType="i4"
+                      lineageId="Package\Genereate dim_game_features\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[app_id]"
+                      name="app_id" />
+                    <outputColumn
+                      refId="Package\Genereate dim_game_features\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[title]"
+                      dataType="wstr"
+                      length="500"
+                      lineageId="Package\Genereate dim_game_features\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[title]"
+                      name="title" />
+                    <outputColumn
+                      refId="Package\Genereate dim_game_features\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[date_release]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\Genereate dim_game_features\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[date_release]"
+                      name="date_release" />
+                    <outputColumn
+                      refId="Package\Genereate dim_game_features\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[win]"
+                      dataType="wstr"
+                      length="5"
+                      lineageId="Package\Genereate dim_game_features\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[win]"
+                      name="win" />
+                    <outputColumn
+                      refId="Package\Genereate dim_game_features\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[mac]"
+                      dataType="wstr"
+                      length="5"
+                      lineageId="Package\Genereate dim_game_features\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[mac]"
+                      name="mac" />
+                    <outputColumn
+                      refId="Package\Genereate dim_game_features\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[linux]"
+                      dataType="wstr"
+                      length="5"
+                      lineageId="Package\Genereate dim_game_features\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[linux]"
+                      name="linux" />
+                    <outputColumn
+                      refId="Package\Genereate dim_game_features\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Genereate dim_game_features\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Genereate dim_game_features\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Genereate dim_game_features\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Genereate dim_game_features.Paths[OLE DB Source Output]"
+              endId="Package\Genereate dim_game_features\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Genereate dim_game_features\OLE DB Source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{013D37D7-12F1-4DB5-A439-14F3614E0CA1}"
+      DTS:From="Package\Create tables"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Fill dim_time" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{6F0D68B0-6B1A-4012-BF03-18D0B0F63B26}"
+      DTS:From="Package\Fill dim_time"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Genereate dim_game_features" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="141,42"
+          Id="Package\Create tables"
+          TopLeft="298.5,74.5" />
+        <NodeLayout
+          Size="139,42"
+          Id="Package\Fill dim_time"
+          TopLeft="296,152" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="367.25,116.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,35.5"
+              Start="0,0"
+              End="0,28">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="224,42"
+          Id="Package\Genereate dim_game_features"
+          TopLeft="246,245" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="361.75,194">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,51"
+              Start="0,0"
+              End="0,43.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,43.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Genereate dim_game_features">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="150,42"
+          Id="Package\Genereate dim_game_features\OLE DB Source"
+          TopLeft="251,111" />
+        <NodeLayout
+          Size="171,42"
+          Id="Package\Genereate dim_game_features\OLE DB Destination"
+          TopLeft="247,259" />
+        <EdgeLayout
+          Id="Package\Genereate dim_game_features.Paths[OLE DB Source Output]"
+          TopLeft="329.25,153">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,106"
+              Start="0,0"
+              End="0,98.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,98.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Genereate dim_game_features\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Genereate dim_game_features\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
