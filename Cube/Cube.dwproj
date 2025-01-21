@@ -8,17 +8,21 @@
   </Database>
   <Cubes>
     <ProjectItem>
-      <Name>s20439.cube</Name>
-      <FullPath>s20439.cube</FullPath>
+      <Name>DataSourceView.cube</Name>
+      <FullPath>DataSourceView.cube</FullPath>
       <Dependencies>
         <ProjectItem>
-          <Name>s20439.partitions</Name>
-          <FullPath>s20439.partitions</FullPath>
+          <Name>DataSourceView.partitions</Name>
+          <FullPath>DataSourceView.partitions</FullPath>
         </ProjectItem>
       </Dependencies>
     </ProjectItem>
   </Cubes>
   <Dimensions>
+    <ProjectItem>
+      <Name>Dim Time.dim</Name>
+      <FullPath>Dim Time.dim</FullPath>
+    </ProjectItem>
     <ProjectItem>
       <Name>Dim Game Features.dim</Name>
       <FullPath>Dim Game Features.dim</FullPath>
@@ -28,8 +32,8 @@
       <FullPath>Dim Game Features History.dim</FullPath>
     </ProjectItem>
     <ProjectItem>
-      <Name>Dim Time.dim</Name>
-      <FullPath>Dim Time.dim</FullPath>
+      <Name>Dim Recommendation.dim</Name>
+      <FullPath>Dim Recommendation.dim</FullPath>
     </ProjectItem>
   </Dimensions>
   <DataSources>
@@ -40,16 +44,10 @@
   </DataSources>
   <DataSourceViews>
     <ProjectItem>
-      <Name>s20439.dsv</Name>
-      <FullPath>s20439.dsv</FullPath>
+      <Name>DataSourceView.dsv</Name>
+      <FullPath>DataSourceView.dsv</FullPath>
     </ProjectItem>
   </DataSourceViews>
-  <Roles>
-    <ProjectItem>
-      <Name>Role.role</Name>
-      <FullPath>Role.role</FullPath>
-    </ProjectItem>
-  </Roles>
   <Configurations>
     <Configuration>
       <Name>Development</Name>
