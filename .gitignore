@@ -367,3 +367,5 @@ FodyWeavers.xsd
 /games_metadata.json
 /recommendations.xlsx
 /users.xlsx
+/games_excel.xlsx
+*.xlsx
