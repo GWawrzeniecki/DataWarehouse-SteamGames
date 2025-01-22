@@ -361,3 +361,9 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/games.xlsx
+/games_metadata.json
+/recommendations.xlsx
+/users.xlsx
+/games_excel.xlsx
+*.xlsx

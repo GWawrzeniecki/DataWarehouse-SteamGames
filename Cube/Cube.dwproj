@@ -6,10 +6,61 @@
     <Name>Cube.database</Name>
     <FullPath>Cube.database</FullPath>
   </Database>
+  <Cubes>
+    <ProjectItem>
+      <Name>s20439.cube</Name>
+      <FullPath>s20439.cube</FullPath>
+      <Dependencies>
+        <ProjectItem>
+          <Name>s20439.partitions</Name>
+          <FullPath>s20439.partitions</FullPath>
+        </ProjectItem>
+      </Dependencies>
+    </ProjectItem>
+  </Cubes>
+  <Dimensions>
+    <ProjectItem>
+      <Name>Dim Game Features 1.dim</Name>
+      <FullPath>Dim Game Features 1.dim</FullPath>
+    </ProjectItem>
+  </Dimensions>
+  <DataSources>
+    <ProjectItem>
+      <Name>s20439.ds</Name>
+      <FullPath>s20439.ds</FullPath>
+    </ProjectItem>
+  </DataSources>
+  <DataSourceViews>
+    <ProjectItem>
+      <Name>s20439.dsv</Name>
+      <FullPath>s20439.dsv</FullPath>
+    </ProjectItem>
+  </DataSourceViews>
+  <Roles>
+    <ProjectItem>
+      <Name>Role.role</Name>
+      <FullPath>Role.role</FullPath>
+    </ProjectItem>
+  </Roles>
   <Configurations>
     <Configuration>
       <Name>Development</Name>
-      <Options />
+      <Options>
+        <ConnectionMappings>
+          <ConfigurationSetting>
+            <Id>s20439</Id>
+            <Name>s20439</Name>
+            <Value xsi:type="xsd:string">Provider=SQLOLEDB.1;Data Source=db-mssql;Integrated Security=SSPI;Initial Catalog=s20439</Value>
+          </ConfigurationSetting>
+        </ConnectionMappings>
+        <ConnectionSecurityMappings>
+          <ConfigurationSetting>
+            <Id>s20439</Id>
+            <Name>s20439</Name>
+            <Value xsi:type="xsd:int">0</Value>
+          </ConfigurationSetting>
+        </ConnectionSecurityMappings>
+      </Options>
     </Configuration>
   </Configurations>
 </Project>
