@@ -361,8 +361,6 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
-/ETL/ETL.dtproj
-/ETL/ImportStaging.dtsx
 /games.xlsx
 /games_metadata.json
 /recommendations.xlsx
