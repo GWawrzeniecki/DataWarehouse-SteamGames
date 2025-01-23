@@ -20,14 +20,26 @@
   </Cubes>
   <Dimensions>
     <ProjectItem>
-      <Name>Dim Game Features 1.dim</Name>
-      <FullPath>Dim Game Features 1.dim</FullPath>
+      <Name>Dim Game Features.dim</Name>
+      <FullPath>Dim Game Features.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Dim Game Features History.dim</Name>
+      <FullPath>Dim Game Features History.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Dim Recommendation.dim</Name>
+      <FullPath>Dim Recommendation.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Dim Time.dim</Name>
+      <FullPath>Dim Time.dim</FullPath>
     </ProjectItem>
   </Dimensions>
   <DataSources>
     <ProjectItem>
-      <Name>s20439.ds</Name>
-      <FullPath>s20439.ds</FullPath>
+      <Name>DataSource.ds</Name>
+      <FullPath>DataSource.ds</FullPath>
     </ProjectItem>
   </DataSources>
   <DataSourceViews>
@@ -48,15 +60,15 @@
       <Options>
         <ConnectionMappings>
           <ConfigurationSetting>
-            <Id>s20439</Id>
-            <Name>s20439</Name>
+            <Id>DataSource</Id>
+            <Name>DataSource</Name>
             <Value xsi:type="xsd:string">Provider=SQLOLEDB.1;Data Source=db-mssql;Integrated Security=SSPI;Initial Catalog=s20439</Value>
           </ConfigurationSetting>
         </ConnectionMappings>
         <ConnectionSecurityMappings>
           <ConfigurationSetting>
-            <Id>s20439</Id>
-            <Name>s20439</Name>
+            <Id>DataSource</Id>
+            <Name>DataSource</Name>
             <Value xsi:type="xsd:int">0</Value>
           </ConfigurationSetting>
         </ConnectionSecurityMappings>
