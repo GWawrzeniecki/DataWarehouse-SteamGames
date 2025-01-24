@@ -1,4 +1,4 @@
-﻿<Cube xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="685b742a-4188-4086-a500-998414eb03ac" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+﻿<Cube xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="75742532-a7c6-45d8-938b-52de0f1439d4" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
   <ID>s15429</ID>
   <Name>s15429</Name>
   <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
@@ -43,37 +43,37 @@
   <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
   <State>Unprocessed</State>
   <Dimensions>
-    <Dimension dwd:design-time-name="a623626a-5746-490a-bdc0-d21f0e0aeecb">
+    <Dimension dwd:design-time-name="6e797351-3610-4c7f-a8cf-cff0d2e472c5">
       <ID>Dim Game Features - s15429</ID>
       <Name>Dim Game Features - s15429</Name>
       <DimensionID>Dim Game Features - s15429</DimensionID>
       <Attributes>
-        <Attribute dwd:design-time-name="d61e4f6b-5972-40c6-ad4d-670d2713908d">
+        <Attribute dwd:design-time-name="e39a9c75-d540-41a0-8cc6-a78ab0d95db3">
           <AttributeID>Game Feature Id</AttributeID>
         </Attribute>
-        <Attribute dwd:design-time-name="b6d12957-e8a2-4ed2-a9ec-49acee3cd9bc">
+        <Attribute dwd:design-time-name="bb11d0ab-4ecf-4ccd-8149-9d42da84a73d">
           <AttributeID>Staging Id</AttributeID>
         </Attribute>
-        <Attribute dwd:design-time-name="dfcac391-cbe1-43db-a954-e635fa15d926">
+        <Attribute dwd:design-time-name="281e391e-db91-4e68-a016-c34938d6c3ad">
           <AttributeID>Name</AttributeID>
         </Attribute>
-        <Attribute dwd:design-time-name="2e04db3e-9cae-4bbb-94f7-431c92b107a9">
+        <Attribute dwd:design-time-name="e4ac9cb0-786b-49a5-862d-17ef4f47d212">
           <AttributeID>Is Windows</AttributeID>
         </Attribute>
-        <Attribute dwd:design-time-name="503c0c1b-8ee5-48a7-a7b5-469595baf5bf">
+        <Attribute dwd:design-time-name="f4d7ed24-15e3-4299-8689-f8c6eedf6da4">
           <AttributeID>Is Mac</AttributeID>
         </Attribute>
-        <Attribute dwd:design-time-name="ceb073f8-b890-4518-978b-4e4855c2f667">
+        <Attribute dwd:design-time-name="daf8cade-9ca6-4995-bc05-04a10ce778de">
           <AttributeID>Is Linux</AttributeID>
         </Attribute>
-        <Attribute dwd:design-time-name="36fdca0a-1c09-4b93-b882-94520f23a555">
+        <Attribute dwd:design-time-name="d3d39ce5-8be8-4b66-baee-c33b4684b741">
           <AttributeID>Time Id</AttributeID>
         </Attribute>
       </Attributes>
     </Dimension>
   </Dimensions>
   <MeasureGroups>
-    <MeasureGroup dwd:design-time-name="69dea670-949b-4bc5-a239-b2d8adf9f605">
+    <MeasureGroup dwd:design-time-name="a6287af7-0765-4864-aa91-04e68a11d97f">
       <ID>Fact Game</ID>
       <Name>Fact Game</Name>
       <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
@@ -81,25 +81,25 @@
       <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
       <State>Unprocessed</State>
       <Measures>
-        <Measure dwd:design-time-name="927cc49e-87ca-40fd-8009-8bf1705ab702">
+        <Measure dwd:design-time-name="1742e6dd-5408-4d14-94b4-50ab834fcaee">
           <ID>Review Count</ID>
           <Name>Review Count</Name>
-          <Source dwd:design-time-name="8c9619d2-2b8b-4480-b1ec-28bb02830572">
+          <Source dwd:design-time-name="c64a209f-7265-4764-9ca0-1c9f22fcd104">
             <DataType>Integer</DataType>
-            <Source xsi:type="ColumnBinding" dwd:design-time-name="40f1f59b-2877-461c-a55f-58d7d76119b5">
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="60ded1c3-fe45-4f15-b260-ca0b218e7c1a">
               <TableID>dbo_fact_game</TableID>
               <ColumnID>review_count</ColumnID>
             </Source>
           </Source>
         </Measure>
-        <Measure dwd:design-time-name="676ac300-147a-4307-8352-9174e7735ce2">
+        <Measure dwd:design-time-name="1b225e6f-597e-4d59-a73e-6041a2d4ef4d">
           <ID>Fact Game Count</ID>
           <Name>Fact Game Count</Name>
           <AggregateFunction>Count</AggregateFunction>
-          <Source dwd:design-time-name="68abb79e-ce82-4027-a29f-b2cd8ab3dc69">
+          <Source dwd:design-time-name="b4e748e3-e45b-4fc1-8606-69f1d9a3ff00">
             <DataType>Integer</DataType>
             <DataSize>4</DataSize>
-            <Source xsi:type="RowBinding" dwd:design-time-name="19e910f5-409f-4ccf-b4b3-422e7abe340a">
+            <Source xsi:type="RowBinding" dwd:design-time-name="5b78493e-ee89-4cd9-99f3-523afe9002ba">
               <TableID>dbo_fact_game</TableID>
             </Source>
           </Source>
@@ -108,15 +108,15 @@
       <StorageMode>Molap</StorageMode>
       <ProcessingMode>Regular</ProcessingMode>
       <Dimensions>
-        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="722e4834-89c8-4835-82c9-4feb2a62421f">
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="eec364b7-20fd-4635-8ac7-a8b23e1919e8">
           <CubeDimensionID>Dim Game Features - s15429</CubeDimensionID>
           <Attributes>
-            <Attribute dwd:design-time-name="17279587-6952-4e4d-9b16-32f409ef4f51">
+            <Attribute dwd:design-time-name="a762f9a9-cb0e-4fa4-8399-c3790f1e52d6">
               <AttributeID>Game Feature Id</AttributeID>
               <KeyColumns>
-                <KeyColumn dwd:design-time-name="f2178a57-a01c-4d8a-8cee-1d0012715a4d">
+                <KeyColumn dwd:design-time-name="04ef6746-1ba2-4969-b2fe-a9dd9e639a04">
                   <DataType>Integer</DataType>
-                  <Source xsi:type="ColumnBinding" dwd:design-time-name="5709feae-df25-430b-9187-f4d1ffc91df3">
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="24d97d76-ab9f-447f-9ada-568d6b8c16e4">
                     <TableID>dbo_fact_game</TableID>
                     <ColumnID>game_feature_id</ColumnID>
                   </Source>
@@ -130,7 +130,7 @@
       <Partitions />
     </MeasureGroup>
   </MeasureGroups>
-  <Source dwd:design-time-name="6fa5d31d-67d9-4c33-a38b-8e939cd23417">
+  <Source dwd:design-time-name="1493bbde-0369-4d05-9a80-dd7ebf3e1e15">
     <DataSourceViewID>s15429</DataSourceViewID>
   </Source>
 </Cube>
