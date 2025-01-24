@@ -62,7 +62,7 @@
           <ConfigurationSetting>
             <Id>s15429</Id>
             <Name>s15429</Name>
-            <Value xsi:type="xsd:string">Provider=MSOLEDBSQL.1;Data Source=db-mssql;Integrated Security=SSPI;Initial Catalog=s15429</Value>
+            <Value xsi:type="xsd:string">Provider=SQLOLEDB.1;Data Source=db-mssql;Integrated Security=SSPI;Initial Catalog=s15429</Value>
           </ConfigurationSetting>
         </ConnectionMappings>
         <ConnectionSecurityMappings>
