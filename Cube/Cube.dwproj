@@ -17,6 +17,16 @@
         </ProjectItem>
       </Dependencies>
     </ProjectItem>
+    <ProjectItem>
+      <Name>s15429.cube</Name>
+      <FullPath>s15429.cube</FullPath>
+      <Dependencies>
+        <ProjectItem>
+          <Name>s15429.partitions</Name>
+          <FullPath>s15429.partitions</FullPath>
+        </ProjectItem>
+      </Dependencies>
+    </ProjectItem>
   </Cubes>
   <Dimensions>
     <ProjectItem>
@@ -35,17 +45,41 @@
       <Name>Dim Time.dim</Name>
       <FullPath>Dim Time.dim</FullPath>
     </ProjectItem>
+    <ProjectItem>
+      <Name>Dim Game Features - s15429.dim</Name>
+      <FullPath>Dim Game Features - s15429.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Dim Game Features History - s15429.dim</Name>
+      <FullPath>Dim Game Features History - s15429.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Dim Time - s15429.dim</Name>
+      <FullPath>Dim Time - s15429.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Dim Recommendation - s15429.dim</Name>
+      <FullPath>Dim Recommendation - s15429.dim</FullPath>
+    </ProjectItem>
   </Dimensions>
   <DataSources>
     <ProjectItem>
       <Name>DataSource.ds</Name>
       <FullPath>DataSource.ds</FullPath>
     </ProjectItem>
+    <ProjectItem>
+      <Name>s15429.ds</Name>
+      <FullPath>s15429.ds</FullPath>
+    </ProjectItem>
   </DataSources>
   <DataSourceViews>
     <ProjectItem>
       <Name>s20439.dsv</Name>
       <FullPath>s20439.dsv</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>s15429.dsv</Name>
+      <FullPath>s15429.dsv</FullPath>
     </ProjectItem>
   </DataSourceViews>
   <Roles>
@@ -64,11 +98,21 @@
             <Name>DataSource</Name>
             <Value xsi:type="xsd:string">Provider=SQLOLEDB.1;Data Source=db-mssql;Integrated Security=SSPI;Initial Catalog=s20439</Value>
           </ConfigurationSetting>
+          <ConfigurationSetting>
+            <Id>s15429</Id>
+            <Name>s15429</Name>
+            <Value xsi:type="xsd:string">Provider=MSOLEDBSQL.1;Data Source=db-mssql;Integrated Security=SSPI;Initial Catalog=s15429</Value>
+          </ConfigurationSetting>
         </ConnectionMappings>
         <ConnectionSecurityMappings>
           <ConfigurationSetting>
             <Id>DataSource</Id>
             <Name>DataSource</Name>
+            <Value xsi:type="xsd:int">0</Value>
+          </ConfigurationSetting>
+          <ConfigurationSetting>
+            <Id>s15429</Id>
+            <Name>s15429</Name>
             <Value xsi:type="xsd:int">0</Value>
           </ConfigurationSetting>
         </ConnectionSecurityMappings>

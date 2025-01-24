@@ -1,0 +1,200 @@
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="f967c519-ac39-4d4d-84a5-c92b426f18f9" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>Dim Game Features - s15429</ID>
+  <Name>Dim Game Features - s15429</Name>
+  <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+  <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowRelationshipNames</Name>
+      <Value>false</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:UseDiagramDefaultLayout</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
+      <Value>100</Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+  <State>Unprocessed</State>
+  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="d5b97728-73e7-477f-b996-8c3ebe82dcd1">
+    <DataSourceViewID>s15429</DataSourceViewID>
+  </Source>
+  <UnknownMember>Visible</UnknownMember>
+  <ErrorConfiguration dwd:design-time-name="82d61b84-6454-42ce-819d-b69e4816e7ef">
+    <KeyNotFound>ReportAndStop</KeyNotFound>
+    <KeyDuplicate>ReportAndStop</KeyDuplicate>
+    <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+  </ErrorConfiguration>
+  <CurrentStorageMode>Molap</CurrentStorageMode>
+  <Attributes>
+    <Attribute dwd:design-time-name="bb6441e7-b75a-4660-ac3f-e48f1f72140c">
+      <ID>Game Feature Id</ID>
+      <Name>Game Feature Id</Name>
+      <Usage>Key</Usage>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="56d68b6c-1db1-4d1a-a676-6cf3246a1a59">
+          <DataType>Integer</DataType>
+          <NullProcessing>UnknownMember</NullProcessing>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="eee3d5ef-e6f7-406f-904a-fb885adeb7ab">
+            <TableID>dbo_dim_game_features</TableID>
+            <ColumnID>game_feature_id</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="4bf412c3-bec8-41e7-8501-dd78f50182f1">
+          <AttributeID>Staging Id</AttributeID>
+          <Name>Staging Id</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="fa769400-ba75-4bc7-b9c0-8f41e277cf0d">
+          <AttributeID>Name</AttributeID>
+          <Name>Name_</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="af94e848-3f22-4d7d-8b01-342432d66e93">
+          <AttributeID>Is Windows</AttributeID>
+          <Name>Is Windows</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="38ddf21a-d6b7-414c-a4f5-b19342d3b2e1">
+          <AttributeID>Is Mac</AttributeID>
+          <Name>Is Mac</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="7b5a4bc7-6ed0-43f6-8a8f-515ecbfb3f86">
+          <AttributeID>Is Linux</AttributeID>
+          <Name>Is Linux</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="15e5c5d5-d7ec-4339-8898-8a6a8dadba0e">
+          <AttributeID>Time Id</AttributeID>
+          <Name>Time Id</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="0af4e4b1-3676-4647-8f01-d7d2724258c7">
+      <ID>Staging Id</ID>
+      <Name>Staging Id</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="b61a64b5-edde-4dd2-84b0-5018501ec4f7">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="29b81ee7-823b-4498-840c-031e1ce27cec">
+            <TableID>dbo_dim_game_features</TableID>
+            <ColumnID>staging_id</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="7ec2dcbc-7d2f-408e-89bd-2bbc3f3b3046">
+      <ID>Name</ID>
+      <Name>Name</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="4fbe56a9-5e7c-4a18-b2d0-7e9b7710d169">
+          <DataType>WChar</DataType>
+          <DataSize>500</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="192f6de9-b485-4d94-87b4-8e1da3f88846">
+            <TableID>dbo_dim_game_features</TableID>
+            <ColumnID>name</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="195739ab-e2e7-40d5-b8dd-d10c38ff8c6d">
+      <ID>Is Windows</ID>
+      <Name>Is Windows</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="bc71a27d-8ca0-43ec-8192-ce92a9364ad8">
+          <DataType>Boolean</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="bac68906-9be3-436e-bc89-43d658e0aeb8">
+            <TableID>dbo_dim_game_features</TableID>
+            <ColumnID>is_windows</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="1fc75b60-26cc-4137-abc7-ece515d3b2e9">
+      <ID>Is Mac</ID>
+      <Name>Is Mac</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="416cadb7-7f4a-4c5b-a34c-ea1bc4a4c553">
+          <DataType>Boolean</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="2b61c556-a241-4f35-aebf-db76877c0618">
+            <TableID>dbo_dim_game_features</TableID>
+            <ColumnID>is_mac</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="d4c9ed9b-54fd-499c-b215-968707330b77">
+      <ID>Is Linux</ID>
+      <Name>Is Linux</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="2c94ad46-cb7a-48f6-8660-abd253269367">
+          <DataType>Boolean</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="623fab05-f946-4079-9501-deeaee1b84cd">
+            <TableID>dbo_dim_game_features</TableID>
+            <ColumnID>is_linux</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="20aafb39-1511-4857-8f1f-8d60d7354567">
+      <ID>Time Id</ID>
+      <Name>Time Id</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="5096aebb-6774-4cfd-8df8-3edd05632573">
+          <DataType>Integer</DataType>
+          <NullProcessing>UnknownMember</NullProcessing>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="10de7c21-359e-4b17-bff2-1169ec9576be">
+            <TableID>dbo_dim_time</TableID>
+            <ColumnID>time_id</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+  </Attributes>
+  <ddl300:ProcessingState>Unprocessed</ddl300:ProcessingState>
+</Dimension>
