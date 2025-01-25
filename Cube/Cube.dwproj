@@ -8,32 +8,44 @@
   </Database>
   <Cubes>
     <ProjectItem>
-      <Name>s20439.cube</Name>
-      <FullPath>s20439.cube</FullPath>
+      <Name>s21568.cube</Name>
+      <FullPath>s21568.cube</FullPath>
       <Dependencies>
         <ProjectItem>
-          <Name>s20439.partitions</Name>
-          <FullPath>s20439.partitions</FullPath>
+          <Name>s21568.partitions</Name>
+          <FullPath>s21568.partitions</FullPath>
         </ProjectItem>
       </Dependencies>
     </ProjectItem>
   </Cubes>
   <Dimensions>
     <ProjectItem>
-      <Name>Dim Game Features.dim</Name>
-      <FullPath>Dim Game Features.dim</FullPath>
+      <Name>Dim Game Discount.dim</Name>
+      <FullPath>Dim Game Discount.dim</FullPath>
     </ProjectItem>
     <ProjectItem>
-      <Name>Dim Game Features History.dim</Name>
-      <FullPath>Dim Game Features History.dim</FullPath>
+      <Name>Dim Game Platform.dim</Name>
+      <FullPath>Dim Game Platform.dim</FullPath>
     </ProjectItem>
     <ProjectItem>
-      <Name>Dim Recommendation.dim</Name>
-      <FullPath>Dim Recommendation.dim</FullPath>
+      <Name>Dim Opinion.dim</Name>
+      <FullPath>Dim Opinion.dim</FullPath>
     </ProjectItem>
     <ProjectItem>
-      <Name>Dim Time.dim</Name>
-      <FullPath>Dim Time.dim</FullPath>
+      <Name>Dim Game Price.dim</Name>
+      <FullPath>Dim Game Price.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Dim Game Time.dim</Name>
+      <FullPath>Dim Game Time.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Dim Game Rating.dim</Name>
+      <FullPath>Dim Game Rating.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Dim Game Name.dim</Name>
+      <FullPath>Dim Game Name.dim</FullPath>
     </ProjectItem>
   </Dimensions>
   <DataSources>
@@ -44,16 +56,10 @@
   </DataSources>
   <DataSourceViews>
     <ProjectItem>
-      <Name>s20439.dsv</Name>
-      <FullPath>s20439.dsv</FullPath>
+      <Name>s21568.dsv</Name>
+      <FullPath>s21568.dsv</FullPath>
     </ProjectItem>
   </DataSourceViews>
-  <Roles>
-    <ProjectItem>
-      <Name>Role.role</Name>
-      <FullPath>Role.role</FullPath>
-    </ProjectItem>
-  </Roles>
   <Configurations>
     <Configuration>
       <Name>Development</Name>
@@ -62,7 +68,7 @@
           <ConfigurationSetting>
             <Id>DataSource</Id>
             <Name>DataSource</Name>
-            <Value xsi:type="xsd:string">Provider=SQLOLEDB.1;Data Source=db-mssql;Integrated Security=SSPI;Initial Catalog=s20439</Value>
+            <Value xsi:type="xsd:string">Provider=SQLOLEDB.1;Data Source=DESKTOP-PNDN2SO\SQLEXPRESS;Integrated Security=SSPI;Initial Catalog=s21568</Value>
           </ConfigurationSetting>
         </ConnectionMappings>
         <ConnectionSecurityMappings>
