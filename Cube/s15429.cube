@@ -1,4 +1,4 @@
-﻿<Cube xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="126774d8-cec8-4df8-a128-64f0b8aa965c" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+﻿<Cube xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="a4db6751-88c4-46f4-acb7-b4961a638766" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
   <ID>s15429</ID>
   <Name>s15429</Name>
   <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
@@ -8,7 +8,7 @@
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
       <Value>
         <dds xmlns="">
-          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="22" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-3467" scrolltop="-6084" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="100" x="62151" y="29739" backcolor="2039583" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="0" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="22" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-3467" scrolltop="-6084" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="100" x="62151" y="21722" backcolor="2039583" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="0" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
             <font>
               <ddsxmlobjectstreamwrapper binary="01000000900144420100065461686f6d61" />
             </font>
@@ -213,114 +213,114 @@
   <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
   <State>Unprocessed</State>
   <Dimensions>
-    <Dimension dwd:design-time-name="f0480f5a-21e5-4a22-8b26-62a29957db69">
+    <Dimension dwd:design-time-name="ae603058-ceef-4476-9bce-c739450325d6">
       <ID>Dim Game Features - s15429</ID>
       <Name>Dim Game Features - s15429</Name>
       <DimensionID>Dim Game Features - s15429</DimensionID>
       <Attributes>
-        <Attribute dwd:design-time-name="405f7c03-2bd6-423b-b1c2-e1e4e588e7fd">
+        <Attribute dwd:design-time-name="70b9f2b9-cb87-469f-8ca9-9923b49cf392">
           <AttributeID>Game Feature Id</AttributeID>
         </Attribute>
-        <Attribute dwd:design-time-name="3c2b3926-c55a-492a-b413-2a5e76778c7f">
+        <Attribute dwd:design-time-name="92d0b461-6137-4791-aec6-995942cd1694">
           <AttributeID>Staging Id</AttributeID>
         </Attribute>
-        <Attribute dwd:design-time-name="7c6941db-5feb-4a99-97fa-9a5a2564244f">
+        <Attribute dwd:design-time-name="26299550-2ee4-4e23-94bc-1ef162456cb7">
           <AttributeID>Name</AttributeID>
         </Attribute>
-        <Attribute dwd:design-time-name="745accba-15a0-483f-b85b-810cd191e188">
+        <Attribute dwd:design-time-name="5dcbd882-0ab9-4cfb-b7e9-ea823c8eae3b">
           <AttributeID>Is Windows</AttributeID>
         </Attribute>
-        <Attribute dwd:design-time-name="481392cd-9d72-4bef-9de9-dae59ff9eb71">
+        <Attribute dwd:design-time-name="673ec43b-35cd-4d32-9520-949c56f4d718">
           <AttributeID>Is Mac</AttributeID>
         </Attribute>
-        <Attribute dwd:design-time-name="25ba7f68-15a2-4716-babb-5265bf41b98b">
+        <Attribute dwd:design-time-name="88768aca-b267-4707-aa2e-debe0f1df150">
           <AttributeID>Is Linux</AttributeID>
         </Attribute>
-        <Attribute dwd:design-time-name="4012a510-7406-46a9-a283-1ef866102c73">
+        <Attribute dwd:design-time-name="a4c9edef-e9a6-4cfd-85ca-a342ae977079">
           <AttributeID>Time Id</AttributeID>
         </Attribute>
       </Attributes>
     </Dimension>
-    <Dimension dwd:design-time-name="3e540f78-e370-44d4-bd92-e2554d92b7d0">
-      <ID>Dim Game Features History - s15429</ID>
-      <Name>Dim Game Features History - s15429</Name>
-      <DimensionID>Dim Game Features History - s15429</DimensionID>
-      <Attributes>
-        <Attribute dwd:design-time-name="0b98bbe5-f8e8-49c5-b9cb-e076200c8b2e">
-          <AttributeID>History Id</AttributeID>
-        </Attribute>
-        <Attribute dwd:design-time-name="27949b8e-89da-4d7a-b03a-3481b4175d85">
-          <AttributeID>Price</AttributeID>
-        </Attribute>
-        <Attribute dwd:design-time-name="b6a7a34b-94f1-4f85-adc0-fc6e2e7acd45">
-          <AttributeID>Discount Percentage</AttributeID>
-        </Attribute>
-        <Attribute dwd:design-time-name="c7e4d255-f546-4ef6-bd1e-14f31bb0daa2">
-          <AttributeID>Rating</AttributeID>
-        </Attribute>
-        <Attribute dwd:design-time-name="160240cc-3bc1-4dbd-8f02-9cf92815e92c">
-          <AttributeID>Date From</AttributeID>
-        </Attribute>
-        <Attribute dwd:design-time-name="f67e1372-706c-427a-af91-5975d4415a28">
-          <AttributeID>Date To</AttributeID>
-        </Attribute>
-        <Attribute dwd:design-time-name="7dc53f60-66de-4cc5-b53e-e4ac3ff9c22d">
-          <AttributeID>Is Active</AttributeID>
-        </Attribute>
-        <Attribute dwd:design-time-name="05e2135b-b744-4c90-bd14-1b081937942c">
-          <AttributeID>Game Feature Id</AttributeID>
-        </Attribute>
-      </Attributes>
-    </Dimension>
-    <Dimension dwd:design-time-name="4af45697-08b3-43fc-b907-0fe6d6b09862">
-      <ID>Dim Recommendation - s15429</ID>
-      <Name>Dim Recommendation - s15429</Name>
-      <DimensionID>Dim Recommendation 1</DimensionID>
-      <Attributes>
-        <Attribute dwd:design-time-name="2c39358a-3588-4e32-a91b-0215034a272c">
-          <AttributeID>Name Column</AttributeID>
-        </Attribute>
-        <Attribute dwd:design-time-name="03514af6-c8d8-4163-b3cd-935b5475100e">
-          <AttributeID>Recommendation Id</AttributeID>
-        </Attribute>
-        <Attribute dwd:design-time-name="6f105b16-e3c0-4b5b-a121-a785f9fa3097">
-          <AttributeID>Is Recommended</AttributeID>
-        </Attribute>
-        <Attribute dwd:design-time-name="7efa025b-3092-410c-a645-2a8fe5aadd31">
-          <AttributeID>Hours Played</AttributeID>
-        </Attribute>
-        <Attribute dwd:design-time-name="ff944aea-a80e-4341-abd1-a3284af00270">
-          <AttributeID>Time Id</AttributeID>
-        </Attribute>
-        <Attribute dwd:design-time-name="1d3d3143-056f-4d3c-9578-f9ad38970303">
-          <AttributeID>Game Feature Id</AttributeID>
-        </Attribute>
-      </Attributes>
-    </Dimension>
-    <Dimension dwd:design-time-name="b5e2e300-def9-4f95-933e-aa40af18d8d7">
+    <Dimension dwd:design-time-name="62690e5f-1e2d-4c22-a452-4a5dcf2b9b77">
       <ID>Dim Time - s15429_2</ID>
       <Name>Dim Time - s15429_2</Name>
       <DimensionID>Dim Time - s15429_2</DimensionID>
       <Attributes>
-        <Attribute dwd:design-time-name="05651561-6825-4c09-9674-5517945aa995">
+        <Attribute dwd:design-time-name="d7ecb2b9-f473-4e75-96cf-a08756ebfc2e">
           <AttributeID>Time Id</AttributeID>
         </Attribute>
-        <Attribute dwd:design-time-name="060d8a34-32e4-4ba0-97a6-7859b54ba0e7">
+        <Attribute dwd:design-time-name="4405918c-93b4-4f2a-bd31-58e0406e6b39">
           <AttributeID>Year</AttributeID>
         </Attribute>
-        <Attribute dwd:design-time-name="be797953-2ea9-409f-86de-47632a1376e9">
+        <Attribute dwd:design-time-name="eda5a0d5-d620-48dc-a220-188ad4e33903">
           <AttributeID>DATE</AttributeID>
         </Attribute>
       </Attributes>
       <Hierarchies>
-        <Hierarchy dwd:design-time-name="ce254126-2c79-46e1-9678-7d9451487040">
+        <Hierarchy dwd:design-time-name="6de048c2-9498-447a-a0cb-6f290e2bbed2">
           <HierarchyID>Hierarchy</HierarchyID>
         </Hierarchy>
       </Hierarchies>
     </Dimension>
+    <Dimension dwd:design-time-name="31de8253-9a32-44ca-a227-2f2f70cfaef7">
+      <ID>Dim Recommendation - s15429</ID>
+      <Name>Dim Recommendation - s15429</Name>
+      <DimensionID>Dim Recommendation 1</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="41476848-767f-44c6-ac60-2f5c23851a01">
+          <AttributeID>Name Column</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="b2daea99-1c94-4856-8354-ded6480ba328">
+          <AttributeID>Recommendation Id</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="13081d28-8da6-43a0-993f-edae2062aca6">
+          <AttributeID>Is Recommended</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="fd481765-ee11-4f9e-81af-6d00e23351e7">
+          <AttributeID>Hours Played</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="b90c88fc-022b-46d7-8380-23b0e392c08f">
+          <AttributeID>Time Id</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="383fb962-717e-40c5-93fd-272b81fef5f5">
+          <AttributeID>Game Feature Id</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="27b276cc-8682-451e-9138-0b23fa418cc5">
+      <ID>Dim Game Features History - s15429</ID>
+      <Name>Dim Game Features History - s15429</Name>
+      <DimensionID>Dim Game Features History - s15429</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="f3826bd8-3373-4432-a1bc-39795bd36c71">
+          <AttributeID>History Id</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="ea0ca627-6d39-4e6c-aa77-cd4677f3d823">
+          <AttributeID>Price</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="1b5797f2-9b3e-4fdf-ae13-6bab483191d2">
+          <AttributeID>Discount Percentage</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="1f644158-dc45-4b19-bcb4-0fb52249a1a1">
+          <AttributeID>Rating</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="6e8a22b4-722d-4509-86d7-953ac49b2771">
+          <AttributeID>Date From</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="21bd6a8f-7303-43a1-8fb6-0ad99accba2b">
+          <AttributeID>Date To</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="a238d7ae-2b03-4f90-85bb-6750bb0e25e8">
+          <AttributeID>Is Active</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="533f29d7-2438-44e8-a3de-f13df8fbbfee">
+          <AttributeID>Game Feature Id</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
   </Dimensions>
   <MeasureGroups>
-    <MeasureGroup dwd:design-time-name="ee8f0ab2-9c2d-468e-8da5-c11cddc587b1">
+    <MeasureGroup dwd:design-time-name="987e9366-b3c6-4f0c-9109-afaa318bf50e">
       <ID>Fact Game</ID>
       <Name>Fact Game</Name>
       <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
@@ -328,25 +328,25 @@
       <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
       <State>Unprocessed</State>
       <Measures>
-        <Measure dwd:design-time-name="7c671547-4c36-456f-9aa2-4d20035319e9">
+        <Measure dwd:design-time-name="d0df0739-b96d-40b4-bb79-b9bf750010b9">
           <ID>Review Count</ID>
           <Name>Review Count</Name>
-          <Source dwd:design-time-name="227d92a0-d289-4f33-bc57-95afb64583d9">
+          <Source dwd:design-time-name="08e92576-a5c8-4036-a051-ccbd77e3c958">
             <DataType>Integer</DataType>
-            <Source xsi:type="ColumnBinding" dwd:design-time-name="fdb78506-4803-47cb-be8d-71411724640c">
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="b9b38eda-b194-4bc4-a8e7-fd25777c3e2b">
               <TableID>dbo_fact_game</TableID>
               <ColumnID>review_count</ColumnID>
             </Source>
           </Source>
         </Measure>
-        <Measure dwd:design-time-name="589b263e-00ae-4e4b-9cdb-7d891763f218">
+        <Measure dwd:design-time-name="baef3228-4232-4161-969a-541a3da63c9f">
           <ID>Fact Game Count</ID>
           <Name>Fact Game Count</Name>
           <AggregateFunction>Count</AggregateFunction>
-          <Source dwd:design-time-name="b669c071-9dbe-416f-a59e-20347cef41d9">
+          <Source dwd:design-time-name="a5503f93-b2b8-4bcb-ba76-88e7ff158a69">
             <DataType>Integer</DataType>
             <DataSize>4</DataSize>
-            <Source xsi:type="RowBinding" dwd:design-time-name="24d6cb3a-295b-466e-8c53-a543cd3b46b0">
+            <Source xsi:type="RowBinding" dwd:design-time-name="dfe2aaef-2284-4e2c-b0ce-f06e76074583">
               <TableID>dbo_fact_game</TableID>
             </Source>
           </Source>
@@ -355,15 +355,15 @@
       <StorageMode>Molap</StorageMode>
       <ProcessingMode>Regular</ProcessingMode>
       <Dimensions>
-        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="060318c7-e548-45d5-8b98-dc1684e2cd51">
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="96d92cad-b79c-4e49-b5d0-c52a7bd17c22">
           <CubeDimensionID>Dim Game Features - s15429</CubeDimensionID>
           <Attributes>
-            <Attribute dwd:design-time-name="baec89f8-1168-4e99-8eb1-3ce1c206bcc9">
+            <Attribute dwd:design-time-name="0a599191-331b-448d-b10f-5f015b9671e3">
               <AttributeID>Game Feature Id</AttributeID>
               <KeyColumns>
-                <KeyColumn dwd:design-time-name="a263bc99-b581-4bf9-9fd0-a8af32ac75d7">
+                <KeyColumn dwd:design-time-name="e5435898-bb14-45e4-ae80-f45975872237">
                   <DataType>Integer</DataType>
-                  <Source xsi:type="ColumnBinding" dwd:design-time-name="ecf6d15e-bf28-4f0e-8f01-43dfa157dbb4">
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="34073a1f-b355-43f4-af35-cfbd941622ed">
                     <TableID>dbo_fact_game</TableID>
                     <ColumnID>game_feature_id</ColumnID>
                   </Source>
@@ -373,46 +373,10 @@
             </Attribute>
           </Attributes>
         </Dimension>
-        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="d007a8a3-49b6-498e-9955-0ed276f2a2e1">
-          <CubeDimensionID>Dim Game Features History - s15429</CubeDimensionID>
-          <Attributes>
-            <Attribute dwd:design-time-name="d7e38b1e-ff92-4ea1-b654-363bdf242b5f">
-              <AttributeID>Game Feature Id</AttributeID>
-              <KeyColumns>
-                <KeyColumn dwd:design-time-name="1b201c0a-a8d9-4757-9eb8-6e0e4355d33f">
-                  <DataType>Integer</DataType>
-                  <Source xsi:type="ColumnBinding" dwd:design-time-name="abd4ca77-535f-4031-ac75-ad78e0380bec">
-                    <TableID>dbo_fact_game</TableID>
-                    <ColumnID>game_feature_id</ColumnID>
-                  </Source>
-                </KeyColumn>
-              </KeyColumns>
-              <Type>Granularity</Type>
-            </Attribute>
-          </Attributes>
-        </Dimension>
-        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="d62ba5e4-fae1-4794-a14b-de0e04ad915f">
-          <CubeDimensionID>Dim Recommendation - s15429</CubeDimensionID>
-          <Attributes>
-            <Attribute dwd:design-time-name="c3a3a6c2-7a90-41b9-bcdd-6f5bc12b167c">
-              <AttributeID>Game Feature Id</AttributeID>
-              <KeyColumns>
-                <KeyColumn dwd:design-time-name="3baa2201-dea7-4122-9252-fa6f806cc680">
-                  <DataType>Integer</DataType>
-                  <Source xsi:type="ColumnBinding" dwd:design-time-name="9dcf9792-81c1-4514-a81a-d9e24ae2fc59">
-                    <TableID>dbo_fact_game</TableID>
-                    <ColumnID>game_feature_id</ColumnID>
-                  </Source>
-                </KeyColumn>
-              </KeyColumns>
-              <Type>Granularity</Type>
-            </Attribute>
-          </Attributes>
-        </Dimension>
-        <Dimension xsi:type="ReferenceMeasureGroupDimension" dwd:design-time-name="47dd8fa1-b465-4b6f-9cec-e9c79012af70">
+        <Dimension xsi:type="ReferenceMeasureGroupDimension" dwd:design-time-name="96e1bbb5-9ded-4e3c-8dd1-a33685a0d0c7">
           <CubeDimensionID>Dim Time - s15429_2</CubeDimensionID>
           <Attributes>
-            <Attribute dwd:design-time-name="d1d9a713-d862-4743-9121-a1f167ec197c">
+            <Attribute dwd:design-time-name="5d34e35a-2394-4d31-b70d-1b4f15c03324">
               <AttributeID>Time Id</AttributeID>
               <Type>Granularity</Type>
             </Attribute>
@@ -422,11 +386,37 @@
           <Materialization>Regular</Materialization>
           <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
         </Dimension>
+        <Dimension xsi:type="ReferenceMeasureGroupDimension" dwd:design-time-name="a9db5377-6228-4c24-aab4-7018f12bbdfa">
+          <CubeDimensionID>Dim Recommendation - s15429</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="d0466210-b505-4141-b3c0-8d6892118373">
+              <AttributeID>Game Feature Id</AttributeID>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+          <IntermediateCubeDimensionID>Dim Game Features - s15429</IntermediateCubeDimensionID>
+          <IntermediateGranularityAttributeID>Game Feature Id</IntermediateGranularityAttributeID>
+          <Materialization>Regular</Materialization>
+          <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+        </Dimension>
+        <Dimension xsi:type="ReferenceMeasureGroupDimension" dwd:design-time-name="50768be8-5343-46b6-b4e5-9594d5d5adf6">
+          <CubeDimensionID>Dim Game Features History - s15429</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="b07edf87-fff8-4b45-ae9c-405eb24c0d29">
+              <AttributeID>Game Feature Id</AttributeID>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+          <IntermediateCubeDimensionID>Dim Game Features - s15429</IntermediateCubeDimensionID>
+          <IntermediateGranularityAttributeID>Game Feature Id</IntermediateGranularityAttributeID>
+          <Materialization>Regular</Materialization>
+          <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+        </Dimension>
       </Dimensions>
       <Partitions />
     </MeasureGroup>
   </MeasureGroups>
-  <Source dwd:design-time-name="ec942768-127f-4e3e-9b1c-6c91d7f9e230">
+  <Source dwd:design-time-name="1ad9f79a-ad8e-4deb-856e-7eebf65adfce">
     <DataSourceViewID>s15429</DataSourceViewID>
   </Source>
 </Cube>
