@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="141"
-  DTS:VersionGUID="{44492E6D-5216-4770-946A-0D25F098150F}">
+  DTS:VersionBuild="142"
+  DTS:VersionGUID="{4846AB12-5AFE-4023-B45C-430EAE02E088}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -2933,9 +2933,9 @@ group by game_price_id
           Id="Package\Create tables 1"
           TopLeft="765.5,59.5" />
         <NodeLayout
-          Size="161,42"
-          Id="Package\dim_game_rating"
-          TopLeft="755,214" />
+          Size="173,42"
+          Id="Package\dim_game_discount"
+          TopLeft="745.5,462.5" />
         <NodeLayout
           Size="160,42"
           Id="Package\dim_game_name"
@@ -2945,17 +2945,147 @@ group by game_price_id
           Id="Package\dim_game_price"
           TopLeft="754.5,381.5" />
         <NodeLayout
-          Size="173,42"
-          Id="Package\dim_game_discount"
-          TopLeft="745.5,462.5" />
+          Size="161,42"
+          Id="Package\dim_game_rating"
+          TopLeft="755,214" />
+        <NodeLayout
+          Size="155,42"
+          Id="Package\dim_game_time"
+          TopLeft="752.5,128.5" />
+        <NodeLayout
+          Size="136,42"
+          Id="Package\dim_opinion"
+          TopLeft="758.5,658.5" />
         <NodeLayout
           Size="142,42"
           Id="Package\dim_platform"
           TopLeft="758.5,564.5" />
         <NodeLayout
-          Size="136,42"
-          Id="Package\dim_opinion"
-          TopLeft="758.5,658.5" />
+          Size="173,42"
+          Id="Package\fact_game_opinions"
+          TopLeft="752.5,743.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="833,101.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,27"
+              Start="0,0"
+              End="0,19.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="832.75,170.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,43.5"
+              Start="0,0"
+              End="0,36">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,36" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 10]"
+          TopLeft="830.75,504.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 11]"
+          TopLeft="828,606.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,52"
+              Start="0,0"
+              End="0,44.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,44.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 12]"
+          TopLeft="826.5,700.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="12.5,43"
+              Start="0,0"
+              End="12.5,35.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17.5"
+                    Point2="0,21.5"
+                    Point3="4,21.5" />
+                  <mssgle:LineSegment
+                    End="8.5,21.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="8.5,21.5"
+                    Point2="12.5,21.5"
+                    Point3="12.5,25.5" />
+                  <mssgle:LineSegment
+                    End="12.5,35.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 7]"
           TopLeft="836.75,256">
@@ -3022,142 +3152,24 @@ group by game_price_id
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 10]"
-          TopLeft="830.75,504.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60"
-              Start="0,0"
-              End="0,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 11]"
-          TopLeft="828,606.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,52"
-              Start="0,0"
-              End="0,44.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,44.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="173,42"
-          Id="Package\fact_game_opinions"
-          TopLeft="741.5,738.5" />
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 12]"
-          TopLeft="827.25,700.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,38"
-              Start="0,0"
-              End="0,30.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,30.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="155,42"
-          Id="Package\dim_game_time"
-          TopLeft="752.5,128.5" />
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="833,101.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,27"
-              Start="0,0"
-              End="0,19.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,19.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="832.75,170.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,43.5"
-              Start="0,0"
-              End="0,36">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,36" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </Package>
   <TaskHost
-    design-time-name="Package\dim_game_rating">
+    design-time-name="Package\dim_game_discount">
     <LayoutInfo>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="150,42"
-          Id="Package\dim_game_rating\OLE DB Source"
-          TopLeft="337,187" />
-        <NodeLayout
           Size="171,42"
-          Id="Package\dim_game_rating\OLE DB Destination"
+          Id="Package\dim_game_discount\OLE DB Destination"
           TopLeft="333,345" />
+        <NodeLayout
+          Size="150,42"
+          Id="Package\dim_game_discount\OLE DB Source"
+          TopLeft="337,187" />
         <EdgeLayout
-          Id="Package\dim_game_rating.Paths[OLE DB Source Output]"
+          Id="Package\dim_game_discount.Paths[OLE DB Source Output]"
           TopLeft="415.25,229">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -3182,15 +3194,7 @@ group by game_price_id
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\dim_game_rating\OLE DB Source">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\dim_game_rating\OLE DB Destination">
+    design-time-name="Package\dim_game_discount\OLE DB Destination">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -3199,6 +3203,14 @@ group by game_price_id
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\dim_game_discount\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
@@ -3321,20 +3333,20 @@ group by game_price_id
     </Properties>
   </PipelineComponentMetadata>
   <TaskHost
-    design-time-name="Package\dim_game_discount">
+    design-time-name="Package\dim_game_rating">
     <LayoutInfo>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="171,42"
-          Id="Package\dim_game_discount\OLE DB Destination"
-          TopLeft="333,345" />
-        <NodeLayout
           Size="150,42"
-          Id="Package\dim_game_discount\OLE DB Source"
+          Id="Package\dim_game_rating\OLE DB Source"
           TopLeft="337,187" />
+        <NodeLayout
+          Size="171,42"
+          Id="Package\dim_game_rating\OLE DB Destination"
+          TopLeft="333,345" />
         <EdgeLayout
-          Id="Package\dim_game_discount.Paths[OLE DB Source Output]"
+          Id="Package\dim_game_rating.Paths[OLE DB Source Output]"
           TopLeft="415.25,229">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -3359,7 +3371,7 @@ group by game_price_id
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\dim_game_discount\OLE DB Destination">
+    design-time-name="Package\dim_game_rating\OLE DB Destination">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -3372,7 +3384,7 @@ group by game_price_id
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\dim_game_discount\OLE DB Source">
+    design-time-name="Package\dim_game_rating\OLE DB Source">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -3380,20 +3392,20 @@ group by game_price_id
     </Properties>
   </PipelineComponentMetadata>
   <TaskHost
-    design-time-name="Package\dim_platform">
+    design-time-name="Package\dim_game_time">
     <LayoutInfo>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="171,42"
-          Id="Package\dim_platform\OLE DB Destination"
+          Id="Package\dim_game_time\OLE DB Destination"
           TopLeft="333,345" />
         <NodeLayout
           Size="150,42"
-          Id="Package\dim_platform\OLE DB Source"
+          Id="Package\dim_game_time\OLE DB Source"
           TopLeft="337,187" />
         <EdgeLayout
-          Id="Package\dim_platform.Paths[OLE DB Source Output]"
+          Id="Package\dim_game_time.Paths[OLE DB Source Output]"
           TopLeft="415.25,229">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -3418,7 +3430,7 @@ group by game_price_id
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\dim_platform\OLE DB Destination">
+    design-time-name="Package\dim_game_time\OLE DB Destination">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -3431,7 +3443,7 @@ group by game_price_id
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\dim_platform\OLE DB Source">
+    design-time-name="Package\dim_game_time\OLE DB Source">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -3498,6 +3510,65 @@ group by game_price_id
     </Properties>
   </PipelineComponentMetadata>
   <TaskHost
+    design-time-name="Package\dim_platform">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="171,42"
+          Id="Package\dim_platform\OLE DB Destination"
+          TopLeft="333,345" />
+        <NodeLayout
+          Size="150,42"
+          Id="Package\dim_platform\OLE DB Source"
+          TopLeft="337,187" />
+        <EdgeLayout
+          Id="Package\dim_platform.Paths[OLE DB Source Output]"
+          TopLeft="415.25,229">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,116"
+              Start="0,0"
+              End="0,108.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,108.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\dim_platform\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\dim_platform\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
     design-time-name="Package\fact_game_opinions">
     <LayoutInfo>
       <GraphLayout
@@ -3550,65 +3621,6 @@ group by game_price_id
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\fact_game_opinions\OLE DB Source">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <TaskHost
-    design-time-name="Package\dim_game_time">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="171,42"
-          Id="Package\dim_game_time\OLE DB Destination"
-          TopLeft="333,345" />
-        <NodeLayout
-          Size="150,42"
-          Id="Package\dim_game_time\OLE DB Source"
-          TopLeft="337,187" />
-        <EdgeLayout
-          Id="Package\dim_game_time.Paths[OLE DB Source Output]"
-          TopLeft="415.25,229">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,116"
-              Start="0,0"
-              End="0,108.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,108.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\dim_game_time\OLE DB Destination">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\dim_game_time\OLE DB Source">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
