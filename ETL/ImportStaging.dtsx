@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="22"
-  DTS:VersionGUID="{41F4BE0B-76AD-4047-87F7-3702D376E04A}">
+  DTS:VersionBuild="49"
+  DTS:VersionGUID="{B3EC70C2-EC17-4D48-B3F6-541EB5CC1B6D}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -208,6 +208,967 @@
           DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\WIN\source\repos\DataWarehouse-SteamGames\recommendations_excel.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{0C122EB3-F47E-4187-B69C-07030A607A86}"
+      DTS:ObjectName="Flat File Connection Manager">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\grzeg\Documents\IDH\archive (1)\users.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="user_id"
+              DTS:DTSID="{8A746B39-F1D2-4E93-886C-9DD4AC04A4EE}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="products"
+              DTS:DTSID="{C67E45C2-CEEB-490E-BF89-5D3376E0EC23}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="reviews"
+              DTS:DTSID="{5601F4FF-6A0C-49D8-A529-F1D866740B7A}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager 1]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{E36785E7-1907-41FE-BA7C-4DC68069A7CB}"
+      DTS:ObjectName="Flat File Connection Manager 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\grzeg\Documents\IDH\archive (1)\games.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="app_id"
+              DTS:DTSID="{22D7029E-6587-4849-9F40-3DFAE9D21C27}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="title"
+              DTS:DTSID="{3A445D5C-0E0D-4FE8-8D6F-5D6B1FD1142D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="date_release"
+              DTS:DTSID="{E10E45B3-6A53-4FC6-8BA2-B207368F255C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="win"
+              DTS:DTSID="{0272B960-226A-4AE7-B180-50CFBC8F1FB5}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="mac"
+              DTS:DTSID="{67D60A41-8519-4CA5-9B15-1F621728F1A5}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="linux"
+              DTS:DTSID="{E8B2862C-8F52-48BB-B3EE-27BC160921A2}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="rating"
+              DTS:DTSID="{20ED0AE7-80FA-4AC6-B03E-131311DC1FBA}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="positive_ratio"
+              DTS:DTSID="{52F8475F-F414-4C7A-9BB2-CDB2585CCF14}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="user_reviews"
+              DTS:DTSID="{864DD9B6-20AC-4C3C-A65C-C5FB4A64F60D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="price_final"
+              DTS:DTSID="{5A8AAA78-8A2C-4EC9-9DA2-5354F803F11F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="price_original"
+              DTS:DTSID="{C63E8DB1-8E76-476F-AC96-B2DCBDF521A1}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="discount"
+              DTS:DTSID="{AEFDEB52-8790-43F9-B8AF-0FF342ACACF6}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="steam_deck"
+              DTS:DTSID="{F9C2E078-8060-471A-9B2D-4DC8069A4866}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager 2]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{013A88EA-3CBA-4CEC-BD4F-92CFCAE42415}"
+      DTS:ObjectName="Flat File Connection Manager 2">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\grzeg\Documents\IDH\archive (1)\recommendations.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="app_id"
+              DTS:DTSID="{71EAC730-9999-43AA-BE27-2287D4A03BEA}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="helpful"
+              DTS:DTSID="{D16B9FD6-BBE6-4E51-AA98-91033C21BF8E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="funny"
+              DTS:DTSID="{DD3A0D3C-5CCC-4F46-9DB8-F07BD708070C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="date"
+              DTS:DTSID="{0C0B33BC-E8D3-4398-80ED-72E31C63CD0F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="is_recommended"
+              DTS:DTSID="{58D7BCF0-11CC-45C6-8A7A-FE145750152B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="hours"
+              DTS:DTSID="{D1167103-54E1-44DE-90EC-45CDBF5D6710}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="user_id"
+              DTS:DTSID="{18EE0AE2-6413-4AC5-8BB4-909A735747B4}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="review_id"
+              DTS:DTSID="{0E98F5C9-0CE0-4461-8F79-00F39C17EE64}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager 3]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{898CAF27-0089-434D-88D9-CB1771BB9A7A}"
+      DTS:ObjectName="Flat File Connection Manager 3">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="65001"
+          DTS:ConnectionString="C:\Users\grzeg\Documents\IDH\archive (1)\games.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="app_id"
+              DTS:DTSID="{7DE5B4A9-596F-49FD-B10D-166E742D9EF7}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="title"
+              DTS:DTSID="{5460D27A-4970-4A95-8360-C67A81744C21}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="date_release"
+              DTS:DTSID="{6C5B857C-DE2C-4BB4-9A6C-82B22A722D67}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="win"
+              DTS:DTSID="{A2F12A9B-3A41-4094-9CBB-2B640546D53F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="mac"
+              DTS:DTSID="{94691325-EB7B-42DD-91D2-DD64E68475DC}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="linux"
+              DTS:DTSID="{96933C0B-88EA-4497-B7D6-27E6EF2A3F14}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="rating"
+              DTS:DTSID="{7F5212B6-66C9-4652-9474-536BE81E15CA}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="positive_ratio"
+              DTS:DTSID="{DCF47549-A083-4447-994F-7A7DDA061E08}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="user_reviews"
+              DTS:DTSID="{B54F180A-9A63-47C2-83DB-0F5C9B6B7B6B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="price_final"
+              DTS:DTSID="{A0AF0B58-E149-4815-BFAA-0B41280EFC4B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="price_original"
+              DTS:DTSID="{DC301228-F2CE-43BC-A499-3BD341CBC6BA}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="discount"
+              DTS:DTSID="{DD89E7D6-E373-4933-9261-E5420B7A86E9}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="steam_deck"
+              DTS:DTSID="{FF194BFD-6AC2-4FD4-A728-BC254594DB0B}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager 4]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{CD41EC47-7DAD-41D1-AD4B-F09AE0A56EAF}"
+      DTS:ObjectName="Flat File Connection Manager 4">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="65001"
+          DTS:ConnectionString="C:\Users\grzeg\Documents\IDH\archive (1)\games.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="app_id"
+              DTS:DTSID="{D489455E-0FB6-4987-85F0-0A628FF4BBF2}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="title"
+              DTS:DTSID="{E03B2539-8CA9-4B19-B33E-AA26BCAC2429}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="date_release"
+              DTS:DTSID="{3FF6871A-4007-4DBE-9C2B-308785F66EFF}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="win"
+              DTS:DTSID="{FD1F1E1F-D0CF-499B-8E3A-06BB0C25E0A4}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="mac"
+              DTS:DTSID="{5840DF29-7531-4939-A842-AAC301587E16}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="linux"
+              DTS:DTSID="{9507A105-81CC-47C0-954E-D1719BD1939A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="rating"
+              DTS:DTSID="{D539BD31-4600-42BB-AF2E-2D347640C778}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="positive_ratio"
+              DTS:DTSID="{03BDEDD3-C80E-4EA4-B304-35DD0ABF68F6}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="user_reviews"
+              DTS:DTSID="{7DF0E7FD-6C39-4CB7-998A-8591D1978DF5}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="price_final"
+              DTS:DTSID="{10BAD8C5-F9FA-49C1-AB09-E052D17EDED7}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="price_original"
+              DTS:DTSID="{E792A41F-486A-411A-A469-693670E33FA5}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="discount"
+              DTS:DTSID="{061E3D4A-E550-4249-B005-7454BD2AC547}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="steam_deck"
+              DTS:DTSID="{75C51D5B-EF5B-4429-9BF6-EB2FBD3A165E}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager 5]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{DEB43B4E-48B6-44EE-B264-DCF95C0BA95A}"
+      DTS:ObjectName="Flat File Connection Manager 5">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="65001"
+          DTS:ConnectionString="C:\Users\grzeg\Documents\IDH\archive (1)\games.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="app_id"
+              DTS:DTSID="{6A7C25E7-430B-4FA7-9063-E6258DCDB744}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="title"
+              DTS:DTSID="{13A9B2F6-36B5-441A-8688-39D877B1E94D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="date_release"
+              DTS:DTSID="{89CBD88E-766D-448D-B600-8C81F8B72CC2}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="win"
+              DTS:DTSID="{359CCE5C-8294-477E-BA45-A78883727385}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="mac"
+              DTS:DTSID="{19143201-CE7B-49D7-B4E0-D133BE4D70DE}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="linux"
+              DTS:DTSID="{0ACF702E-68F4-4637-A629-D7BBC11C419C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="rating"
+              DTS:DTSID="{B592ABCB-5E68-46DB-9998-735BBEA04F1B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="positive_ratio"
+              DTS:DTSID="{2C524B02-9251-424F-91F9-087A330B9104}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="user_reviews"
+              DTS:DTSID="{507ADF16-81F8-4935-86C6-F3C8C3D2C6D9}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="price_final"
+              DTS:DTSID="{D22F6AED-26A5-44EA-8B32-2F0A5A989A77}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="price_original"
+              DTS:DTSID="{BCB6A578-95FF-4E0C-B31E-42AB46B00A99}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="discount"
+              DTS:DTSID="{A61CED7C-8B90-4EF9-840B-0F67377216C4}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="steam_deck"
+              DTS:DTSID="{D6831811-3C56-4C52-AE73-B8A9C42DA63B}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager 6]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{5423CF91-26F8-4E25-85F6-53A1AF0389B0}"
+      DTS:ObjectName="Flat File Connection Manager 6">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\grzeg\Documents\IDH\archive (1)\games.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="app_id"
+              DTS:DTSID="{56170525-E658-45CD-BB46-AAC51230183C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="title"
+              DTS:DTSID="{C0A03635-FC93-4AA7-8186-7E57D77B29A7}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="date_release"
+              DTS:DTSID="{135D2F19-D992-4887-91C8-867AA306F30F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="win"
+              DTS:DTSID="{7C3B87B6-0688-4F0A-B0F1-CD5D80951FB0}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="mac"
+              DTS:DTSID="{E6CF7F6F-6B74-4E88-A7CA-3C051451452F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="linux"
+              DTS:DTSID="{186F396E-B9B0-4C6D-9723-0AE3AC6919A0}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="rating"
+              DTS:DTSID="{DDAB5814-80D2-4B3B-8948-3CB2DFE0526F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="positive_ratio"
+              DTS:DTSID="{E3791654-102D-4775-8DEF-1757F795E62B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="user_reviews"
+              DTS:DTSID="{F546EC61-3ADD-4BB6-A709-4B57138C6819}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="price_final"
+              DTS:DTSID="{220EC580-751C-420C-AFA2-C2B61AC41ADC}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="price_original"
+              DTS:DTSID="{85FFA16F-AF78-4D04-91B2-EDAAC4E28A74}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="discount"
+              DTS:DTSID="{AAE48CD6-96D1-4853-BB7E-5A00A3D77BAD}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="steam_deck"
+              DTS:DTSID="{60BB5AB8-D10B-4F4A-AC82-61E2A8A03356}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager 7]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{AD929AFF-102E-4069-AF4E-04354C73E533}"
+      DTS:ObjectName="Flat File Connection Manager 7">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="65001"
+          DTS:ConnectionString="C:\Users\grzeg\Documents\IDH\archive (1)\games.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="app_id"
+              DTS:DTSID="{C9E8EAA5-0C85-471A-9A9D-17D5F10B620F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="title"
+              DTS:DTSID="{B54CC968-F0CD-4193-97E1-114159494EA5}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="date_release"
+              DTS:DTSID="{DED56C9D-3EDD-4E73-9AC1-9BB6826D1676}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="win"
+              DTS:DTSID="{DA8517C0-9806-4EDB-93DA-7D57E3109569}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="mac"
+              DTS:DTSID="{8BC8A122-F349-43A3-8415-30573AD74F94}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="linux"
+              DTS:DTSID="{607D9C41-7DE4-43D6-8AF1-9C83D0A79868}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="rating"
+              DTS:DTSID="{9F802377-01F2-46C4-AA17-8A2C635EF035}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="positive_ratio"
+              DTS:DTSID="{5E1387D0-ECA9-4099-B29C-EE3C1AB1CB06}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="user_reviews"
+              DTS:DTSID="{52D7352C-D650-465B-8C84-7D1E92D38CB1}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="price_final"
+              DTS:DTSID="{975CDA3A-A69F-4377-BB80-F983DEEDC163}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="price_original"
+              DTS:DTSID="{3D58A855-9006-4FED-87BA-7A5ECA772C6C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="discount"
+              DTS:DTSID="{1435481C-2535-49D0-8E57-7A009DB95BF7}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="steam_deck"
+              DTS:DTSID="{09B9DC76-3F4F-4154-BF85-201F04B3E472}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
   <DTS:Variables />
   <DTS:Executables>
@@ -224,7 +1185,7 @@
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{D41FB52E-25E0-4D5E-A249-1807E71BAE9C}"
+          SQLTask:Connection="{6FFECD52-C2D1-42F7-944D-A393A1827EDF}"
           SQLTask:SqlStatementSource="IF OBJECT_ID('dbo.review', 'U') IS NOT NULL&#xA;    DROP TABLE dbo.review;&#xA;&#xA;IF OBJECT_ID('dbo.user', 'U') IS NOT NULL&#xA;    DROP TABLE dbo.[User];&#xA;&#xA;IF OBJECT_ID('dbo.game', 'U') IS NOT NULL&#xA;    DROP TABLE dbo.game;&#xA;&#xA;&#xA;CREATE TABLE [user] (&#xA;    user_id_csv INT PRIMARY KEY,&#xA;     products INT,&#xA;    reviews int&#xA;);&#xA;&#xA;CREATE TABLE game (&#xA;    app_id INT PRIMARY KEY,&#xA;    title NVARCHAR(500),&#xA;    date_release nvarchar(100),&#xA;    win nvarchar(5),&#xA;    mac nvarchar(5),&#xA;    linux nvarchar(5),&#xA;    rating nvarchar(255),&#xA;    positive_ratio INT,&#xA;    user_reviews INT,&#xA;    price_final DECIMAL(6,2),&#xA;    price_original DECIMAL(6,2),&#xA;    discount INT,&#xA;    steam_deck nvarchar(5)&#xA;);&#xA;&#xA;CREATE TABLE review (&#xA; review_id_csv INT PRIMARY KEY,&#xA; helpful int,&#xA; funny int,&#xA; date nvarchar(100),&#xA; is_recommended nvarchar(5),&#xA; hours decimal(6,2),&#xA; user_id_csv int,&#xA; app_id int&#xA; )" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -253,327 +1214,419 @@
               version="1">
               <components>
                 <component
-                  refId="Package\Sequence Container\Import Games\Excel Source"
-                  componentClassID="Microsoft.ExcelSource"
-                  contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
-                  description="Excel Source"
-                  name="Excel Source"
+                  refId="Package\Sequence Container\Import Games\Flat File Source"
+                  componentClassID="Microsoft.FlatFileSource"
+                  contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Flat File Source"
+                  localeId="1033"
+                  name="Flat File Source"
                   usesDispositions="true"
                   version="1">
                   <properties>
                     <property
-                      dataType="System.Int32"
-                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
-                      name="CommandTimeout">0</property>
+                      dataType="System.Boolean"
+                      description="Specifies whether zero-length columns are treated as null."
+                      name="RetainNulls">false</property>
                     <property
                       dataType="System.String"
-                      description="Specifies the name of the database object used to open a rowset."
-                      name="OpenRowset">games$</property>
-                    <property
-                      dataType="System.String"
-                      description="Specifies the variable that contains the name of the database object used to open a rowset."
-                      name="OpenRowsetVariable"></property>
-                    <property
-                      dataType="System.String"
-                      description="The SQL command to be executed."
-                      name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
-                    <property
-                      dataType="System.String"
-                      description="The variable that contains the SQL command to be executed."
-                      name="SqlCommandVariable"></property>
-                    <property
-                      dataType="System.Int32"
-                      description="Specifies the mode used to access the database."
-                      name="AccessMode"
-                      typeConverter="AccessMode">0</property>
-                    <property
-                      dataType="System.String"
-                      description="The mapping from parameters in the SQL command to variables."
-                      name="ParameterMapping"></property>
+                      description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                      name="FileNameColumnName"></property>
                   </properties>
                   <connections>
                     <connection
-                      refId="Package\Sequence Container\Import Games\Excel Source.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[Excel Connection Manager 7]"
-                      connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager 7]"
-                      description="The OLE DB runtime connection used to access the database."
-                      name="OleDbConnection" />
+                      refId="Package\Sequence Container\Import Games\Flat File Source.Connections[FlatFileConnection]"
+                      connectionManagerID="Package.ConnectionManagers[Flat File Connection Manager 7]"
+                      connectionManagerRefId="Package.ConnectionManagers[Flat File Connection Manager 7]"
+                      name="FlatFileConnection" />
                   </connections>
                   <outputs>
                     <output
-                      refId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Output]"
-                      name="Excel Source Output">
+                      refId="Package\Sequence Container\Import Games\Flat File Source.Outputs[Flat File Source Output]"
+                      name="Flat File Source Output">
                       <outputColumns>
                         <outputColumn
-                          refId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Output].Columns[app_id]"
-                          dataType="r8"
+                          refId="Package\Sequence Container\Import Games\Flat File Source.Outputs[Flat File Source Output].Columns[app_id]"
+                          codePage="65001"
+                          dataType="str"
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Output].ExternalColumns[app_id]"
-                          lineageId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Output].Columns[app_id]"
+                          externalMetadataColumnId="Package\Sequence Container\Import Games\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[app_id]"
+                          length="50"
+                          lineageId="Package\Sequence Container\Import Games\Flat File Source.Outputs[Flat File Source Output].Columns[app_id]"
                           name="app_id"
-                          truncationRowDisposition="FailComponent" />
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
                         <outputColumn
-                          refId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Output].Columns[title]"
+                          refId="Package\Sequence Container\Import Games\Flat File Source.Outputs[Flat File Source Output].Columns[title]"
                           dataType="wstr"
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Output].ExternalColumns[title]"
-                          length="255"
-                          lineageId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Output].Columns[title]"
+                          externalMetadataColumnId="Package\Sequence Container\Import Games\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[title]"
+                          length="500"
+                          lineageId="Package\Sequence Container\Import Games\Flat File Source.Outputs[Flat File Source Output].Columns[title]"
                           name="title"
-                          truncationRowDisposition="FailComponent" />
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
                         <outputColumn
-                          refId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Output].Columns[date_release]"
-                          dataType="date"
+                          refId="Package\Sequence Container\Import Games\Flat File Source.Outputs[Flat File Source Output].Columns[date_release]"
+                          dataType="wstr"
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Output].ExternalColumns[date_release]"
-                          lineageId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Output].Columns[date_release]"
+                          externalMetadataColumnId="Package\Sequence Container\Import Games\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[date_release]"
+                          length="50"
+                          lineageId="Package\Sequence Container\Import Games\Flat File Source.Outputs[Flat File Source Output].Columns[date_release]"
                           name="date_release"
-                          truncationRowDisposition="FailComponent" />
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
                         <outputColumn
-                          refId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Output].Columns[win]"
-                          dataType="bool"
+                          refId="Package\Sequence Container\Import Games\Flat File Source.Outputs[Flat File Source Output].Columns[win]"
+                          dataType="wstr"
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Output].ExternalColumns[win]"
-                          lineageId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Output].Columns[win]"
+                          externalMetadataColumnId="Package\Sequence Container\Import Games\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[win]"
+                          length="50"
+                          lineageId="Package\Sequence Container\Import Games\Flat File Source.Outputs[Flat File Source Output].Columns[win]"
                           name="win"
-                          truncationRowDisposition="FailComponent" />
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
                         <outputColumn
-                          refId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Output].Columns[mac]"
-                          dataType="bool"
+                          refId="Package\Sequence Container\Import Games\Flat File Source.Outputs[Flat File Source Output].Columns[mac]"
+                          dataType="wstr"
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Output].ExternalColumns[mac]"
-                          lineageId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Output].Columns[mac]"
+                          externalMetadataColumnId="Package\Sequence Container\Import Games\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[mac]"
+                          length="50"
+                          lineageId="Package\Sequence Container\Import Games\Flat File Source.Outputs[Flat File Source Output].Columns[mac]"
                           name="mac"
-                          truncationRowDisposition="FailComponent" />
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
                         <outputColumn
-                          refId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Output].Columns[linux]"
-                          dataType="bool"
+                          refId="Package\Sequence Container\Import Games\Flat File Source.Outputs[Flat File Source Output].Columns[linux]"
+                          dataType="wstr"
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Output].ExternalColumns[linux]"
-                          lineageId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Output].Columns[linux]"
+                          externalMetadataColumnId="Package\Sequence Container\Import Games\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[linux]"
+                          length="50"
+                          lineageId="Package\Sequence Container\Import Games\Flat File Source.Outputs[Flat File Source Output].Columns[linux]"
                           name="linux"
-                          truncationRowDisposition="FailComponent" />
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
                         <outputColumn
-                          refId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Output].Columns[rating]"
+                          refId="Package\Sequence Container\Import Games\Flat File Source.Outputs[Flat File Source Output].Columns[rating]"
                           dataType="wstr"
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Output].ExternalColumns[rating]"
-                          length="255"
-                          lineageId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Output].Columns[rating]"
+                          externalMetadataColumnId="Package\Sequence Container\Import Games\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[rating]"
+                          length="50"
+                          lineageId="Package\Sequence Container\Import Games\Flat File Source.Outputs[Flat File Source Output].Columns[rating]"
                           name="rating"
-                          truncationRowDisposition="FailComponent" />
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
                         <outputColumn
-                          refId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Output].Columns[positive_ratio]"
-                          dataType="r8"
+                          refId="Package\Sequence Container\Import Games\Flat File Source.Outputs[Flat File Source Output].Columns[positive_ratio]"
+                          codePage="65001"
+                          dataType="str"
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Output].ExternalColumns[positive_ratio]"
-                          lineageId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Output].Columns[positive_ratio]"
+                          externalMetadataColumnId="Package\Sequence Container\Import Games\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[positive_ratio]"
+                          length="50"
+                          lineageId="Package\Sequence Container\Import Games\Flat File Source.Outputs[Flat File Source Output].Columns[positive_ratio]"
                           name="positive_ratio"
-                          truncationRowDisposition="FailComponent" />
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
                         <outputColumn
-                          refId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Output].Columns[user_reviews]"
-                          dataType="r8"
+                          refId="Package\Sequence Container\Import Games\Flat File Source.Outputs[Flat File Source Output].Columns[user_reviews]"
+                          codePage="65001"
+                          dataType="str"
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Output].ExternalColumns[user_reviews]"
-                          lineageId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Output].Columns[user_reviews]"
+                          externalMetadataColumnId="Package\Sequence Container\Import Games\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[user_reviews]"
+                          length="50"
+                          lineageId="Package\Sequence Container\Import Games\Flat File Source.Outputs[Flat File Source Output].Columns[user_reviews]"
                           name="user_reviews"
-                          truncationRowDisposition="FailComponent" />
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
                         <outputColumn
-                          refId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Output].Columns[price_final]"
-                          dataType="wstr"
+                          refId="Package\Sequence Container\Import Games\Flat File Source.Outputs[Flat File Source Output].Columns[price_final]"
+                          codePage="65001"
+                          dataType="str"
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Output].ExternalColumns[price_final]"
-                          length="255"
-                          lineageId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Output].Columns[price_final]"
+                          externalMetadataColumnId="Package\Sequence Container\Import Games\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[price_final]"
+                          length="50"
+                          lineageId="Package\Sequence Container\Import Games\Flat File Source.Outputs[Flat File Source Output].Columns[price_final]"
                           name="price_final"
-                          truncationRowDisposition="FailComponent" />
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
                         <outputColumn
-                          refId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Output].Columns[price_original]"
-                          dataType="wstr"
+                          refId="Package\Sequence Container\Import Games\Flat File Source.Outputs[Flat File Source Output].Columns[price_original]"
+                          codePage="65001"
+                          dataType="str"
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Output].ExternalColumns[price_original]"
-                          length="255"
-                          lineageId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Output].Columns[price_original]"
+                          externalMetadataColumnId="Package\Sequence Container\Import Games\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[price_original]"
+                          length="50"
+                          lineageId="Package\Sequence Container\Import Games\Flat File Source.Outputs[Flat File Source Output].Columns[price_original]"
                           name="price_original"
-                          truncationRowDisposition="FailComponent" />
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
                         <outputColumn
-                          refId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Output].Columns[discount]"
+                          refId="Package\Sequence Container\Import Games\Flat File Source.Outputs[Flat File Source Output].Columns[discount]"
+                          codePage="65001"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Import Games\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[discount]"
+                          length="50"
+                          lineageId="Package\Sequence Container\Import Games\Flat File Source.Outputs[Flat File Source Output].Columns[discount]"
+                          name="discount"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Sequence Container\Import Games\Flat File Source.Outputs[Flat File Source Output].Columns[steam_deck]"
                           dataType="wstr"
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Output].ExternalColumns[discount]"
-                          length="255"
-                          lineageId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Output].Columns[discount]"
-                          name="discount"
-                          truncationRowDisposition="FailComponent" />
-                        <outputColumn
-                          refId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Output].Columns[steam_deck]"
-                          dataType="bool"
-                          errorOrTruncationOperation="Conversion"
-                          errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Output].ExternalColumns[steam_deck]"
-                          lineageId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Output].Columns[steam_deck]"
+                          externalMetadataColumnId="Package\Sequence Container\Import Games\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[steam_deck]"
+                          length="50"
+                          lineageId="Package\Sequence Container\Import Games\Flat File Source.Outputs[Flat File Source Output].Columns[steam_deck]"
                           name="steam_deck"
-                          truncationRowDisposition="FailComponent" />
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
                       </outputColumns>
                       <externalMetadataColumns
                         isUsed="True">
                         <externalMetadataColumn
-                          refId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Output].ExternalColumns[app_id]"
-                          dataType="r8"
+                          refId="Package\Sequence Container\Import Games\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[app_id]"
+                          codePage="65001"
+                          dataType="str"
+                          length="50"
                           name="app_id" />
                         <externalMetadataColumn
-                          refId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Output].ExternalColumns[title]"
+                          refId="Package\Sequence Container\Import Games\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[title]"
                           dataType="wstr"
-                          length="255"
+                          length="50"
                           name="title" />
                         <externalMetadataColumn
-                          refId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Output].ExternalColumns[date_release]"
-                          dataType="date"
+                          refId="Package\Sequence Container\Import Games\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[date_release]"
+                          codePage="65001"
+                          dataType="str"
+                          length="50"
                           name="date_release" />
                         <externalMetadataColumn
-                          refId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Output].ExternalColumns[win]"
-                          dataType="bool"
+                          refId="Package\Sequence Container\Import Games\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[win]"
+                          codePage="65001"
+                          dataType="str"
+                          length="50"
                           name="win" />
                         <externalMetadataColumn
-                          refId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Output].ExternalColumns[mac]"
-                          dataType="bool"
+                          refId="Package\Sequence Container\Import Games\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[mac]"
+                          codePage="65001"
+                          dataType="str"
+                          length="50"
                           name="mac" />
                         <externalMetadataColumn
-                          refId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Output].ExternalColumns[linux]"
-                          dataType="bool"
+                          refId="Package\Sequence Container\Import Games\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[linux]"
+                          codePage="65001"
+                          dataType="str"
+                          length="50"
                           name="linux" />
                         <externalMetadataColumn
-                          refId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Output].ExternalColumns[rating]"
-                          dataType="wstr"
-                          length="255"
+                          refId="Package\Sequence Container\Import Games\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[rating]"
+                          codePage="65001"
+                          dataType="str"
+                          length="50"
                           name="rating" />
                         <externalMetadataColumn
-                          refId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Output].ExternalColumns[positive_ratio]"
-                          dataType="r8"
+                          refId="Package\Sequence Container\Import Games\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[positive_ratio]"
+                          codePage="65001"
+                          dataType="str"
+                          length="50"
                           name="positive_ratio" />
                         <externalMetadataColumn
-                          refId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Output].ExternalColumns[user_reviews]"
-                          dataType="r8"
+                          refId="Package\Sequence Container\Import Games\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[user_reviews]"
+                          codePage="65001"
+                          dataType="str"
+                          length="50"
                           name="user_reviews" />
                         <externalMetadataColumn
-                          refId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Output].ExternalColumns[price_final]"
-                          dataType="wstr"
-                          length="255"
+                          refId="Package\Sequence Container\Import Games\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[price_final]"
+                          codePage="65001"
+                          dataType="str"
+                          length="50"
                           name="price_final" />
                         <externalMetadataColumn
-                          refId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Output].ExternalColumns[price_original]"
-                          dataType="wstr"
-                          length="255"
+                          refId="Package\Sequence Container\Import Games\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[price_original]"
+                          codePage="65001"
+                          dataType="str"
+                          length="50"
                           name="price_original" />
                         <externalMetadataColumn
-                          refId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Output].ExternalColumns[discount]"
-                          dataType="wstr"
-                          length="255"
+                          refId="Package\Sequence Container\Import Games\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[discount]"
+                          codePage="65001"
+                          dataType="str"
+                          length="50"
                           name="discount" />
                         <externalMetadataColumn
-                          refId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Output].ExternalColumns[steam_deck]"
-                          dataType="bool"
+                          refId="Package\Sequence Container\Import Games\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[steam_deck]"
+                          codePage="65001"
+                          dataType="str"
+                          length="50"
                           name="steam_deck" />
                       </externalMetadataColumns>
                     </output>
                     <output
-                      refId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Error Output]"
+                      refId="Package\Sequence Container\Import Games\Flat File Source.Outputs[Flat File Source Error Output]"
                       isErrorOut="true"
-                      name="Excel Source Error Output">
+                      name="Flat File Source Error Output">
                       <outputColumns>
                         <outputColumn
-                          refId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Error Output].Columns[app_id]"
-                          dataType="r8"
-                          lineageId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Error Output].Columns[app_id]"
-                          name="app_id" />
+                          refId="Package\Sequence Container\Import Games\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                          codePage="1252"
+                          dataType="text"
+                          description="Flat File Source Error Output Column"
+                          lineageId="Package\Sequence Container\Import Games\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                          name="Flat File Source Error Output Column" />
                         <outputColumn
-                          refId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Error Output].Columns[title]"
-                          dataType="wstr"
-                          length="255"
-                          lineageId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Error Output].Columns[title]"
-                          name="title" />
-                        <outputColumn
-                          refId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Error Output].Columns[date_release]"
-                          dataType="date"
-                          lineageId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Error Output].Columns[date_release]"
-                          name="date_release" />
-                        <outputColumn
-                          refId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Error Output].Columns[win]"
-                          dataType="bool"
-                          lineageId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Error Output].Columns[win]"
-                          name="win" />
-                        <outputColumn
-                          refId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Error Output].Columns[mac]"
-                          dataType="bool"
-                          lineageId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Error Output].Columns[mac]"
-                          name="mac" />
-                        <outputColumn
-                          refId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Error Output].Columns[linux]"
-                          dataType="bool"
-                          lineageId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Error Output].Columns[linux]"
-                          name="linux" />
-                        <outputColumn
-                          refId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Error Output].Columns[rating]"
-                          dataType="wstr"
-                          length="255"
-                          lineageId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Error Output].Columns[rating]"
-                          name="rating" />
-                        <outputColumn
-                          refId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Error Output].Columns[positive_ratio]"
-                          dataType="r8"
-                          lineageId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Error Output].Columns[positive_ratio]"
-                          name="positive_ratio" />
-                        <outputColumn
-                          refId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Error Output].Columns[user_reviews]"
-                          dataType="r8"
-                          lineageId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Error Output].Columns[user_reviews]"
-                          name="user_reviews" />
-                        <outputColumn
-                          refId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Error Output].Columns[price_final]"
-                          dataType="wstr"
-                          length="255"
-                          lineageId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Error Output].Columns[price_final]"
-                          name="price_final" />
-                        <outputColumn
-                          refId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Error Output].Columns[price_original]"
-                          dataType="wstr"
-                          length="255"
-                          lineageId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Error Output].Columns[price_original]"
-                          name="price_original" />
-                        <outputColumn
-                          refId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Error Output].Columns[discount]"
-                          dataType="wstr"
-                          length="255"
-                          lineageId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Error Output].Columns[discount]"
-                          name="discount" />
-                        <outputColumn
-                          refId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Error Output].Columns[steam_deck]"
-                          dataType="bool"
-                          lineageId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Error Output].Columns[steam_deck]"
-                          name="steam_deck" />
-                        <outputColumn
-                          refId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                          refId="Package\Sequence Container\Import Games\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
                           dataType="i4"
-                          lineageId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                          lineageId="Package\Sequence Container\Import Games\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
                           name="ErrorCode"
                           specialFlags="1" />
                         <outputColumn
-                          refId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                          refId="Package\Sequence Container\Import Games\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
                           dataType="i4"
-                          lineageId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                          lineageId="Package\Sequence Container\Import Games\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
                           name="ErrorColumn"
                           specialFlags="2" />
                       </outputColumns>
@@ -619,7 +1672,7 @@
                       dataType="System.Int32"
                       description="Specifies the mode used to access the database."
                       name="AccessMode"
-                      typeConverter="AccessMode">0</property>
+                      typeConverter="AccessMode">3</property>
                     <property
                       dataType="System.Boolean"
                       description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
@@ -631,7 +1684,7 @@
                     <property
                       dataType="System.String"
                       description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
-                      name="FastLoadOptions"></property>
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
                     <property
                       dataType="System.Int32"
                       description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
@@ -640,8 +1693,8 @@
                   <connections>
                     <connection
                       refId="Package\Sequence Container\Import Games\OLE DB Destination.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[db-mssql.s20439]"
-                      connectionManagerRefId="Package.ConnectionManagers[db-mssql.s20439]"
+                      connectionManagerID="Package.ConnectionManagers[db-mssql.s15429]"
+                      connectionManagerRefId="Package.ConnectionManagers[db-mssql.s15429]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -655,87 +1708,101 @@
                       <inputColumns>
                         <inputColumn
                           refId="Package\Sequence Container\Import Games\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[app_id]"
-                          cachedDataType="r8"
+                          cachedCodepage="65001"
+                          cachedDataType="str"
+                          cachedLength="50"
                           cachedName="app_id"
                           externalMetadataColumnId="Package\Sequence Container\Import Games\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[app_id]"
-                          lineageId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Output].Columns[app_id]" />
+                          lineageId="Package\Sequence Container\Import Games\Flat File Source.Outputs[Flat File Source Output].Columns[app_id]" />
                         <inputColumn
                           refId="Package\Sequence Container\Import Games\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[title]"
                           cachedDataType="wstr"
-                          cachedLength="255"
+                          cachedLength="500"
                           cachedName="title"
                           externalMetadataColumnId="Package\Sequence Container\Import Games\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[title]"
-                          lineageId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Output].Columns[title]" />
+                          lineageId="Package\Sequence Container\Import Games\Flat File Source.Outputs[Flat File Source Output].Columns[title]" />
                         <inputColumn
                           refId="Package\Sequence Container\Import Games\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[date_release]"
-                          cachedDataType="date"
+                          cachedDataType="wstr"
+                          cachedLength="50"
                           cachedName="date_release"
                           externalMetadataColumnId="Package\Sequence Container\Import Games\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[date_release]"
-                          lineageId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Output].Columns[date_release]" />
+                          lineageId="Package\Sequence Container\Import Games\Flat File Source.Outputs[Flat File Source Output].Columns[date_release]" />
                         <inputColumn
                           refId="Package\Sequence Container\Import Games\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[win]"
-                          cachedDataType="bool"
+                          cachedDataType="wstr"
+                          cachedLength="50"
                           cachedName="win"
                           externalMetadataColumnId="Package\Sequence Container\Import Games\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[win]"
-                          lineageId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Output].Columns[win]" />
+                          lineageId="Package\Sequence Container\Import Games\Flat File Source.Outputs[Flat File Source Output].Columns[win]" />
                         <inputColumn
                           refId="Package\Sequence Container\Import Games\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[mac]"
-                          cachedDataType="bool"
+                          cachedDataType="wstr"
+                          cachedLength="50"
                           cachedName="mac"
                           externalMetadataColumnId="Package\Sequence Container\Import Games\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[mac]"
-                          lineageId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Output].Columns[mac]" />
+                          lineageId="Package\Sequence Container\Import Games\Flat File Source.Outputs[Flat File Source Output].Columns[mac]" />
                         <inputColumn
                           refId="Package\Sequence Container\Import Games\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[linux]"
-                          cachedDataType="bool"
+                          cachedDataType="wstr"
+                          cachedLength="50"
                           cachedName="linux"
                           externalMetadataColumnId="Package\Sequence Container\Import Games\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[linux]"
-                          lineageId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Output].Columns[linux]" />
+                          lineageId="Package\Sequence Container\Import Games\Flat File Source.Outputs[Flat File Source Output].Columns[linux]" />
                         <inputColumn
                           refId="Package\Sequence Container\Import Games\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[rating]"
                           cachedDataType="wstr"
-                          cachedLength="255"
+                          cachedLength="50"
                           cachedName="rating"
                           externalMetadataColumnId="Package\Sequence Container\Import Games\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[rating]"
-                          lineageId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Output].Columns[rating]" />
+                          lineageId="Package\Sequence Container\Import Games\Flat File Source.Outputs[Flat File Source Output].Columns[rating]" />
                         <inputColumn
                           refId="Package\Sequence Container\Import Games\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[positive_ratio]"
-                          cachedDataType="r8"
+                          cachedCodepage="65001"
+                          cachedDataType="str"
+                          cachedLength="50"
                           cachedName="positive_ratio"
                           externalMetadataColumnId="Package\Sequence Container\Import Games\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[positive_ratio]"
-                          lineageId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Output].Columns[positive_ratio]" />
+                          lineageId="Package\Sequence Container\Import Games\Flat File Source.Outputs[Flat File Source Output].Columns[positive_ratio]" />
                         <inputColumn
                           refId="Package\Sequence Container\Import Games\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[user_reviews]"
-                          cachedDataType="r8"
+                          cachedCodepage="65001"
+                          cachedDataType="str"
+                          cachedLength="50"
                           cachedName="user_reviews"
                           externalMetadataColumnId="Package\Sequence Container\Import Games\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[user_reviews]"
-                          lineageId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Output].Columns[user_reviews]" />
+                          lineageId="Package\Sequence Container\Import Games\Flat File Source.Outputs[Flat File Source Output].Columns[user_reviews]" />
                         <inputColumn
                           refId="Package\Sequence Container\Import Games\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[price_final]"
-                          cachedDataType="wstr"
-                          cachedLength="255"
+                          cachedCodepage="65001"
+                          cachedDataType="str"
+                          cachedLength="50"
                           cachedName="price_final"
                           externalMetadataColumnId="Package\Sequence Container\Import Games\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[price_final]"
-                          lineageId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Output].Columns[price_final]" />
+                          lineageId="Package\Sequence Container\Import Games\Flat File Source.Outputs[Flat File Source Output].Columns[price_final]" />
                         <inputColumn
                           refId="Package\Sequence Container\Import Games\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[price_original]"
-                          cachedDataType="wstr"
-                          cachedLength="255"
+                          cachedCodepage="65001"
+                          cachedDataType="str"
+                          cachedLength="50"
                           cachedName="price_original"
                           externalMetadataColumnId="Package\Sequence Container\Import Games\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[price_original]"
-                          lineageId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Output].Columns[price_original]" />
+                          lineageId="Package\Sequence Container\Import Games\Flat File Source.Outputs[Flat File Source Output].Columns[price_original]" />
                         <inputColumn
                           refId="Package\Sequence Container\Import Games\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[discount]"
-                          cachedDataType="wstr"
-                          cachedLength="255"
+                          cachedCodepage="65001"
+                          cachedDataType="str"
+                          cachedLength="50"
                           cachedName="discount"
                           externalMetadataColumnId="Package\Sequence Container\Import Games\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[discount]"
-                          lineageId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Output].Columns[discount]" />
+                          lineageId="Package\Sequence Container\Import Games\Flat File Source.Outputs[Flat File Source Output].Columns[discount]" />
                         <inputColumn
                           refId="Package\Sequence Container\Import Games\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[steam_deck]"
-                          cachedDataType="bool"
+                          cachedDataType="wstr"
+                          cachedLength="50"
                           cachedName="steam_deck"
                           externalMetadataColumnId="Package\Sequence Container\Import Games\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[steam_deck]"
-                          lineageId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Output].Columns[steam_deck]" />
+                          lineageId="Package\Sequence Container\Import Games\Flat File Source.Outputs[Flat File Source Output].Columns[steam_deck]" />
                       </inputColumns>
                       <externalMetadataColumns
                         isUsed="True">
@@ -833,10 +1900,10 @@
               </components>
               <paths>
                 <path
-                  refId="Package\Sequence Container\Import Games.Paths[Excel Source Output]"
+                  refId="Package\Sequence Container\Import Games.Paths[Flat File Source Output]"
                   endId="Package\Sequence Container\Import Games\OLE DB Destination.Inputs[OLE DB Destination Input]"
-                  name="Excel Source Output"
-                  startId="Package\Sequence Container\Import Games\Excel Source.Outputs[Excel Source Output]" />
+                  name="Flat File Source Output"
+                  startId="Package\Sequence Container\Import Games\Flat File Source.Outputs[Flat File Source Output]" />
               </paths>
             </pipeline>
           </DTS:ObjectData>
@@ -856,222 +1923,285 @@
               version="1">
               <components>
                 <component
-                  refId="Package\Sequence Container\Import Reviews\Excel Source"
-                  componentClassID="Microsoft.ExcelSource"
-                  contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
-                  description="Excel Source"
-                  name="Excel Source"
+                  refId="Package\Sequence Container\Import Reviews\Flat File Source"
+                  componentClassID="Microsoft.FlatFileSource"
+                  contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Flat File Source"
+                  localeId="1033"
+                  name="Flat File Source"
                   usesDispositions="true"
                   version="1">
                   <properties>
                     <property
-                      dataType="System.Int32"
-                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
-                      name="CommandTimeout">0</property>
+                      dataType="System.Boolean"
+                      description="Specifies whether zero-length columns are treated as null."
+                      name="RetainNulls">false</property>
                     <property
                       dataType="System.String"
-                      description="Specifies the name of the database object used to open a rowset."
-                      name="OpenRowset">recommendations$</property>
-                    <property
-                      dataType="System.String"
-                      description="Specifies the variable that contains the name of the database object used to open a rowset."
-                      name="OpenRowsetVariable"></property>
-                    <property
-                      dataType="System.String"
-                      description="The SQL command to be executed."
-                      name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
-                    <property
-                      dataType="System.String"
-                      description="The variable that contains the SQL command to be executed."
-                      name="SqlCommandVariable"></property>
-                    <property
-                      dataType="System.Int32"
-                      description="Specifies the mode used to access the database."
-                      name="AccessMode"
-                      typeConverter="AccessMode">0</property>
-                    <property
-                      dataType="System.String"
-                      description="The mapping from parameters in the SQL command to variables."
-                      name="ParameterMapping"></property>
+                      description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                      name="FileNameColumnName"></property>
                   </properties>
                   <connections>
                     <connection
-                      refId="Package\Sequence Container\Import Reviews\Excel Source.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[Excel Connection Manager 10]"
-                      connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager 10]"
-                      description="The OLE DB runtime connection used to access the database."
-                      name="OleDbConnection" />
+                      refId="Package\Sequence Container\Import Reviews\Flat File Source.Connections[FlatFileConnection]"
+                      connectionManagerID="Package.ConnectionManagers[Flat File Connection Manager 2]"
+                      connectionManagerRefId="Package.ConnectionManagers[Flat File Connection Manager 2]"
+                      name="FlatFileConnection" />
                   </connections>
                   <outputs>
                     <output
-                      refId="Package\Sequence Container\Import Reviews\Excel Source.Outputs[Excel Source Output]"
-                      name="Excel Source Output">
+                      refId="Package\Sequence Container\Import Reviews\Flat File Source.Outputs[Flat File Source Output]"
+                      name="Flat File Source Output">
                       <outputColumns>
                         <outputColumn
-                          refId="Package\Sequence Container\Import Reviews\Excel Source.Outputs[Excel Source Output].Columns[app_id]"
-                          dataType="r8"
+                          refId="Package\Sequence Container\Import Reviews\Flat File Source.Outputs[Flat File Source Output].Columns[app_id]"
+                          codePage="1252"
+                          dataType="str"
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Sequence Container\Import Reviews\Excel Source.Outputs[Excel Source Output].ExternalColumns[app_id]"
-                          lineageId="Package\Sequence Container\Import Reviews\Excel Source.Outputs[Excel Source Output].Columns[app_id]"
+                          externalMetadataColumnId="Package\Sequence Container\Import Reviews\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[app_id]"
+                          length="50"
+                          lineageId="Package\Sequence Container\Import Reviews\Flat File Source.Outputs[Flat File Source Output].Columns[app_id]"
                           name="app_id"
-                          truncationRowDisposition="FailComponent" />
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
                         <outputColumn
-                          refId="Package\Sequence Container\Import Reviews\Excel Source.Outputs[Excel Source Output].Columns[helpful]"
-                          dataType="r8"
+                          refId="Package\Sequence Container\Import Reviews\Flat File Source.Outputs[Flat File Source Output].Columns[helpful]"
+                          codePage="1252"
+                          dataType="str"
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Sequence Container\Import Reviews\Excel Source.Outputs[Excel Source Output].ExternalColumns[helpful]"
-                          lineageId="Package\Sequence Container\Import Reviews\Excel Source.Outputs[Excel Source Output].Columns[helpful]"
+                          externalMetadataColumnId="Package\Sequence Container\Import Reviews\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[helpful]"
+                          length="50"
+                          lineageId="Package\Sequence Container\Import Reviews\Flat File Source.Outputs[Flat File Source Output].Columns[helpful]"
                           name="helpful"
-                          truncationRowDisposition="FailComponent" />
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
                         <outputColumn
-                          refId="Package\Sequence Container\Import Reviews\Excel Source.Outputs[Excel Source Output].Columns[funny]"
-                          dataType="r8"
+                          refId="Package\Sequence Container\Import Reviews\Flat File Source.Outputs[Flat File Source Output].Columns[funny]"
+                          codePage="1252"
+                          dataType="str"
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Sequence Container\Import Reviews\Excel Source.Outputs[Excel Source Output].ExternalColumns[funny]"
-                          lineageId="Package\Sequence Container\Import Reviews\Excel Source.Outputs[Excel Source Output].Columns[funny]"
+                          externalMetadataColumnId="Package\Sequence Container\Import Reviews\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[funny]"
+                          length="50"
+                          lineageId="Package\Sequence Container\Import Reviews\Flat File Source.Outputs[Flat File Source Output].Columns[funny]"
                           name="funny"
-                          truncationRowDisposition="FailComponent" />
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
                         <outputColumn
-                          refId="Package\Sequence Container\Import Reviews\Excel Source.Outputs[Excel Source Output].Columns[date]"
-                          dataType="date"
+                          refId="Package\Sequence Container\Import Reviews\Flat File Source.Outputs[Flat File Source Output].Columns[date]"
+                          dataType="wstr"
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Sequence Container\Import Reviews\Excel Source.Outputs[Excel Source Output].ExternalColumns[date]"
-                          lineageId="Package\Sequence Container\Import Reviews\Excel Source.Outputs[Excel Source Output].Columns[date]"
+                          externalMetadataColumnId="Package\Sequence Container\Import Reviews\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[date]"
+                          length="50"
+                          lineageId="Package\Sequence Container\Import Reviews\Flat File Source.Outputs[Flat File Source Output].Columns[date]"
                           name="date"
-                          truncationRowDisposition="FailComponent" />
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
                         <outputColumn
-                          refId="Package\Sequence Container\Import Reviews\Excel Source.Outputs[Excel Source Output].Columns[is_recommended]"
-                          dataType="bool"
+                          refId="Package\Sequence Container\Import Reviews\Flat File Source.Outputs[Flat File Source Output].Columns[is_recommended]"
+                          dataType="wstr"
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Sequence Container\Import Reviews\Excel Source.Outputs[Excel Source Output].ExternalColumns[is_recommended]"
-                          lineageId="Package\Sequence Container\Import Reviews\Excel Source.Outputs[Excel Source Output].Columns[is_recommended]"
+                          externalMetadataColumnId="Package\Sequence Container\Import Reviews\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[is_recommended]"
+                          length="50"
+                          lineageId="Package\Sequence Container\Import Reviews\Flat File Source.Outputs[Flat File Source Output].Columns[is_recommended]"
                           name="is_recommended"
-                          truncationRowDisposition="FailComponent" />
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
                         <outputColumn
-                          refId="Package\Sequence Container\Import Reviews\Excel Source.Outputs[Excel Source Output].Columns[hours]"
-                          dataType="r8"
+                          refId="Package\Sequence Container\Import Reviews\Flat File Source.Outputs[Flat File Source Output].Columns[hours]"
+                          codePage="1252"
+                          dataType="str"
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Sequence Container\Import Reviews\Excel Source.Outputs[Excel Source Output].ExternalColumns[hours]"
-                          lineageId="Package\Sequence Container\Import Reviews\Excel Source.Outputs[Excel Source Output].Columns[hours]"
+                          externalMetadataColumnId="Package\Sequence Container\Import Reviews\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[hours]"
+                          length="50"
+                          lineageId="Package\Sequence Container\Import Reviews\Flat File Source.Outputs[Flat File Source Output].Columns[hours]"
                           name="hours"
-                          truncationRowDisposition="FailComponent" />
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
                         <outputColumn
-                          refId="Package\Sequence Container\Import Reviews\Excel Source.Outputs[Excel Source Output].Columns[user_id]"
-                          dataType="r8"
+                          refId="Package\Sequence Container\Import Reviews\Flat File Source.Outputs[Flat File Source Output].Columns[user_id]"
+                          codePage="1252"
+                          dataType="str"
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Sequence Container\Import Reviews\Excel Source.Outputs[Excel Source Output].ExternalColumns[user_id]"
-                          lineageId="Package\Sequence Container\Import Reviews\Excel Source.Outputs[Excel Source Output].Columns[user_id]"
+                          externalMetadataColumnId="Package\Sequence Container\Import Reviews\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[user_id]"
+                          length="50"
+                          lineageId="Package\Sequence Container\Import Reviews\Flat File Source.Outputs[Flat File Source Output].Columns[user_id]"
                           name="user_id"
-                          truncationRowDisposition="FailComponent" />
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
                         <outputColumn
-                          refId="Package\Sequence Container\Import Reviews\Excel Source.Outputs[Excel Source Output].Columns[review_id]"
-                          dataType="r8"
+                          refId="Package\Sequence Container\Import Reviews\Flat File Source.Outputs[Flat File Source Output].Columns[review_id]"
+                          codePage="1252"
+                          dataType="str"
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Sequence Container\Import Reviews\Excel Source.Outputs[Excel Source Output].ExternalColumns[review_id]"
-                          lineageId="Package\Sequence Container\Import Reviews\Excel Source.Outputs[Excel Source Output].Columns[review_id]"
+                          externalMetadataColumnId="Package\Sequence Container\Import Reviews\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[review_id]"
+                          length="50"
+                          lineageId="Package\Sequence Container\Import Reviews\Flat File Source.Outputs[Flat File Source Output].Columns[review_id]"
                           name="review_id"
-                          truncationRowDisposition="FailComponent" />
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
                       </outputColumns>
                       <externalMetadataColumns
                         isUsed="True">
                         <externalMetadataColumn
-                          refId="Package\Sequence Container\Import Reviews\Excel Source.Outputs[Excel Source Output].ExternalColumns[app_id]"
-                          dataType="r8"
+                          refId="Package\Sequence Container\Import Reviews\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[app_id]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
                           name="app_id" />
                         <externalMetadataColumn
-                          refId="Package\Sequence Container\Import Reviews\Excel Source.Outputs[Excel Source Output].ExternalColumns[helpful]"
-                          dataType="r8"
+                          refId="Package\Sequence Container\Import Reviews\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[helpful]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
                           name="helpful" />
                         <externalMetadataColumn
-                          refId="Package\Sequence Container\Import Reviews\Excel Source.Outputs[Excel Source Output].ExternalColumns[funny]"
-                          dataType="r8"
+                          refId="Package\Sequence Container\Import Reviews\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[funny]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
                           name="funny" />
                         <externalMetadataColumn
-                          refId="Package\Sequence Container\Import Reviews\Excel Source.Outputs[Excel Source Output].ExternalColumns[date]"
-                          dataType="date"
+                          refId="Package\Sequence Container\Import Reviews\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[date]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
                           name="date" />
                         <externalMetadataColumn
-                          refId="Package\Sequence Container\Import Reviews\Excel Source.Outputs[Excel Source Output].ExternalColumns[is_recommended]"
-                          dataType="bool"
+                          refId="Package\Sequence Container\Import Reviews\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[is_recommended]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
                           name="is_recommended" />
                         <externalMetadataColumn
-                          refId="Package\Sequence Container\Import Reviews\Excel Source.Outputs[Excel Source Output].ExternalColumns[hours]"
-                          dataType="r8"
+                          refId="Package\Sequence Container\Import Reviews\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[hours]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
                           name="hours" />
                         <externalMetadataColumn
-                          refId="Package\Sequence Container\Import Reviews\Excel Source.Outputs[Excel Source Output].ExternalColumns[user_id]"
-                          dataType="r8"
+                          refId="Package\Sequence Container\Import Reviews\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[user_id]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
                           name="user_id" />
                         <externalMetadataColumn
-                          refId="Package\Sequence Container\Import Reviews\Excel Source.Outputs[Excel Source Output].ExternalColumns[review_id]"
-                          dataType="r8"
+                          refId="Package\Sequence Container\Import Reviews\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[review_id]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
                           name="review_id" />
                       </externalMetadataColumns>
                     </output>
                     <output
-                      refId="Package\Sequence Container\Import Reviews\Excel Source.Outputs[Excel Source Error Output]"
+                      refId="Package\Sequence Container\Import Reviews\Flat File Source.Outputs[Flat File Source Error Output]"
                       isErrorOut="true"
-                      name="Excel Source Error Output">
+                      name="Flat File Source Error Output">
                       <outputColumns>
                         <outputColumn
-                          refId="Package\Sequence Container\Import Reviews\Excel Source.Outputs[Excel Source Error Output].Columns[app_id]"
-                          dataType="r8"
-                          lineageId="Package\Sequence Container\Import Reviews\Excel Source.Outputs[Excel Source Error Output].Columns[app_id]"
-                          name="app_id" />
+                          refId="Package\Sequence Container\Import Reviews\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                          codePage="1252"
+                          dataType="text"
+                          description="Flat File Source Error Output Column"
+                          lineageId="Package\Sequence Container\Import Reviews\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                          name="Flat File Source Error Output Column" />
                         <outputColumn
-                          refId="Package\Sequence Container\Import Reviews\Excel Source.Outputs[Excel Source Error Output].Columns[helpful]"
-                          dataType="r8"
-                          lineageId="Package\Sequence Container\Import Reviews\Excel Source.Outputs[Excel Source Error Output].Columns[helpful]"
-                          name="helpful" />
-                        <outputColumn
-                          refId="Package\Sequence Container\Import Reviews\Excel Source.Outputs[Excel Source Error Output].Columns[funny]"
-                          dataType="r8"
-                          lineageId="Package\Sequence Container\Import Reviews\Excel Source.Outputs[Excel Source Error Output].Columns[funny]"
-                          name="funny" />
-                        <outputColumn
-                          refId="Package\Sequence Container\Import Reviews\Excel Source.Outputs[Excel Source Error Output].Columns[date]"
-                          dataType="date"
-                          lineageId="Package\Sequence Container\Import Reviews\Excel Source.Outputs[Excel Source Error Output].Columns[date]"
-                          name="date" />
-                        <outputColumn
-                          refId="Package\Sequence Container\Import Reviews\Excel Source.Outputs[Excel Source Error Output].Columns[is_recommended]"
-                          dataType="bool"
-                          lineageId="Package\Sequence Container\Import Reviews\Excel Source.Outputs[Excel Source Error Output].Columns[is_recommended]"
-                          name="is_recommended" />
-                        <outputColumn
-                          refId="Package\Sequence Container\Import Reviews\Excel Source.Outputs[Excel Source Error Output].Columns[hours]"
-                          dataType="r8"
-                          lineageId="Package\Sequence Container\Import Reviews\Excel Source.Outputs[Excel Source Error Output].Columns[hours]"
-                          name="hours" />
-                        <outputColumn
-                          refId="Package\Sequence Container\Import Reviews\Excel Source.Outputs[Excel Source Error Output].Columns[user_id]"
-                          dataType="r8"
-                          lineageId="Package\Sequence Container\Import Reviews\Excel Source.Outputs[Excel Source Error Output].Columns[user_id]"
-                          name="user_id" />
-                        <outputColumn
-                          refId="Package\Sequence Container\Import Reviews\Excel Source.Outputs[Excel Source Error Output].Columns[review_id]"
-                          dataType="r8"
-                          lineageId="Package\Sequence Container\Import Reviews\Excel Source.Outputs[Excel Source Error Output].Columns[review_id]"
-                          name="review_id" />
-                        <outputColumn
-                          refId="Package\Sequence Container\Import Reviews\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                          refId="Package\Sequence Container\Import Reviews\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
                           dataType="i4"
-                          lineageId="Package\Sequence Container\Import Reviews\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                          lineageId="Package\Sequence Container\Import Reviews\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
                           name="ErrorCode"
                           specialFlags="1" />
                         <outputColumn
-                          refId="Package\Sequence Container\Import Reviews\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                          refId="Package\Sequence Container\Import Reviews\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
                           dataType="i4"
-                          lineageId="Package\Sequence Container\Import Reviews\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                          lineageId="Package\Sequence Container\Import Reviews\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
                           name="ErrorColumn"
                           specialFlags="2" />
                       </outputColumns>
@@ -1117,7 +2247,7 @@
                       dataType="System.Int32"
                       description="Specifies the mode used to access the database."
                       name="AccessMode"
-                      typeConverter="AccessMode">0</property>
+                      typeConverter="AccessMode">3</property>
                     <property
                       dataType="System.Boolean"
                       description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
@@ -1129,7 +2259,7 @@
                     <property
                       dataType="System.String"
                       description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
-                      name="FastLoadOptions"></property>
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
                     <property
                       dataType="System.Int32"
                       description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
@@ -1138,8 +2268,8 @@
                   <connections>
                     <connection
                       refId="Package\Sequence Container\Import Reviews\OLE DB Destination.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[db-mssql.s20439]"
-                      connectionManagerRefId="Package.ConnectionManagers[db-mssql.s20439]"
+                      connectionManagerID="Package.ConnectionManagers[db-mssql.s15429]"
+                      connectionManagerRefId="Package.ConnectionManagers[db-mssql.s15429]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -1153,52 +2283,66 @@
                       <inputColumns>
                         <inputColumn
                           refId="Package\Sequence Container\Import Reviews\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[app_id]"
-                          cachedDataType="r8"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
                           cachedName="app_id"
                           externalMetadataColumnId="Package\Sequence Container\Import Reviews\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[app_id]"
-                          lineageId="Package\Sequence Container\Import Reviews\Excel Source.Outputs[Excel Source Output].Columns[app_id]" />
+                          lineageId="Package\Sequence Container\Import Reviews\Flat File Source.Outputs[Flat File Source Output].Columns[app_id]" />
                         <inputColumn
                           refId="Package\Sequence Container\Import Reviews\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[helpful]"
-                          cachedDataType="r8"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
                           cachedName="helpful"
                           externalMetadataColumnId="Package\Sequence Container\Import Reviews\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[helpful]"
-                          lineageId="Package\Sequence Container\Import Reviews\Excel Source.Outputs[Excel Source Output].Columns[helpful]" />
+                          lineageId="Package\Sequence Container\Import Reviews\Flat File Source.Outputs[Flat File Source Output].Columns[helpful]" />
                         <inputColumn
                           refId="Package\Sequence Container\Import Reviews\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[funny]"
-                          cachedDataType="r8"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
                           cachedName="funny"
                           externalMetadataColumnId="Package\Sequence Container\Import Reviews\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[funny]"
-                          lineageId="Package\Sequence Container\Import Reviews\Excel Source.Outputs[Excel Source Output].Columns[funny]" />
+                          lineageId="Package\Sequence Container\Import Reviews\Flat File Source.Outputs[Flat File Source Output].Columns[funny]" />
                         <inputColumn
                           refId="Package\Sequence Container\Import Reviews\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[date]"
-                          cachedDataType="date"
+                          cachedDataType="wstr"
+                          cachedLength="50"
                           cachedName="date"
                           externalMetadataColumnId="Package\Sequence Container\Import Reviews\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[date]"
-                          lineageId="Package\Sequence Container\Import Reviews\Excel Source.Outputs[Excel Source Output].Columns[date]" />
+                          lineageId="Package\Sequence Container\Import Reviews\Flat File Source.Outputs[Flat File Source Output].Columns[date]" />
                         <inputColumn
                           refId="Package\Sequence Container\Import Reviews\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[is_recommended]"
-                          cachedDataType="bool"
+                          cachedDataType="wstr"
+                          cachedLength="50"
                           cachedName="is_recommended"
                           externalMetadataColumnId="Package\Sequence Container\Import Reviews\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[is_recommended]"
-                          lineageId="Package\Sequence Container\Import Reviews\Excel Source.Outputs[Excel Source Output].Columns[is_recommended]" />
+                          lineageId="Package\Sequence Container\Import Reviews\Flat File Source.Outputs[Flat File Source Output].Columns[is_recommended]" />
                         <inputColumn
                           refId="Package\Sequence Container\Import Reviews\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[hours]"
-                          cachedDataType="r8"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
                           cachedName="hours"
                           externalMetadataColumnId="Package\Sequence Container\Import Reviews\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[hours]"
-                          lineageId="Package\Sequence Container\Import Reviews\Excel Source.Outputs[Excel Source Output].Columns[hours]" />
+                          lineageId="Package\Sequence Container\Import Reviews\Flat File Source.Outputs[Flat File Source Output].Columns[hours]" />
                         <inputColumn
                           refId="Package\Sequence Container\Import Reviews\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[review_id]"
-                          cachedDataType="r8"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
                           cachedName="review_id"
                           externalMetadataColumnId="Package\Sequence Container\Import Reviews\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[review_id_csv]"
-                          lineageId="Package\Sequence Container\Import Reviews\Excel Source.Outputs[Excel Source Output].Columns[review_id]" />
+                          lineageId="Package\Sequence Container\Import Reviews\Flat File Source.Outputs[Flat File Source Output].Columns[review_id]" />
                         <inputColumn
                           refId="Package\Sequence Container\Import Reviews\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[user_id]"
-                          cachedDataType="r8"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
                           cachedName="user_id"
                           externalMetadataColumnId="Package\Sequence Container\Import Reviews\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[user_id_csv]"
-                          lineageId="Package\Sequence Container\Import Reviews\Excel Source.Outputs[Excel Source Output].Columns[user_id]" />
+                          lineageId="Package\Sequence Container\Import Reviews\Flat File Source.Outputs[Flat File Source Output].Columns[user_id]" />
                       </inputColumns>
                       <externalMetadataColumns
                         isUsed="True">
@@ -1269,10 +2413,10 @@
               </components>
               <paths>
                 <path
-                  refId="Package\Sequence Container\Import Reviews.Paths[Excel Source Output]"
+                  refId="Package\Sequence Container\Import Reviews.Paths[Flat File Source Output]"
                   endId="Package\Sequence Container\Import Reviews\OLE DB Destination.Inputs[OLE DB Destination Input]"
-                  name="Excel Source Output"
-                  startId="Package\Sequence Container\Import Reviews\Excel Source.Outputs[Excel Source Output]" />
+                  name="Flat File Source Output"
+                  startId="Package\Sequence Container\Import Reviews\Flat File Source.Outputs[Flat File Source Output]" />
               </paths>
             </pipeline>
           </DTS:ObjectData>
@@ -1292,132 +2436,147 @@
               version="1">
               <components>
                 <component
-                  refId="Package\Sequence Container\Import User\Excel Source"
-                  componentClassID="Microsoft.ExcelSource"
-                  contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
-                  description="Excel Source"
-                  name="Excel Source"
+                  refId="Package\Sequence Container\Import User\Flat File Source"
+                  componentClassID="Microsoft.FlatFileSource"
+                  contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Flat File Source"
+                  localeId="1033"
+                  name="Flat File Source"
                   usesDispositions="true"
                   version="1">
                   <properties>
                     <property
-                      dataType="System.Int32"
-                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
-                      name="CommandTimeout">0</property>
+                      dataType="System.Boolean"
+                      description="Specifies whether zero-length columns are treated as null."
+                      name="RetainNulls">false</property>
                     <property
                       dataType="System.String"
-                      description="Specifies the name of the database object used to open a rowset."
-                      name="OpenRowset">users$</property>
-                    <property
-                      dataType="System.String"
-                      description="Specifies the variable that contains the name of the database object used to open a rowset."
-                      name="OpenRowsetVariable"></property>
-                    <property
-                      dataType="System.String"
-                      description="The SQL command to be executed."
-                      name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
-                    <property
-                      dataType="System.String"
-                      description="The variable that contains the SQL command to be executed."
-                      name="SqlCommandVariable"></property>
-                    <property
-                      dataType="System.Int32"
-                      description="Specifies the mode used to access the database."
-                      name="AccessMode"
-                      typeConverter="AccessMode">0</property>
-                    <property
-                      dataType="System.String"
-                      description="The mapping from parameters in the SQL command to variables."
-                      name="ParameterMapping"></property>
+                      description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                      name="FileNameColumnName"></property>
                   </properties>
                   <connections>
                     <connection
-                      refId="Package\Sequence Container\Import User\Excel Source.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[Excel Connection Manager 6]"
-                      connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager 6]"
-                      description="The OLE DB runtime connection used to access the database."
-                      name="OleDbConnection" />
+                      refId="Package\Sequence Container\Import User\Flat File Source.Connections[FlatFileConnection]"
+                      connectionManagerID="Package.ConnectionManagers[Flat File Connection Manager]"
+                      connectionManagerRefId="Package.ConnectionManagers[Flat File Connection Manager]"
+                      name="FlatFileConnection" />
                   </connections>
                   <outputs>
                     <output
-                      refId="Package\Sequence Container\Import User\Excel Source.Outputs[Excel Source Output]"
-                      name="Excel Source Output">
+                      refId="Package\Sequence Container\Import User\Flat File Source.Outputs[Flat File Source Output]"
+                      name="Flat File Source Output">
                       <outputColumns>
                         <outputColumn
-                          refId="Package\Sequence Container\Import User\Excel Source.Outputs[Excel Source Output].Columns[user_id]"
-                          dataType="r8"
+                          refId="Package\Sequence Container\Import User\Flat File Source.Outputs[Flat File Source Output].Columns[user_id]"
+                          codePage="1252"
+                          dataType="str"
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Sequence Container\Import User\Excel Source.Outputs[Excel Source Output].ExternalColumns[user_id]"
-                          lineageId="Package\Sequence Container\Import User\Excel Source.Outputs[Excel Source Output].Columns[user_id]"
+                          externalMetadataColumnId="Package\Sequence Container\Import User\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[user_id]"
+                          length="50"
+                          lineageId="Package\Sequence Container\Import User\Flat File Source.Outputs[Flat File Source Output].Columns[user_id]"
                           name="user_id"
-                          truncationRowDisposition="FailComponent" />
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
                         <outputColumn
-                          refId="Package\Sequence Container\Import User\Excel Source.Outputs[Excel Source Output].Columns[products]"
-                          dataType="r8"
+                          refId="Package\Sequence Container\Import User\Flat File Source.Outputs[Flat File Source Output].Columns[products]"
+                          codePage="1252"
+                          dataType="str"
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Sequence Container\Import User\Excel Source.Outputs[Excel Source Output].ExternalColumns[products]"
-                          lineageId="Package\Sequence Container\Import User\Excel Source.Outputs[Excel Source Output].Columns[products]"
+                          externalMetadataColumnId="Package\Sequence Container\Import User\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[products]"
+                          length="50"
+                          lineageId="Package\Sequence Container\Import User\Flat File Source.Outputs[Flat File Source Output].Columns[products]"
                           name="products"
-                          truncationRowDisposition="FailComponent" />
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
                         <outputColumn
-                          refId="Package\Sequence Container\Import User\Excel Source.Outputs[Excel Source Output].Columns[reviews]"
-                          dataType="r8"
+                          refId="Package\Sequence Container\Import User\Flat File Source.Outputs[Flat File Source Output].Columns[reviews]"
+                          codePage="1252"
+                          dataType="str"
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Sequence Container\Import User\Excel Source.Outputs[Excel Source Output].ExternalColumns[reviews]"
-                          lineageId="Package\Sequence Container\Import User\Excel Source.Outputs[Excel Source Output].Columns[reviews]"
+                          externalMetadataColumnId="Package\Sequence Container\Import User\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[reviews]"
+                          length="50"
+                          lineageId="Package\Sequence Container\Import User\Flat File Source.Outputs[Flat File Source Output].Columns[reviews]"
                           name="reviews"
-                          truncationRowDisposition="FailComponent" />
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
                       </outputColumns>
                       <externalMetadataColumns
                         isUsed="True">
                         <externalMetadataColumn
-                          refId="Package\Sequence Container\Import User\Excel Source.Outputs[Excel Source Output].ExternalColumns[user_id]"
-                          dataType="r8"
+                          refId="Package\Sequence Container\Import User\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[user_id]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
                           name="user_id" />
                         <externalMetadataColumn
-                          refId="Package\Sequence Container\Import User\Excel Source.Outputs[Excel Source Output].ExternalColumns[products]"
-                          dataType="r8"
+                          refId="Package\Sequence Container\Import User\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[products]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
                           name="products" />
                         <externalMetadataColumn
-                          refId="Package\Sequence Container\Import User\Excel Source.Outputs[Excel Source Output].ExternalColumns[reviews]"
-                          dataType="r8"
+                          refId="Package\Sequence Container\Import User\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[reviews]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
                           name="reviews" />
                       </externalMetadataColumns>
                     </output>
                     <output
-                      refId="Package\Sequence Container\Import User\Excel Source.Outputs[Excel Source Error Output]"
+                      refId="Package\Sequence Container\Import User\Flat File Source.Outputs[Flat File Source Error Output]"
                       isErrorOut="true"
-                      name="Excel Source Error Output">
+                      name="Flat File Source Error Output">
                       <outputColumns>
                         <outputColumn
-                          refId="Package\Sequence Container\Import User\Excel Source.Outputs[Excel Source Error Output].Columns[user_id]"
-                          dataType="r8"
-                          lineageId="Package\Sequence Container\Import User\Excel Source.Outputs[Excel Source Error Output].Columns[user_id]"
-                          name="user_id" />
+                          refId="Package\Sequence Container\Import User\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                          codePage="1252"
+                          dataType="text"
+                          description="Flat File Source Error Output Column"
+                          lineageId="Package\Sequence Container\Import User\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                          name="Flat File Source Error Output Column" />
                         <outputColumn
-                          refId="Package\Sequence Container\Import User\Excel Source.Outputs[Excel Source Error Output].Columns[products]"
-                          dataType="r8"
-                          lineageId="Package\Sequence Container\Import User\Excel Source.Outputs[Excel Source Error Output].Columns[products]"
-                          name="products" />
-                        <outputColumn
-                          refId="Package\Sequence Container\Import User\Excel Source.Outputs[Excel Source Error Output].Columns[reviews]"
-                          dataType="r8"
-                          lineageId="Package\Sequence Container\Import User\Excel Source.Outputs[Excel Source Error Output].Columns[reviews]"
-                          name="reviews" />
-                        <outputColumn
-                          refId="Package\Sequence Container\Import User\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                          refId="Package\Sequence Container\Import User\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
                           dataType="i4"
-                          lineageId="Package\Sequence Container\Import User\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                          lineageId="Package\Sequence Container\Import User\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
                           name="ErrorCode"
                           specialFlags="1" />
                         <outputColumn
-                          refId="Package\Sequence Container\Import User\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                          refId="Package\Sequence Container\Import User\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
                           dataType="i4"
-                          lineageId="Package\Sequence Container\Import User\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                          lineageId="Package\Sequence Container\Import User\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
                           name="ErrorColumn"
                           specialFlags="2" />
                       </outputColumns>
@@ -1479,13 +2638,13 @@
                     <property
                       dataType="System.Int32"
                       description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
-                      name="FastLoadMaxInsertCommitSize">999999999</property>
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
                   </properties>
                   <connections>
                     <connection
                       refId="Package\Sequence Container\Import User\OLE DB Destination.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[db-mssql.s20439]"
-                      connectionManagerRefId="Package.ConnectionManagers[db-mssql.s20439]"
+                      connectionManagerID="Package.ConnectionManagers[db-mssql.s15429]"
+                      connectionManagerRefId="Package.ConnectionManagers[db-mssql.s15429]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -1499,22 +2658,28 @@
                       <inputColumns>
                         <inputColumn
                           refId="Package\Sequence Container\Import User\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[products]"
-                          cachedDataType="r8"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
                           cachedName="products"
                           externalMetadataColumnId="Package\Sequence Container\Import User\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[products]"
-                          lineageId="Package\Sequence Container\Import User\Excel Source.Outputs[Excel Source Output].Columns[products]" />
+                          lineageId="Package\Sequence Container\Import User\Flat File Source.Outputs[Flat File Source Output].Columns[products]" />
                         <inputColumn
                           refId="Package\Sequence Container\Import User\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[reviews]"
-                          cachedDataType="r8"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
                           cachedName="reviews"
                           externalMetadataColumnId="Package\Sequence Container\Import User\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[reviews]"
-                          lineageId="Package\Sequence Container\Import User\Excel Source.Outputs[Excel Source Output].Columns[reviews]" />
+                          lineageId="Package\Sequence Container\Import User\Flat File Source.Outputs[Flat File Source Output].Columns[reviews]" />
                         <inputColumn
                           refId="Package\Sequence Container\Import User\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[user_id]"
-                          cachedDataType="r8"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
                           cachedName="user_id"
                           externalMetadataColumnId="Package\Sequence Container\Import User\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[user_id_csv]"
-                          lineageId="Package\Sequence Container\Import User\Excel Source.Outputs[Excel Source Output].Columns[user_id]" />
+                          lineageId="Package\Sequence Container\Import User\Flat File Source.Outputs[Flat File Source Output].Columns[user_id]" />
                       </inputColumns>
                       <externalMetadataColumns
                         isUsed="True">
@@ -1561,15 +2726,33 @@
               </components>
               <paths>
                 <path
-                  refId="Package\Sequence Container\Import User.Paths[Excel Source Output]"
+                  refId="Package\Sequence Container\Import User.Paths[Flat File Source Output]"
                   endId="Package\Sequence Container\Import User\OLE DB Destination.Inputs[OLE DB Destination Input]"
-                  name="Excel Source Output"
-                  startId="Package\Sequence Container\Import User\Excel Source.Outputs[Excel Source Output]" />
+                  name="Flat File Source Output"
+                  startId="Package\Sequence Container\Import User\Flat File Source.Outputs[Flat File Source Output]" />
               </paths>
             </pipeline>
           </DTS:ObjectData>
         </DTS:Executable>
       </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Sequence Container.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{6E4D7492-9A88-43EF-872D-CD0E51092283}"
+          DTS:From="Package\Sequence Container\Import User"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Sequence Container\Import Games" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Sequence Container.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{34CFF4AB-0B10-41D6-96CE-57CD0BD010F7}"
+          DTS:From="Package\Sequence Container\Import Games"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\Sequence Container\Import Reviews" />
+      </DTS:PrecedenceConstraints>
     </DTS:Executable>
   </DTS:Executables>
   <DTS:PrecedenceConstraints>
@@ -1605,11 +2788,55 @@
         <NodeLayout
           Size="153,42"
           Id="Package\Sequence Container\Import Reviews"
-          TopLeft="87,182" />
+          TopLeft="90,226" />
         <NodeLayout
           Size="136,42"
           Id="Package\Sequence Container\Import User"
           TopLeft="93,48" />
+        <EdgeLayout
+          Id="Package\Sequence Container.PrecedenceConstraints[Constraint]"
+          TopLeft="162,90">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,30"
+              Start="0,0"
+              End="0,22.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container.PrecedenceConstraints[Constraint 1]"
+          TopLeft="164.75,162">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,64"
+              Start="0,0"
+              End="0,56.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,56.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
@@ -1648,27 +2875,27 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
+          Size="151,42"
+          Id="Package\Sequence Container\Import Games\Flat File Source"
+          TopLeft="244,154" />
+        <NodeLayout
           Size="171,42"
           Id="Package\Sequence Container\Import Games\OLE DB Destination"
-          TopLeft="168,256" />
-        <NodeLayout
-          Size="139,42"
-          Id="Package\Sequence Container\Import Games\Excel Source"
-          TopLeft="189,126" />
+          TopLeft="232,251" />
         <EdgeLayout
-          Id="Package\Sequence Container\Import Games.Paths[Excel Source Output]"
-          TopLeft="256,168">
+          Id="Package\Sequence Container\Import Games.Paths[Flat File Source Output]"
+          TopLeft="318.5,196">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,88"
+              EndConnector="0,55"
               Start="0,0"
-              End="0,80.5">
+              End="0,47.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,80.5" />
+                    End="0,47.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1680,19 +2907,6 @@
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Sequence Container\Import Games\Excel Source">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Sequence Container\Import Games\OLE DB Destination">
     <Properties>
@@ -1712,27 +2926,27 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
+          Size="151,42"
+          Id="Package\Sequence Container\Import Reviews\Flat File Source"
+          TopLeft="213,135" />
+        <NodeLayout
           Size="171,42"
           Id="Package\Sequence Container\Import Reviews\OLE DB Destination"
-          TopLeft="218,251" />
-        <NodeLayout
-          Size="139,42"
-          Id="Package\Sequence Container\Import Reviews\Excel Source"
-          TopLeft="229,143" />
+          TopLeft="202,248" />
         <EdgeLayout
-          Id="Package\Sequence Container\Import Reviews.Paths[Excel Source Output]"
-          TopLeft="301,185">
+          Id="Package\Sequence Container\Import Reviews.Paths[Flat File Source Output]"
+          TopLeft="288,177">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,66"
+              EndConnector="0,71"
               Start="0,0"
-              End="0,58.5">
+              End="0,63.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,58.5" />
+                    End="0,63.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1744,19 +2958,6 @@
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Sequence Container\Import Reviews\Excel Source">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Sequence Container\Import Reviews\OLE DB Destination">
     <Properties>
@@ -1778,25 +2979,25 @@
         <NodeLayout
           Size="171,42"
           Id="Package\Sequence Container\Import User\OLE DB Destination"
-          TopLeft="96,204" />
+          TopLeft="419,209" />
         <NodeLayout
-          Size="139,42"
-          Id="Package\Sequence Container\Import User\Excel Source"
-          TopLeft="105,57" />
+          Size="151,42"
+          Id="Package\Sequence Container\Import User\Flat File Source"
+          TopLeft="435,72" />
         <EdgeLayout
-          Id="Package\Sequence Container\Import User.Paths[Excel Source Output]"
-          TopLeft="178,99">
+          Id="Package\Sequence Container\Import User.Paths[Flat File Source Output]"
+          TopLeft="507.5,114">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,105"
+              EndConnector="0,95"
               Start="0,0"
-              End="0,97.5">
+              End="0,87.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,97.5" />
+                    End="0,87.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1808,19 +3009,6 @@
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Sequence Container\Import User\Excel Source">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Sequence Container\Import User\OLE DB Destination">
     <Properties>
