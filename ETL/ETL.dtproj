@@ -5532,7 +5532,7 @@
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.DESKTOP-PNDN2SO\SQLEXPRESS.s21568.ConnectByProxy">
+                <SSIS:Parameter SSIS:Name="CM.DESKTOP-PNDN2SO\db-mssql.s15429.ConnectByProxy">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -5547,7 +5547,7 @@
                     <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.DESKTOP-PNDN2SO\SQLEXPRESS.s21568.ConnectionString">
+                <SSIS:Parameter SSIS:Name="CM.DESKTOP-PNDN2SO\db-mssql.s15429.ConnectionString">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -5558,11 +5558,11 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">Data Source=DESKTOP-PNDN2SO\SQLEXPRESS;Initial Catalog=s21568;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{F7D27D8A-B19A-4B1A-B30A-B1BA9C0C02DD}DESKTOP-PNDN2SO\SQLEXPRESS.s21568;Auto Translate=False;</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">Data Source=DESKTOP-PNDN2SO\SQLEXPRESS;Initial Catalog=s21568;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{F7D27D8A-B19A-4B1A-B30A-B1BA9C0C02DD}DESKTOP-PNDN2SO\db-mssql.s15429;Auto Translate=False;</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.DESKTOP-PNDN2SO\SQLEXPRESS.s21568.ConnectRetryCount">
+                <SSIS:Parameter SSIS:Name="CM.DESKTOP-PNDN2SO\db-mssql.s15429.ConnectRetryCount">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -5577,7 +5577,7 @@
                     <SSIS:Property SSIS:Name="DataType">9</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.DESKTOP-PNDN2SO\SQLEXPRESS.s21568.ConnectRetryInterval">
+                <SSIS:Parameter SSIS:Name="CM.DESKTOP-PNDN2SO\db-mssql.s15429.ConnectRetryInterval">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -5592,7 +5592,7 @@
                     <SSIS:Property SSIS:Name="DataType">9</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.DESKTOP-PNDN2SO\SQLEXPRESS.s21568.ConnectUsingManagedIdentity">
+                <SSIS:Parameter SSIS:Name="CM.DESKTOP-PNDN2SO\db-mssql.s15429.ConnectUsingManagedIdentity">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -5607,7 +5607,7 @@
                     <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.DESKTOP-PNDN2SO\SQLEXPRESS.s21568.InitialCatalog">
+                <SSIS:Parameter SSIS:Name="CM.DESKTOP-PNDN2SO\db-mssql.s15429.InitialCatalog">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -5622,7 +5622,7 @@
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.DESKTOP-PNDN2SO\SQLEXPRESS.s21568.Password">
+                <SSIS:Parameter SSIS:Name="CM.DESKTOP-PNDN2SO\db-mssql.s15429.Password">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -5636,7 +5636,7 @@
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.DESKTOP-PNDN2SO\SQLEXPRESS.s21568.RetainSameConnection">
+                <SSIS:Parameter SSIS:Name="CM.DESKTOP-PNDN2SO\db-mssql.s15429.RetainSameConnection">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -5651,7 +5651,7 @@
                     <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.DESKTOP-PNDN2SO\SQLEXPRESS.s21568.ServerName">
+                <SSIS:Parameter SSIS:Name="CM.DESKTOP-PNDN2SO\db-mssql.s15429.ServerName">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -5666,7 +5666,7 @@
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.DESKTOP-PNDN2SO\SQLEXPRESS.s21568.UserName">
+                <SSIS:Parameter SSIS:Name="CM.DESKTOP-PNDN2SO\db-mssql.s15429.UserName">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>

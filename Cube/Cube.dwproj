@@ -68,7 +68,7 @@
           <ConfigurationSetting>
             <Id>DataSource</Id>
             <Name>DataSource</Name>
-            <Value xsi:type="xsd:string">Provider=SQLOLEDB.1;Data Source=DESKTOP-PNDN2SO\SQLEXPRESS;Integrated Security=SSPI;Initial Catalog=s21568</Value>
+            <Value xsi:type="xsd:string">Provider=SQLOLEDB.1;Data Source=db-mssql;Integrated Security=SSPI;Initial Catalog=s15429</Value>
           </ConfigurationSetting>
         </ConnectionMappings>
         <ConnectionSecurityMappings>

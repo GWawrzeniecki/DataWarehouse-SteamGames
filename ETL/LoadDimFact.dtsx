@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="143"
-  DTS:VersionGUID="{DA0E06BE-4C24-46B9-A774-BF028E87C677}">
+  DTS:VersionBuild="161"
+  DTS:VersionGUID="{BBEEF89B-136A-493E-B099-0B99FDE7540A}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -92,19 +92,19 @@
   <DTS:Variables />
   <DTS:Executables>
     <DTS:Executable
-      DTS:refId="Package\Create tables 1"
+      DTS:refId="Package\Create tables"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
       DTS:DTSID="{602a03b0-3e76-42f9-9b10-d96d899415fd}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
-      DTS:ObjectName="Create tables 1"
+      DTS:ObjectName="Create tables"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
       DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{F7D27D8A-B19A-4B1A-B30A-B1BA9C0C02DD}"
+          SQLTask:Connection="{52502F0B-6475-47BC-AC1B-09EB8AE3E208}"
           SQLTask:SqlStatementSource="&#xA; IF OBJECT_ID('dbo.fact_game_opinions', 'U') IS NOT NULL&#xA; DROP TABLE dbo.fact_game_opinions;&#xA; IF OBJECT_ID('dbo.dim_opinion', 'U') IS NOT NULL&#xA; DROP TABLE dbo.dim_opinion;&#xA; IF OBJECT_ID('dbo.dim_game_time', 'U') IS NOT NULL&#xA; DROP TABLE dbo.dim_game_time;&#xA;IF OBJECT_ID('dbo.dim_game_name', 'U') IS NOT NULL&#xA; DROP TABLE dbo.dim_game_name;&#xA; IF OBJECT_ID('dbo.dim_game_rating', 'U') IS NOT NULL&#xA; DROP TABLE dbo.dim_game_rating;&#xA; IF OBJECT_ID('dbo.dim_game_price', 'U') IS NOT NULL&#xA; DROP TABLE dbo.dim_game_price;&#xA; IF OBJECT_ID('dbo.dim_game_discount', 'U') IS NOT NULL&#xA; DROP TABLE dbo.dim_game_discount;&#xA; IF OBJECT_ID('dbo.dim_game_platform', 'U') IS NOT NULL&#xA; DROP TABLE dbo.dim_game_platform;&#xA;&#xA;IF OBJECT_ID('dbo.dim_game_name', 'U') IS NULL&#xA; CREATE TABLE dim_game_name (&#xA;  id INT IDENTITY(1,1)  PRIMARY KEY&#xA;  ,name nVARCHAR(500) unique&#xA;  );&#xA; &#xA;IF OBJECT_ID('dbo.dim_game_rating', 'U') IS NULL&#xA; CREATE TABLE dim_game_rating (&#xA;  id INT IDENTITY(1,1)  PRIMARY KEY&#xA;  ,rating nvarchar(500)&#xA;  ,update_date DATE&#xA;  );&#xA;&#xA;IF OBJECT_ID('dbo.dim_game_price', 'U') IS NULL&#xA; CREATE TABLE dim_game_price (&#xA;  id INT IDENTITY(1,1)  PRIMARY KEY&#xA;  ,price DECIMAL(8,2)&#xA;  ,update_date DATE&#xA;  );&#xA;&#xA;IF OBJECT_ID('dbo.dim_game_discount', 'U') IS NULL&#xA; CREATE TABLE dim_game_discount (&#xA;  id INT IDENTITY(1,1)  PRIMARY KEY&#xA;  ,discount INT&#xA;  ,update_date DATE&#xA;  );&#xA;&#xA;IF OBJECT_ID('dbo.dim_game_platform', 'U') IS NULL&#xA; CREATE TABLE dim_game_platform (&#xA;  id INT IDENTITY(1,1)  PRIMARY KEY&#xA;  ,platform_win nVARCHAR(50)&#xA;  ,is_available_win bit&#xA;  ,platform_mac nVARCHAR(50)&#xA;  ,is_available_mac bit&#xA;  ,platform_linux nVARCHAR(50)&#xA;  ,is_available_linux bit&#xA;  );&#xA; &#xA;IF OBJECT_ID('dbo.dim_opinion', 'U') IS NULL&#xA; CREATE TABLE dim_opinion (&#xA;  id INT IDENTITY(1,1)  PRIMARY KEY&#xA;  ,is_recommended_by_user bit&#xA;  ,user_in_game_hours DECIMAL(8,2)&#xA;  );&#xA;&#xA;IF OBJECT_ID('dbo.dim_game_time', 'U') IS NULL&#xA; CREATE TABLE dim_game_time (&#xA;  id INT IDENTITY(1,1)  PRIMARY KEY&#xA;  ,DATE DATE&#xA;  ,year INT&#xA;  ,month INT&#xA;  ,day INT&#xA;  );&#xA;&#xA;IF OBJECT_ID('dbo.fact_game_opinions', 'U') IS NULL&#xA; CREATE TABLE fact_game_opinions (&#xA;  review_count INT&#xA;  ,game_price_id INT&#xA;  ,game_rating_id INT&#xA;  ,game_time_id INT&#xA;  ,game_platform_id INT&#xA;  ,game_discount_id INT&#xA;  ,opinion_id INT&#xA;  ,game_name_id INT&#xA;  ,FOREIGN KEY (game_price_id) REFERENCES dim_game_price(id)&#xA;  ,FOREIGN KEY (game_rating_id) REFERENCES dim_game_rating(id)&#xA;  ,FOREIGN KEY (game_time_id) REFERENCES dim_game_time(id)&#xA;  ,FOREIGN KEY (game_platform_id) REFERENCES dim_game_platform(id)&#xA;  ,FOREIGN KEY (game_discount_id) REFERENCES dim_game_discount(id)&#xA;  ,FOREIGN KEY (opinion_id) REFERENCES dim_opinion(id)&#xA;  ,FOREIGN KEY (game_name_id) REFERENCES dim_game_name(id)&#xA;  ,PRIMARY KEY (game_price_id,game_rating_id,game_time_id,game_platform_id,game_discount_id,opinion_id,game_name_id)&#xA;  );&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -181,8 +181,8 @@
               <connections>
                 <connection
                   refId="Package\dim_game_discount\OLE DB Destination.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DESKTOP-PNDN2SO\SQLEXPRESS.s21568]"
-                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-PNDN2SO\SQLEXPRESS.s21568]"
+                  connectionManagerID="Package.ConnectionManagers[db-mssql.s15429]"
+                  connectionManagerRefId="Package.ConnectionManagers[db-mssql.s15429]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -217,10 +217,8 @@
                       name="id" />
                     <externalMetadataColumn
                       refId="Package\dim_game_discount\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[discount]"
-                      dataType="numeric"
-                      name="discount"
-                      precision="5"
-                      scale="2" />
+                      dataType="i4"
+                      name="discount" />
                     <externalMetadataColumn
                       refId="Package\dim_game_discount\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[update_date]"
                       dataType="dbDate"
@@ -308,8 +306,8 @@ ORDER BY discount</property>
               <connections>
                 <connection
                   refId="Package\dim_game_discount\OLE DB Source.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DESKTOP-PNDN2SO\SQLEXPRESS.s21568]"
-                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-PNDN2SO\SQLEXPRESS.s21568]"
+                  connectionManagerID="Package.ConnectionManagers[db-mssql.s15429]"
+                  connectionManagerRefId="Package.ConnectionManagers[db-mssql.s15429]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -485,8 +483,8 @@ ORDER BY discount</property>
               <connections>
                 <connection
                   refId="Package\dim_game_name\OLE DB Destination.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DESKTOP-PNDN2SO\SQLEXPRESS.s21568]"
-                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-PNDN2SO\SQLEXPRESS.s21568]"
+                  connectionManagerID="Package.ConnectionManagers[db-mssql.s15429]"
+                  connectionManagerRefId="Package.ConnectionManagers[db-mssql.s15429]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -599,8 +597,8 @@ ORDER BY  g.title</property>
               <connections>
                 <connection
                   refId="Package\dim_game_name\OLE DB Source.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DESKTOP-PNDN2SO\SQLEXPRESS.s21568]"
-                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-PNDN2SO\SQLEXPRESS.s21568]"
+                  connectionManagerID="Package.ConnectionManagers[db-mssql.s15429]"
+                  connectionManagerRefId="Package.ConnectionManagers[db-mssql.s15429]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -759,8 +757,8 @@ ORDER BY  g.title</property>
               <connections>
                 <connection
                   refId="Package\dim_game_price\OLE DB Destination.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DESKTOP-PNDN2SO\SQLEXPRESS.s21568]"
-                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-PNDN2SO\SQLEXPRESS.s21568]"
+                  connectionManagerID="Package.ConnectionManagers[db-mssql.s15429]"
+                  connectionManagerRefId="Package.ConnectionManagers[db-mssql.s15429]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -885,8 +883,8 @@ ORDER BY price_final</property>
               <connections>
                 <connection
                   refId="Package\dim_game_price\OLE DB Source.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DESKTOP-PNDN2SO\SQLEXPRESS.s21568]"
-                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-PNDN2SO\SQLEXPRESS.s21568]"
+                  connectionManagerID="Package.ConnectionManagers[db-mssql.s15429]"
+                  connectionManagerRefId="Package.ConnectionManagers[db-mssql.s15429]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -1066,8 +1064,8 @@ ORDER BY price_final</property>
               <connections>
                 <connection
                   refId="Package\dim_game_rating\OLE DB Destination.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DESKTOP-PNDN2SO\SQLEXPRESS.s21568]"
-                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-PNDN2SO\SQLEXPRESS.s21568]"
+                  connectionManagerID="Package.ConnectionManagers[db-mssql.s15429]"
+                  connectionManagerRefId="Package.ConnectionManagers[db-mssql.s15429]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -1101,7 +1099,8 @@ ORDER BY price_final</property>
                       name="id" />
                     <externalMetadataColumn
                       refId="Package\dim_game_rating\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[rating]"
-                      dataType="i4"
+                      dataType="wstr"
+                      length="500"
                       name="rating" />
                     <externalMetadataColumn
                       refId="Package\dim_game_rating\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[update_date]"
@@ -1189,8 +1188,8 @@ ORDER BY rating</property>
               <connections>
                 <connection
                   refId="Package\dim_game_rating\OLE DB Source.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DESKTOP-PNDN2SO\SQLEXPRESS.s21568]"
-                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-PNDN2SO\SQLEXPRESS.s21568]"
+                  connectionManagerID="Package.ConnectionManagers[db-mssql.s15429]"
+                  connectionManagerRefId="Package.ConnectionManagers[db-mssql.s15429]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -1367,8 +1366,8 @@ ORDER BY rating</property>
               <connections>
                 <connection
                   refId="Package\dim_game_time\OLE DB Destination.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DESKTOP-PNDN2SO\SQLEXPRESS.s21568]"
-                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-PNDN2SO\SQLEXPRESS.s21568]"
+                  connectionManagerID="Package.ConnectionManagers[db-mssql.s15429]"
+                  connectionManagerRefId="Package.ConnectionManagers[db-mssql.s15429]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -1510,8 +1509,8 @@ ORDER BY date_release,year(date_release),month(date_release),Day(date_release)</
               <connections>
                 <connection
                   refId="Package\dim_game_time\OLE DB Source.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DESKTOP-PNDN2SO\SQLEXPRESS.s21568]"
-                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-PNDN2SO\SQLEXPRESS.s21568]"
+                  connectionManagerID="Package.ConnectionManagers[db-mssql.s15429]"
+                  connectionManagerRefId="Package.ConnectionManagers[db-mssql.s15429]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -1706,8 +1705,8 @@ ORDER BY date_release,year(date_release),month(date_release),Day(date_release)</
               <connections>
                 <connection
                   refId="Package\dim_opinion\OLE DB Destination.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DESKTOP-PNDN2SO\SQLEXPRESS.s21568]"
-                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-PNDN2SO\SQLEXPRESS.s21568]"
+                  connectionManagerID="Package.ConnectionManagers[db-mssql.s15429]"
+                  connectionManagerRefId="Package.ConnectionManagers[db-mssql.s15429]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -1833,8 +1832,8 @@ ORDER BY is_recommended,hours</property>
               <connections>
                 <connection
                   refId="Package\dim_opinion\OLE DB Source.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DESKTOP-PNDN2SO\SQLEXPRESS.s21568]"
-                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-PNDN2SO\SQLEXPRESS.s21568]"
+                  connectionManagerID="Package.ConnectionManagers[db-mssql.s15429]"
+                  connectionManagerRefId="Package.ConnectionManagers[db-mssql.s15429]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -2017,8 +2016,8 @@ ORDER BY is_recommended,hours</property>
               <connections>
                 <connection
                   refId="Package\dim_platform\OLE DB Destination.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DESKTOP-PNDN2SO\SQLEXPRESS.s21568]"
-                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-PNDN2SO\SQLEXPRESS.s21568]"
+                  connectionManagerID="Package.ConnectionManagers[db-mssql.s15429]"
+                  connectionManagerRefId="Package.ConnectionManagers[db-mssql.s15429]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -2192,8 +2191,8 @@ ORDER BY mac</property>
               <connections>
                 <connection
                   refId="Package\dim_platform\OLE DB Source.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DESKTOP-PNDN2SO\SQLEXPRESS.s21568]"
-                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-PNDN2SO\SQLEXPRESS.s21568]"
+                  connectionManagerID="Package.ConnectionManagers[db-mssql.s15429]"
+                  connectionManagerRefId="Package.ConnectionManagers[db-mssql.s15429]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -2457,8 +2456,8 @@ ORDER BY mac</property>
               <connections>
                 <connection
                   refId="Package\fact_game_opinions\OLE DB Destination.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DESKTOP-PNDN2SO\SQLEXPRESS.s21568]"
-                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-PNDN2SO\SQLEXPRESS.s21568]"
+                  connectionManagerID="Package.ConnectionManagers[db-mssql.s15429]"
+                  connectionManagerRefId="Package.ConnectionManagers[db-mssql.s15429]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -2606,32 +2605,69 @@ ORDER BY mac</property>
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select 
-COUNT(id) as opinions_count
-,game_price_id
-,game_rating_id
-,game_time_id
-,game_platform_id
-,game_discount_id
-,game_opinion_id
-,game_name_id
-from (select 
-r.review_id_csv as id,
-(select dgp.id from game g inner join dim_game_price dgp on dgp.price=g.price_final where g.app_id=r.app_id) as game_price_id,
-(select dgr.id from game g inner join dim_game_rating dgr on dgr.rating=g.rating where g.app_id=r.app_id) as game_rating_id,
-(select dgt.id from game g inner join dim_game_time dgt on dgt.date=g.date_release where g.app_id=r.app_id) as game_time_id,
-(select dgt.id from game g inner join dim_game_platform dgt on dgt.is_available_mac=g.mac and  dgt.is_available_win=g.win  and dgt.is_available_linux=g.linux where g.app_id=r.app_id) as game_platform_id,
-(select dpd.id from game g inner join  dim_game_discount dpd on dpd.discount=g.discount where g.app_id=r.app_id ) as game_discount_id,
-(select dop.id from dim_opinion dop where dop.is_recommended_by_user = r.is_recommended and dop.user_in_game_hours=r.hours) as game_opinion_id,
-(select dgn.id from game g inner join dim_game_name dgn on dgn.name=cast(g.title as nvarchar(50)) where g.app_id=r.app_id) as game_name_id
-from review r) p
-group by game_price_id
-,game_rating_id
-,game_time_id
-,game_platform_id
-,game_discount_id
-,game_opinion_id
-,game_name_id</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT COUNT(id) AS opinions_count
+	,game_price_id
+	,game_rating_id
+	,game_time_id
+	,game_platform_id
+	,game_discount_id
+	,game_opinion_id
+	,game_name_id
+FROM (
+	SELECT r.review_id_csv AS id
+		,(
+			SELECT dgp.id
+			FROM game g
+			INNER JOIN dim_game_price dgp ON dgp.price = g.price_final
+			WHERE g.app_id = r.app_id
+			) AS game_price_id
+		,(
+			SELECT dgr.id
+			FROM game g
+			INNER JOIN dim_game_rating dgr ON dgr.rating = g.rating
+			WHERE g.app_id = r.app_id
+			) AS game_rating_id
+		,(
+			SELECT dgt.id
+			FROM game g
+			INNER JOIN dim_game_time dgt ON dgt.DATE = g.date_release
+			WHERE g.app_id = r.app_id
+			) AS game_time_id
+		,(
+			SELECT dgt.id
+			FROM game g
+			INNER JOIN dim_game_platform dgt ON dgt.is_available_mac = g.mac
+				AND dgt.is_available_win = g.win
+				AND dgt.is_available_linux = g.linux
+			WHERE g.app_id = r.app_id
+			) AS game_platform_id
+		,(
+			SELECT dpd.id
+			FROM game g
+			INNER JOIN dim_game_discount dpd ON dpd.discount = g.discount
+			WHERE g.app_id = r.app_id
+			) AS game_discount_id
+		,(
+			SELECT dop.id
+			FROM dim_opinion dop
+			WHERE dop.is_recommended_by_user = r.is_recommended
+				AND dop.user_in_game_hours = r.hours
+			) AS game_opinion_id
+		,(
+			SELECT dgn.id
+			FROM game g
+			INNER JOIN dim_game_name dgn ON dgn.name = cast(g.title AS NVARCHAR(50))
+			WHERE g.app_id = r.app_id
+			) AS game_name_id
+	FROM review r
+	) p
+GROUP BY game_price_id
+	,game_rating_id
+	,game_time_id
+	,game_platform_id
+	,game_discount_id
+	,game_opinion_id
+	,game_name_id</property>
                 <property
                   dataType="System.String"
                   description="The variable that contains the SQL command to be executed."
@@ -2657,8 +2693,8 @@ group by game_price_id
               <connections>
                 <connection
                   refId="Package\fact_game_opinions\OLE DB Source.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DESKTOP-PNDN2SO\SQLEXPRESS.s21568]"
-                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-PNDN2SO\SQLEXPRESS.s21568]"
+                  connectionManagerID="Package.ConnectionManagers[db-mssql.s15429]"
+                  connectionManagerRefId="Package.ConnectionManagers[db-mssql.s15429]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -2855,7 +2891,7 @@ group by game_price_id
       DTS:refId="Package.PrecedenceConstraints[Constraint]"
       DTS:CreationName=""
       DTS:DTSID="{F8919BFF-E402-4D80-B1EA-27F94C1B846A}"
-      DTS:From="Package\Create tables 1"
+      DTS:From="Package\Create tables"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint"
       DTS:To="Package\dim_game_time" />
@@ -2930,7 +2966,7 @@ group by game_price_id
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="141,42"
-          Id="Package\Create tables 1"
+          Id="Package\Create tables"
           TopLeft="765.5,59.5" />
         <NodeLayout
           Size="173,42"
@@ -2963,7 +2999,7 @@ group by game_price_id
         <NodeLayout
           Size="173,42"
           Id="Package\fact_game_opinions"
-          TopLeft="730.5,739.5" />
+          TopLeft="744.5,736.5" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
           TopLeft="833,101.5">
@@ -3054,30 +3090,18 @@ group by game_price_id
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 12]"
-          TopLeft="826.5,700.5">
+          TopLeft="828.75,700.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-9.5,39"
+              EndConnector="0,36"
               Start="0,0"
-              End="-9.5,31.5">
+              End="0,28.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,15.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,15.5"
-                    Point2="0,19.5"
-                    Point3="-4,19.5" />
-                  <mssgle:LineSegment
-                    End="-5.5,19.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-5.5,19.5"
-                    Point2="-9.5,19.5"
-                    Point3="-9.5,23.5" />
-                  <mssgle:LineSegment
-                    End="-9.5,31.5" />
+                    End="0,28.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3161,13 +3185,13 @@ group by game_price_id
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="171,42"
-          Id="Package\dim_game_discount\OLE DB Destination"
-          TopLeft="333,345" />
-        <NodeLayout
           Size="150,42"
           Id="Package\dim_game_discount\OLE DB Source"
           TopLeft="337,187" />
+        <NodeLayout
+          Size="171,42"
+          Id="Package\dim_game_discount\OLE DB Destination"
+          TopLeft="333,345" />
         <EdgeLayout
           Id="Package\dim_game_discount.Paths[OLE DB Source Output]"
           TopLeft="415.25,229">
@@ -3279,13 +3303,13 @@ group by game_price_id
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="171,42"
-          Id="Package\dim_game_price\OLE DB Destination"
-          TopLeft="333,345" />
-        <NodeLayout
           Size="150,42"
           Id="Package\dim_game_price\OLE DB Source"
           TopLeft="337,187" />
+        <NodeLayout
+          Size="171,42"
+          Id="Package\dim_game_price\OLE DB Destination"
+          TopLeft="333,345" />
         <EdgeLayout
           Id="Package\dim_game_price.Paths[OLE DB Source Output]"
           TopLeft="415.25,229">
@@ -3456,13 +3480,13 @@ group by game_price_id
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="171,42"
-          Id="Package\dim_opinion\OLE DB Destination"
-          TopLeft="333,345" />
-        <NodeLayout
           Size="150,42"
           Id="Package\dim_opinion\OLE DB Source"
           TopLeft="337,187" />
+        <NodeLayout
+          Size="171,42"
+          Id="Package\dim_opinion\OLE DB Destination"
+          TopLeft="333,345" />
         <EdgeLayout
           Id="Package\dim_opinion.Paths[OLE DB Source Output]"
           TopLeft="415.25,229">
@@ -3515,13 +3539,13 @@ group by game_price_id
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="171,42"
-          Id="Package\dim_platform\OLE DB Destination"
-          TopLeft="333,345" />
-        <NodeLayout
           Size="150,42"
           Id="Package\dim_platform\OLE DB Source"
           TopLeft="337,187" />
+        <NodeLayout
+          Size="171,42"
+          Id="Package\dim_platform\OLE DB Destination"
+          TopLeft="333,345" />
         <EdgeLayout
           Id="Package\dim_platform.Paths[OLE DB Source Output]"
           TopLeft="415.25,229">
