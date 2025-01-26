@@ -8,12 +8,12 @@
   </Database>
   <Cubes>
     <ProjectItem>
-      <Name>s21568.cube</Name>
-      <FullPath>s21568.cube</FullPath>
+      <Name>s15429.cube</Name>
+      <FullPath>21568.cube</FullPath>
       <Dependencies>
         <ProjectItem>
-          <Name>s21568.partitions</Name>
-          <FullPath>s21568.partitions</FullPath>
+          <Name>21568.partitions</Name>
+          <FullPath>21568.partitions</FullPath>
         </ProjectItem>
       </Dependencies>
     </ProjectItem>
